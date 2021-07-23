@@ -6,9 +6,9 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "story"
+    label: "Story"
+    folder: "content/story"
     create: true
     slug: "index"
     media_folder: ""
@@ -16,8 +16,17 @@ collections:
     path: "{{title}}/index"
     editor:
       preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+    files:
+      - label: "page"
+        name: "Page"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "img" }
+          - { label: "Sentence", name: "sentence" }
+          - { label: "Word", name: "word" }
+
+    # fields:
+    #   - { label: "Title", name: "title", widget: "string" }
+    #   - { label: "Publish Date", name: "date", widget: "datetime" }
+    #   - { label: "Description", name: "description", widget: "string" }
+    #   - { label: "Body", name: "body", widget: "markdown" }
