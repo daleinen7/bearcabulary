@@ -1,8 +1,11 @@
-import * as React from "react";
+import React from "react";
+import { Link } from "gatsby";
 
-// markup
-const IndexPage = () => {
-  return <h1>Homepage of Bearcabulary</h1>;
-};
-
-export default IndexPage;
+export default function Index() {
+  return (
+    <>
+      <h2>This is the landing page</h2>
+      <Link to="/game/">Start Game</Link>
+    </>
+  );
+}
