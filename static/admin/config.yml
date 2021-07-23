@@ -22,9 +22,10 @@ collections:
         widget: "list"
         file: "static/pages.json"
         fields:
-          - { label: "Image", name: "img" }
-          - { label: "Sentence", name: "sentence" }
-          - { label: "Word", name: "word" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Image", name: "img", widget: "string" }
+          - { label: "Sentence", name: "sentence", widget: "string" }
+          - { label: "Word", name: "word", widget: "string" }
 
     # fields:
     #   - { label: "Title", name: "title", widget: "string" }
