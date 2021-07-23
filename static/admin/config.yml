@@ -17,8 +17,8 @@ collections:
     editor:
       preview: false
     files:
-      - label: "page"
-        name: "Page"
+      - label: "Page"
+        name: "page"
         widget: "list"
         file: "static/pages.json"
         fields:
