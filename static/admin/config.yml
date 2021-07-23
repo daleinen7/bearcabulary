@@ -20,6 +20,7 @@ collections:
       - label: "page"
         name: "Page"
         widget: "list"
+        file: "static/pages.json"
         fields:
           - { label: "Image", name: "img" }
           - { label: "Sentence", name: "sentence" }
