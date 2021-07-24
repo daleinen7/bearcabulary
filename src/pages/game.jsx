@@ -1,10 +1,17 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React from 'react';
+import Layout from '../components/Layout';
+import Picture from '../components/Picture';
+import Sentence from '../components/Sentence';
+import Guess from '../components/Guess';
+import LetterSelection from '../components/LetterSelection';
 
 export default function Game() {
   return (
     <Layout>
-      <h2>The game component</h2>
+      <Picture />
+      <Sentence />
+      <Guess />
+      <LetterSelection />
     </Layout>
-  )
+  );
 }
