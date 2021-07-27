@@ -5,31 +5,29 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+# test-rep in backend > name: for testing
+# god bless this stackoverflow forum https://stackoverflow.com/questions/55525988/netlify-cms-how-to-store-an-array-of-objects-via-config-yml-collections
+
 collections:
-  - name: "story"
-    label: "Story"
-    folder: "content/story"
+  - name: "level"
+    label: "Level"
     create: true
     slug: "index"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}/index"
     editor:
       preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-    # files:
-    #   - label: "Page"
-    #     name: "page"
-    #     widget: "list"
-    #     create: true
-    #     file: "static/pages.json"
-    #     fields:
-    #       - { label: "Title", name: "title", widget: "string" }
-    #       - { label: "Image", name: "img", widget: "string" }
-    #       - { label: "Sentence", name: "sentence", widget: "string" }
-    #       - { label: "Word", name: "word", widget: "string" }
+    files:
+      - name: "story"
+        label: "Story"
+        create: true
+        file: "static/stories.json"
+        fields:
+          - name: "page"
+            label: "Page"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Image", name: "img", widget: "string" }
+              - { label: "Sentence", name: "sentence", widget: "string" }
+              - { label: "Word", name: "word", widget: "string" }
