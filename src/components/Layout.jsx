@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
 export default function Layout({ children }) {
   return (
     <>
-      <h1>Bearcabulary</h1>
+      <Header />
       {children}
+      <Footer />
     </>
-  )
+  );
 }
