@@ -13,7 +13,7 @@ collections:
   - name: 'story'
     label: 'Story'
     create: true
-    file: 'static/stories.json'
+    folder: 'static/stories.json'
     editor:
       preview: true
     fields:
