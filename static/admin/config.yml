@@ -12,10 +12,11 @@ public_folder: /img
 collections:
   - name: 'story'
     label: 'Story'
+    extension: 'json'
     create: true
-    folder: 'static/stories.json'
+    folder: 'static/stories'
     editor:
-      preview: true
+      preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Level', name: 'level', widget: 'number' }
