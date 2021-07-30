@@ -12,9 +12,9 @@ const types = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case types.nextPage: // to increment counter in gameState
+    case types.nextPage: // increments counter in gameState
       return { ...state, pageCounter: state.pageCounter + 1 };
-    case types.prevPage: // to decrement counter in gameState
+    case types.prevPage: // decrements counter in gameState
       return {
         ...state,
         pageCounter: state.pageCounter === 0 ? 0 : state.pageCounter - 1,
