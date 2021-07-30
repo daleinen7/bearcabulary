@@ -13,17 +13,17 @@ const types = {
 const reducer = (state, action) => {
   switch (action.type) {
     case types.nextPage: // to increment counter in gameState
-      return { ...state, pageCount: state.pageCount + 1 };
+      return { ...state, pageCounter: state.pageCounter + 1 };
     case types.prevPage: // to decrement counter in gameState
       return {
         ...state,
-        pageCount: state.pageCount === 0 ? 0 : state.pageCount - 1,
+        pageCounter: state.pageCounter === 0 ? 0 : state.pageCounter - 1,
       };
   }
 };
 
 const initialGameState = {
-  pageCount: 0, // the counter to keep track of which page the game is currently at
+  pageCounter: 1, // the counter to keep track of which page the game is currently at
   errors: [], // an array to keep track of words the user got wrong
   story: {
     title: 'Testing Title',
@@ -38,12 +38,12 @@ const initialGameState = {
       {
         img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440082/Group_348_uhtdhu.svg',
         sentence: 'Brian the bunny is very _____ in size and hard to find!',
-        word: 'Small',
+        word: 'Futuristic',
       },
       {
         img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621383752/hugo-211_btmjoj.svg',
         sentence: 'Brian likes ____ places and went to the desert.',
-        word: 'Warm',
+        word: 'Wonderfuls',
       },
     ],
   },
@@ -54,17 +54,17 @@ export default function Game() {
 
   return (
     <Layout>
-      <div>{gameState.page}</div>
+      <div>{gameState.pageCounter}</div>
       <button onClick={() => dispatch({ type: types.prevPage })}>-</button>
       <button onClick={() => dispatch({ type: types.nextPage })}>+</button>
-      <Picture picture={gameState.story.section[gameState.pageCount].img} />
+      <Picture picture={gameState.story.section[gameState.pageCounter].img} />
       <Sentence
-        word={gameState.story.section[gameState.pageCount].word}
-        sentence={gameState.story.section[gameState.pageCount].sentence}
+        word={gameState.story.section[gameState.pageCounter].word}
+        sentence={gameState.story.section[gameState.pageCounter].sentence}
       />
       <Guess />
       <LetterSelection
-        word={gameState.story.section[gameState.pageCount].word}
+        word={gameState.story.section[gameState.pageCounter].word}
       />
     </Layout>
   );
