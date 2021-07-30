@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function Picture() {
+export default function Picture(props) {
+  const { picture } = props;
+
   return (
-    <>
-      <h2>Picture goes here</h2>
-    </>
+    <div>
+      <img src={picture} />
+    </div>
   );
 }
