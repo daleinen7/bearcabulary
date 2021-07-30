@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: test-repo
   branch: main
 
 media_folder: static/img
@@ -26,4 +26,4 @@ collections:
         fields:
           - { label: 'Image', name: 'img', widget: 'string' }
           - { label: 'Sentence', name: 'sentence', widget: 'string' }
-          - { label: 'Word', name: 'word', widget: 'string' }
+          - { label: 'Word', name: 'word', widget: 'string', required: false }
