@@ -26,4 +26,4 @@ collections:
         fields:
           - { label: 'Image', name: 'img', widget: 'string' }
           - { label: 'Sentence', name: 'sentence', widget: 'string' }
-          - { label: 'Word', name: 'word', widget: 'string' }
+          - { label: 'Word', name: 'word', widget: 'string', required: false }
