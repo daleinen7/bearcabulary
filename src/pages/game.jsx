@@ -2,13 +2,42 @@ import React, { useReducer } from 'react';
 import Layout from '../components/Layout';
 import Picture from '../components/Picture';
 import Sentence from '../components/Sentence';
-import Guess from '../components/Guess';
+import Guesses from '../components/Guesses';
 import LetterSelection from '../components/LetterSelection';
 
 const types = {
   nextPage: 'nextPage',
   prevPage: 'prevPage',
   checkWord: 'checkWord',
+};
+
+const initialGameState = {
+  pageCounter: 0, // the counter to keep track of which page the game is currently at
+  corrects: [], // keeps track of words the user have gotten right
+  errors: [], // keeps track of words the user have gotten wrong
+  guesses: [],
+  story: {
+    title: 'Testing Title',
+    level: 3,
+    section: [
+      {
+        img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440084/Group_347_phosos.svg',
+        sentence:
+          'Oh no, Brian ran away! Now Bobby the Bear needs to find clues to find his friend!',
+        word: null,
+      },
+      {
+        img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440082/Group_348_uhtdhu.svg',
+        sentence: 'Brian the bunny is very _____ in size and hard to find!',
+        word: 'test',
+      },
+      {
+        img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621383752/hugo-211_btmjoj.svg',
+        sentence: 'Brian likes ____ places and went to the desert.',
+        word: 'fest',
+      },
+    ],
+  },
 };
 
 const reducer = (state, action) => {
@@ -98,35 +127,6 @@ const reducer = (state, action) => {
   }
 };
 
-const initialGameState = {
-  pageCounter: 0, // the counter to keep track of which page the game is currently at
-  corrects: [], // keeps track of words the user have gotten right
-  errors: [], // keeps track of words the user have gotten wrong
-  guesses: [],
-  story: {
-    title: 'Testing Title',
-    level: 3,
-    section: [
-      {
-        img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440084/Group_347_phosos.svg',
-        sentence:
-          'Oh no, Brian ran away! Now Bobby the Bear needs to find clues to find his friend!',
-        word: null,
-      },
-      {
-        img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440082/Group_348_uhtdhu.svg',
-        sentence: 'Brian the bunny is very _____ in size and hard to find!',
-        word: 'test',
-      },
-      {
-        img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621383752/hugo-211_btmjoj.svg',
-        sentence: 'Brian likes ____ places and went to the desert.',
-        word: 'fest',
-      },
-    ],
-  },
-};
-
 export default function Game() {
   const [gameState, dispatch] = useReducer(reducer, initialGameState);
 
@@ -140,7 +140,7 @@ export default function Game() {
         word={gameState.story.section[gameState.pageCounter].word}
         sentence={gameState.story.section[gameState.pageCounter].sentence}
       />
-      <Guess
+      <Guesses
         guesses={gameState.guesses}
         word={gameState.story.section[gameState.pageCounter].word}
       />

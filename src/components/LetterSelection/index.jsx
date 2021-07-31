@@ -11,6 +11,13 @@ const types = {
   initialize: 'initialize',
 };
 
+const initialLetterState = {
+  letterCounter: 0,
+  selectableLetters: [],
+  clickedLetters: [], // keeps track of letters that were clicked
+  clickedLetterIndexes: [], // keeps track of letter indexes that were clicked
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case types.prevLetter: // decrements counter in letterState
@@ -19,9 +26,9 @@ const reducer = (state, action) => {
         letterCounter: state.letterCounter === 0 ? 0 : state.letterCounter - 1,
       };
 
-    case types.addLetter: // checks if clicked letter's index is already in clickedLetterIndexes of the letterState and if letterCounter is lower than the word's length, then replaces empty strings in clickedLetters array with letter, "pushes" index of letter to clickedLetterIndexes, and increments the counter
+    case types.addLetter: // checks if clicked letter's index is already in clickedLetterIndexes of the letterState and also if letterCounter is lower than the word's length, then replaces empty strings in clickedLetters array with letter, "pushes" index of letter to clickedLetterIndexes, and increments the counter
       if (
-        !state.clickedLetterIndexes.includes(action.payload.index) &&
+        !state.clickedLetterIndexes.includes(action.payload) &&
         state.letterCounter < state.clickedLetters.length
       ) {
         return {
@@ -29,14 +36,11 @@ const reducer = (state, action) => {
           letterCounter: state.letterCounter + 1,
           clickedLetters: state.clickedLetters.map((letter, index) => {
             if (index === state.letterCounter) {
-              letter = action.payload.letter;
+              letter = state.selectableLetters[action.payload];
             }
             return letter;
           }),
-          clickedLetterIndexes: [
-            ...state.clickedLetterIndexes,
-            action.payload.index,
-          ],
+          clickedLetterIndexes: [...state.clickedLetterIndexes, action.payload],
         };
       } else {
         return state;
@@ -73,13 +77,6 @@ const reducer = (state, action) => {
   }
 };
 
-const initialLetterState = {
-  letterCounter: 0,
-  selectableLetters: [],
-  clickedLetters: [], // keeps track of letters that were clicked
-  clickedLetterIndexes: [], // keeps track of letter indexes that were clicked
-};
-
 export default function LetterSelection({ word, dispatchGame, typesGame }) {
   const [letterState, dispatch] = useReducer(reducer, initialLetterState);
 
@@ -104,7 +101,7 @@ export default function LetterSelection({ word, dispatchGame, typesGame }) {
             onClick={() =>
               dispatch({
                 type: types.addLetter,
-                payload: { index: index, letter: selectableLetter },
+                payload: index,
               })
             }
           >
