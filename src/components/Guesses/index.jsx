@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 export default function Guesses({ guesses, word }) {
   return (
     <>
-      {guesses.map((guess) => {
+      {guesses.map((guess, index) => {
         return (
-          <div>
-            {guess.split('').map((guessLetter, index2) => {
+          <div key={index}>
+            {guess.split("").map((guessLetter, index2) => {
               return (
                 <span
                   key={index2}
-                  className={word[index2] === guessLetter ? 'true' : 'false'}
+                  className={word[index2] === guessLetter ? "true" : "false"}
                 >
                   {guessLetter}
                 </span>

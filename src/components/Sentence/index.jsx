@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function Sentence({ word, sentence }) {
   const [wordTimer, setWordTimer] = useState(false);
@@ -14,8 +14,8 @@ export default function Sentence({ word, sentence }) {
   return (
     <>
       <h2
-        style={{ visibility: wordTimer ? 'hidden' : '' }}
-        className={wordTimer ? 'hidden' : ''}
+        style={{ visibility: wordTimer ? "hidden" : "" }}
+        className={wordTimer ? "hidden" : ""}
       >
         {word}
       </h2>
