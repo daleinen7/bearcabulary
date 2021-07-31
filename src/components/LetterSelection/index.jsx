@@ -7,6 +7,7 @@ import {
 const types = {
   prevLetter: 'prevLetter',
   addLetter: 'addLetter',
+  removeLetter: 'removeLetter',
   initialize: 'initialize',
 };
 
@@ -22,7 +23,10 @@ const reducer = (state, action) => {
       if (!state.clickedLetterIndexes.includes(action.payload.index)) {
         return {
           ...state,
-          letterCounter: state.letterCounter + 1,
+          letterCounter:
+            state.letterCounter === state.selectableLetters.length
+              ? state.selectableLetters.length
+              : state.letterCounter + 1,
           clickedLetters: state.clickedLetters.map((letter, index) => {
             if (index === state.letterCounter) {
               letter = action.payload.letter;
@@ -37,6 +41,23 @@ const reducer = (state, action) => {
       } else {
         return state;
       }
+
+    case types.removeLetter:
+      const clickedLetterIndexesPopped = state.clickedLetterIndexes.slice(
+        0,
+        -1
+      );
+      return {
+        ...state,
+        letterCounter: state.letterCounter === 0 ? 0 : state.letterCounter - 1,
+        clickedLetters: state.clickedLetters.map((letter, index) => {
+          if (index + 1 === state.letterCounter) {
+            letter = '';
+          }
+          return letter;
+        }),
+        clickedLetterIndexes: clickedLetterIndexesPopped,
+      };
 
     case types.initialize: // initalize the state with resetting letterCounter, new selectable letters, and new blank strings
       return {
@@ -91,6 +112,9 @@ export default function LetterSelection({ word, dispatchGame, typesGame }) {
           </button>
         );
       })}
+      <button onClick={() => dispatch({ type: types.removeLetter })}>
+        Backspace
+      </button>
       <button
         onClick={() =>
           dispatchGame({
