@@ -92,8 +92,8 @@ export default function LetterSelection({ word, dispatchGame, typesGame }) {
 
   return (
     <>
-      {letterState.clickedLetters.map((clickedLetter, indes) => {
-        return <div>{clickedLetter}</div>;
+      {letterState.clickedLetters.map((clickedLetter, index) => {
+        return <div key={index}>{clickedLetter}</div>;
       })}
 
       {/* Buttons to select the letters */}

@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function Guess() {
+export default function Guess({ guesses, word }) {
   return (
     <>
-      <h2>Guess</h2>
+      {guesses.map((guess, index) => {
+        return <div key={index}>{guess}</div>;
+      })}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import Layout from '../components/Layout';
 import Picture from '../components/Picture';
 import Sentence from '../components/Sentence';
@@ -14,7 +14,10 @@ const types = {
 const reducer = (state, action) => {
   switch (action.type) {
     case types.nextPage: // increments counter in gameState
-      if (!state.story.section[state.pageCounter].word) {
+      if (
+        !state.story.section[state.pageCounter].word ||
+        state.corrects.includes(state.story.section[state.pageCounter].word)
+      ) {
         // checking if word is not null
         return {
           ...state,
@@ -22,16 +25,7 @@ const reducer = (state, action) => {
             state.pageCounter === state.story.section.length - 1
               ? state.story.section.length - 1
               : state.pageCounter + 1,
-        };
-      } else if (
-        state.corrects.includes(state.story.section[state.pageCounter].word) // checking if current word has been solved
-      ) {
-        return {
-          ...state,
-          pageCounter:
-            state.pageCounter === state.story.section.length - 1
-              ? state.story.section.length - 1
-              : state.pageCounter + 1,
+          guesses: [],
         };
       } else {
         return state;
@@ -41,6 +35,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         pageCounter: state.pageCounter === 0 ? 0 : state.pageCounter - 1,
+        guesses: [],
       };
 
     case types.checkWord:
@@ -56,21 +51,43 @@ const reducer = (state, action) => {
           ...state,
           corrects: [...state.corrects, currentWord],
         };
-      } else if (
-        // if user submitted word is wrong and has not been documented in the errors array
-        currentWord !== payloadWord
-      ) {
+      } else if (currentWord !== payloadWord) {
+        // if user submitted word is wrong
+        //* the way newGueses are set up here are very verbose, needs fixing
         if (!state.errors.includes(currentWord)) {
-          return {
-            ...state,
-            errors: [...state.errors, currentWord],
-            error: payloadWord,
-          };
+          if (state.guesses.length > 3) {
+            let newGuesses = state.guesses;
+            newGuesses.push(payloadWord);
+            newGuesses.shift();
+            return {
+              ...state,
+              errors: [...state.errors, currentWord],
+              guesses: newGuesses,
+            };
+          } else {
+            let newGuesses = [...state.guesses, payloadWord];
+            return {
+              ...state,
+              errors: [...state.errors, currentWord],
+              guesses: newGuesses,
+            };
+          }
         } else {
-          return {
-            ...state,
-            error: payloadWord,
-          };
+          if (state.guesses.length > 3) {
+            let newGuesses = state.guesses;
+            newGuesses.push(payloadWord);
+            newGuesses.shift();
+            return {
+              ...state,
+              guesses: newGuesses,
+            };
+          } else {
+            let newGuesses = [...state.guesses, payloadWord];
+            return {
+              ...state,
+              guesses: newGuesses,
+            };
+          }
         }
       } else {
         return state;
@@ -85,7 +102,7 @@ const initialGameState = {
   pageCounter: 0, // the counter to keep track of which page the game is currently at
   corrects: [], // keeps track of words the user have gotten right
   errors: [], // keeps track of words the user have gotten wrong
-  error: '',
+  guesses: [],
   story: {
     title: 'Testing Title',
     level: 3,
@@ -123,7 +140,10 @@ export default function Game() {
         word={gameState.story.section[gameState.pageCounter].word}
         sentence={gameState.story.section[gameState.pageCounter].sentence}
       />
-      <Guess errorWord={gameState.error} />
+      <Guess
+        guesses={gameState.guesses}
+        word={gameState.story.section[gameState.pageCounter].word}
+      />
       {gameState.story.section[gameState.pageCounter].word && (
         <LetterSelection
           word={gameState.story.section[gameState.pageCounter].word}
