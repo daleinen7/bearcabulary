@@ -19,7 +19,7 @@ const reducer = (state, action) => {
       };
 
     case types.addLetter: // replaces empty strings in clickedLetters array with letter, "pushes" indexe of letter to clickedLetterIndexes, and increments the counter
-      if (state.clickedLetterIndexes.length < state.selectableLetters.length) {
+      if (!state.clickedLetterIndexes.includes(action.payload.index)) {
         return {
           ...state,
           letterCounter: state.letterCounter + 1,
@@ -38,7 +38,7 @@ const reducer = (state, action) => {
         return state;
       }
 
-    case types.initialize:
+    case types.initialize: // initalize the state with resetting letterCounter, new selectable letters, and new blank strings
       return {
         letterCounter: 0,
         selectableLetters: makeSelectableLetters(action.payload),
@@ -70,7 +70,10 @@ export default function LetterSelection({ word }) {
 
   return (
     <>
-      {}
+      {letterState.clickedLetters.map((clickedLetter, indes) => {
+        return <div>{clickedLetter}</div>;
+      })}
+
       {/* Buttons to select the letters */}
       {letterState.selectableLetters.map((selectableLetter, index) => {
         return (

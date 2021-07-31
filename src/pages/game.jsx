@@ -19,6 +19,8 @@ const reducer = (state, action) => {
         ...state,
         pageCounter: state.pageCounter === 0 ? 0 : state.pageCounter - 1,
       };
+    default:
+      return state;
   }
 };
 
