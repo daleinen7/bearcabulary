@@ -40,6 +40,7 @@ const reducer = (state, action) => {
 
     case types.initialize: // initalize the state with resetting letterCounter, new selectable letters, and new blank strings
       return {
+        ...state,
         letterCounter: 0,
         selectableLetters: makeSelectableLetters(action.payload),
         clickedLetters: makeBlankLetters(action.payload),
@@ -54,11 +55,11 @@ const reducer = (state, action) => {
 const initialLetterState = {
   letterCounter: 0,
   selectableLetters: [],
-  clickedLetters: [],
+  clickedLetters: [], // keeps track of letters that were clicked
   clickedLetterIndexes: [], // keeps track of letter indexes that were clicked
 };
 
-export default function LetterSelection({ word }) {
+export default function LetterSelection({ word, dispatchGame, typesGame }) {
   const [letterState, dispatch] = useReducer(reducer, initialLetterState);
 
   useEffect(() => {
@@ -90,6 +91,16 @@ export default function LetterSelection({ word }) {
           </button>
         );
       })}
+      <button
+        onClick={() =>
+          dispatchGame({
+            type: typesGame.checkWord,
+            payload: letterState.clickedLetters,
+          })
+        }
+      >
+        Submit
+      </button>
     </>
   );
 }

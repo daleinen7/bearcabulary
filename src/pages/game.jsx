@@ -8,17 +8,32 @@ import LetterSelection from '../components/LetterSelection';
 const types = {
   nextPage: 'nextPage',
   prevPage: 'prevPage',
+  checkWord: 'checkWord',
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case types.nextPage: // increments counter in gameState
       return { ...state, pageCounter: state.pageCounter + 1 };
+
     case types.prevPage: // decrements counter in gameState
       return {
         ...state,
         pageCounter: state.pageCounter === 0 ? 0 : state.pageCounter - 1,
       };
+
+    case types.checkWord:
+      const payloadWord = action.payload.join('').toLowerCase();
+      const currentWord = state.story.section[state.pageCounter].word;
+      if (currentWord !== payloadWord && !state.errors.includes(currentWord)) {
+        return {
+          ...state,
+          errors: [...state.errors, currentWord],
+        };
+      } else {
+        return state;
+      }
+
     default:
       return state;
   }
@@ -67,6 +82,8 @@ export default function Game() {
       <Guess />
       <LetterSelection
         word={gameState.story.section[gameState.pageCounter].word}
+        dispatchGame={dispatch}
+        typesGame={types}
       />
     </Layout>
   );
