@@ -1,18 +1,25 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
-    title: 'Bearcabulary',
+    siteUrl: "https://www.yourdomain.tld",
+    title: "Bearcabulary",
   },
   plugins: [
-    'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
+    "gatsby-plugin-netlify-cms",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    "gatsby-transformer-json",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./static/stories/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`quicksand`],
-        display: 'swap',
+        display: "swap",
       },
     },
   ],
