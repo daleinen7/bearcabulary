@@ -28,7 +28,7 @@ const alphabet = [
   'Z',
 ];
 
-// Generates selectable letters
+// Generates selectable letters from given word
 export const makeSelectableLetters = (word) => {
   let generated = word.split('');
   for (let i = generated.length; i < 10; i++) {
@@ -44,4 +44,13 @@ const shuffleArray = (array) => {
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
+};
+
+// Generates blank strings from given word length
+export const makeBlankLetters = (word) => {
+  let blankLetters = [];
+  for (let i = 0; i < word.length; i++) {
+    blankLetters.push('');
+  }
+  return blankLetters;
 };

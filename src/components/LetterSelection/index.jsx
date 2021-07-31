@@ -1,40 +1,61 @@
 import React, { useReducer, useEffect } from 'react';
-import { makeSelectableLetters } from '../../utilities/letterSelectionUtil';
+import {
+  makeSelectableLetters,
+  makeBlankLetters,
+} from '../../utilities/letterSelectionUtil';
 
 const types = {
-  nextLetter: 'nextLetter',
   prevLetter: 'prevLetter',
-  setSelectableLetters: 'setSelectableLetters',
   addLetter: 'addLetter',
+  initialize: 'initialize',
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case types.nextLetter: // increments counter in letterState
-      return { ...state, letterCounter: state.letterCounter + 1 };
     case types.prevLetter: // decrements counter in letterState
       return {
         ...state,
         letterCounter: state.letterCounter === 0 ? 0 : state.letterCounter - 1,
       };
-    case types.setSelectableLetters: // replaces selectable letters
-      return { ...state, selectableLetters: action.payload };
-    case types.addLetter:
-      if (state.clickedLetterIndexes.length <= state.selectableLetters.length) {
+
+    case types.addLetter: // replaces empty strings in clickedLetters array with letter, "pushes" indexe of letter to clickedLetterIndexes, and increments the counter
+      if (state.clickedLetterIndexes.length < state.selectableLetters.length) {
         return {
           ...state,
-          clickedLetterIndexes: [...state.clickedLetterIndexes, action.payload],
+          letterCounter: state.letterCounter + 1,
+          clickedLetters: state.clickedLetters.map((letter, index) => {
+            if (index === state.letterCounter) {
+              letter = action.payload.letter;
+            }
+            return letter;
+          }),
+          clickedLetterIndexes: [
+            ...state.clickedLetterIndexes,
+            action.payload.index,
+          ],
         };
       } else {
         return state;
       }
+
+    case types.initialize:
+      return {
+        letterCounter: 0,
+        selectableLetters: makeSelectableLetters(action.payload),
+        clickedLetters: makeBlankLetters(action.payload),
+        clickedLetterIndexes: [],
+      };
+
+    default:
+      return state;
   }
 };
 
 const initialLetterState = {
   letterCounter: 0,
   selectableLetters: [],
-  clickedLetterIndexes: [],
+  clickedLetters: [],
+  clickedLetterIndexes: [], // keeps track of letter indexes that were clicked
 };
 
 export default function LetterSelection({ word }) {
@@ -42,18 +63,25 @@ export default function LetterSelection({ word }) {
 
   useEffect(() => {
     dispatch({
-      type: types.setSelectableLetters,
-      payload: makeSelectableLetters(word),
+      type: types.initialize,
+      payload: word,
     });
   }, [word]);
 
   return (
     <>
+      {}
+      {/* Buttons to select the letters */}
       {letterState.selectableLetters.map((selectableLetter, index) => {
         return (
           <button
             key={index}
-            onClick={() => dispatch({ type: types.addLetter, payload: index })}
+            onClick={() =>
+              dispatch({
+                type: types.addLetter,
+                payload: { index: index, letter: selectableLetter },
+              })
+            }
           >
             {selectableLetter}
           </button>
