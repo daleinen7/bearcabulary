@@ -58,13 +58,20 @@ const reducer = (state, action) => {
         };
       } else if (
         // if user submitted word is wrong and has not been documented in the errors array
-        currentWord !== payloadWord &&
-        !state.errors.includes(currentWord)
+        currentWord !== payloadWord
       ) {
-        return {
-          ...state,
-          errors: [...state.errors, currentWord],
-        };
+        if (!state.errors.includes(currentWord)) {
+          return {
+            ...state,
+            errors: [...state.errors, currentWord],
+            error: payloadWord,
+          };
+        } else {
+          return {
+            ...state,
+            error: payloadWord,
+          };
+        }
       } else {
         return state;
       }
@@ -78,6 +85,7 @@ const initialGameState = {
   pageCounter: 0, // the counter to keep track of which page the game is currently at
   corrects: [], // keeps track of words the user have gotten right
   errors: [], // keeps track of words the user have gotten wrong
+  error: '',
   story: {
     title: 'Testing Title',
     level: 3,
@@ -115,7 +123,7 @@ export default function Game() {
         word={gameState.story.section[gameState.pageCounter].word}
         sentence={gameState.story.section[gameState.pageCounter].sentence}
       />
-      <Guess />
+      <Guess errorWord={gameState.error} />
       {gameState.story.section[gameState.pageCounter].word && (
         <LetterSelection
           word={gameState.story.section[gameState.pageCounter].word}

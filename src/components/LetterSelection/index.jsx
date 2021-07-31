@@ -19,14 +19,14 @@ const reducer = (state, action) => {
         letterCounter: state.letterCounter === 0 ? 0 : state.letterCounter - 1,
       };
 
-    case types.addLetter: // replaces empty strings in clickedLetters array with letter, "pushes" indexe of letter to clickedLetterIndexes, and increments the counter
-      if (!state.clickedLetterIndexes.includes(action.payload.index)) {
+    case types.addLetter: // checks if clicked letter's index is already in clickedLetterIndexes of the letterState and if letterCounter is lower than the word's length, then replaces empty strings in clickedLetters array with letter, "pushes" index of letter to clickedLetterIndexes, and increments the counter
+      if (
+        !state.clickedLetterIndexes.includes(action.payload.index) &&
+        state.letterCounter < state.clickedLetters.length
+      ) {
         return {
           ...state,
-          letterCounter:
-            state.letterCounter === state.selectableLetters.length
-              ? state.selectableLetters.length
-              : state.letterCounter + 1,
+          letterCounter: state.letterCounter + 1,
           clickedLetters: state.clickedLetters.map((letter, index) => {
             if (index === state.letterCounter) {
               letter = action.payload.letter;
