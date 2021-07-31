@@ -14,18 +14,53 @@ const types = {
 const reducer = (state, action) => {
   switch (action.type) {
     case types.nextPage: // increments counter in gameState
-      return { ...state, pageCounter: state.pageCounter + 1 };
+      if (!state.story.section[state.pageCounter].word) {
+        // checking if word is not null
+        return {
+          ...state,
+          pageCounter:
+            state.pageCounter === state.story.section.length - 1
+              ? state.story.section.length - 1
+              : state.pageCounter + 1,
+        };
+      } else if (
+        state.corrects.includes(state.story.section[state.pageCounter].word) // checking if current word has been solved
+      ) {
+        return {
+          ...state,
+          pageCounter:
+            state.pageCounter === state.story.section.length - 1
+              ? state.story.section.length - 1
+              : state.pageCounter + 1,
+        };
+      } else {
+        return state;
+      }
 
-    case types.prevPage: // decrements counter in gameState
+    case types.prevPage: // check if pageCounter has reached the end, then decrements counter in gameState
       return {
         ...state,
         pageCounter: state.pageCounter === 0 ? 0 : state.pageCounter - 1,
       };
 
     case types.checkWord:
-      const payloadWord = action.payload.join('').toLowerCase();
-      const currentWord = state.story.section[state.pageCounter].word;
-      if (currentWord !== payloadWord && !state.errors.includes(currentWord)) {
+      const payloadWord = action.payload.join('').toLowerCase(); // word submitted by user
+      const currentWord = state.story.section[state.pageCounter].word; // current word in the word bank
+
+      if (
+        currentWord === payloadWord &&
+        !state.corrects.includes(currentWord)
+      ) {
+        // if user submitted word is correct and has not been documented in the corrects array
+        return {
+          ...state,
+          corrects: [...state.corrects, currentWord],
+        };
+      } else if (
+        // if user submitted word is wrong and has not been documented in the errors array
+        currentWord !== payloadWord &&
+        !state.errors.includes(currentWord)
+      ) {
         return {
           ...state,
           errors: [...state.errors, currentWord],
@@ -40,8 +75,9 @@ const reducer = (state, action) => {
 };
 
 const initialGameState = {
-  pageCounter: 1, // the counter to keep track of which page the game is currently at
-  errors: [], // an array to keep track of words the user got wrong
+  pageCounter: 0, // the counter to keep track of which page the game is currently at
+  corrects: [], // keeps track of words the user have gotten right
+  errors: [], // keeps track of words the user have gotten wrong
   story: {
     title: 'Testing Title',
     level: 3,
@@ -55,12 +91,12 @@ const initialGameState = {
       {
         img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440082/Group_348_uhtdhu.svg',
         sentence: 'Brian the bunny is very _____ in size and hard to find!',
-        word: 'Futuristic',
+        word: 'test',
       },
       {
         img: 'https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621383752/hugo-211_btmjoj.svg',
         sentence: 'Brian likes ____ places and went to the desert.',
-        word: 'Wonderfuls',
+        word: 'fest',
       },
     ],
   },
@@ -72,19 +108,21 @@ export default function Game() {
   return (
     <Layout>
       <div>{gameState.pageCounter}</div>
-      <button onClick={() => dispatch({ type: types.prevPage })}>-</button>
-      <button onClick={() => dispatch({ type: types.nextPage })}>+</button>
+      <button onClick={() => dispatch({ type: types.prevPage })}>Prev</button>
+      <button onClick={() => dispatch({ type: types.nextPage })}>Next</button>
       <Picture picture={gameState.story.section[gameState.pageCounter].img} />
       <Sentence
         word={gameState.story.section[gameState.pageCounter].word}
         sentence={gameState.story.section[gameState.pageCounter].sentence}
       />
       <Guess />
-      <LetterSelection
-        word={gameState.story.section[gameState.pageCounter].word}
-        dispatchGame={dispatch}
-        typesGame={types}
-      />
+      {gameState.story.section[gameState.pageCounter].word && (
+        <LetterSelection
+          word={gameState.story.section[gameState.pageCounter].word}
+          dispatchGame={dispatch}
+          typesGame={types}
+        />
+      )}
     </Layout>
   );
 }
