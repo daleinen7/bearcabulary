@@ -5,7 +5,7 @@ import banner from "./banner.svg";
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.imgAndCopy}>
+      <div className={styles.img_and_copy}>
         <img
           src={banner}
           className={styles.banner}
