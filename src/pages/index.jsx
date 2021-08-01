@@ -1,5 +1,8 @@
 import React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import Hero from "../components/Hero";
+import StoriesList from "../components/StoriesList";
+import About from "../components/About";
 import Layout from "../components/Layout";
 import "../styles/style.scss";
 
@@ -21,16 +24,9 @@ export default function Index() {
 
   return (
     <Layout>
-      <h2>This is the landing page</h2>
-      <ul>
-        {data.allStoriesJson.nodes.map((node, index) => {
-          return (
-            <li key={index}>
-              <Link to={node.parent.name}>{node.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      <Hero />
+      <StoriesList stories={data.allStoriesJson.nodes} />
+      <About />
     </Layout>
   );
 }
