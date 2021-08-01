@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@fontsource/quicksand": "^4.5.0",
     "gatsby": "^3.10.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-netlify-cms": "^5.10.0",

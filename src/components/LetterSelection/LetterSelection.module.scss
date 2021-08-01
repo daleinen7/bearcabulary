@@ -67,6 +67,14 @@
         stroke: white;
       }
     }
+
+    &:active {
+      svg {
+        path {
+          stroke: $dark-grey;
+        }
+      }
+    }
   }
 
   .disabled {

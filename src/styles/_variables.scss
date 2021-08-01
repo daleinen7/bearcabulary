@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
-
 $blue: #4f83ff;
 $dark-blue: #0f45c3;
 $yellow: #ffd809;
@@ -31,8 +29,9 @@ $dark-grey: rgb(102, 114, 143);
   }
 
   &:active {
-    background-color: darken($color, 5%);
-    box-shadow: inset 3px 3px darken($color, 40%);
+    color: $dark-grey;
+    background-color: $grey;
+    box-shadow: inset 3px 3px $dark-grey;
   }
 
   &.disabled {

@@ -17,12 +17,12 @@ export default function Sentence({ corrects, word }) {
 
   return (
     <>
-      <h2
+      <div
         style={{ visibility: appear ? "" : "hidden" }}
         className={appear ? "" : "hidden"}
       >
         {word}
-      </h2>
+      </div>
     </>
   );
 }

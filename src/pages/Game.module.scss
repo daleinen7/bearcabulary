@@ -3,20 +3,41 @@
 .prev {
   @include Button($blue);
   padding-left: 10px;
+
   svg {
     polyline {
       stroke: white;
+    }
+  }
+
+  &:active {
+    svg {
+      polyline {
+        stroke: $dark-grey;
+      }
     }
   }
 }
 
 .next {
   @include Button($yellow);
+  padding-left: 10px;
   color: black;
   box-shadow: 3px 3px $dark-orange;
-  padding-left: 10px;
 
   &:active {
-    box-shadow: inset 3px 3px darken($dark-orange, 20%);
+    svg {
+      polyline {
+        stroke: $dark-grey;
+      }
+    }
+  }
+
+  &.disabled {
+    svg {
+      polyline {
+        stroke: $dark-grey;
+      }
+    }
   }
 }
