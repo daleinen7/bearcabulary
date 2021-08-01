@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 
 $blue: #4f83ff;
-$dark-blue: #0f45c3;
+$dark-blue: darken($blue, 30%);
 $yellow: #ffd809;
 $orange: #ffc34f;
 $dark-orange: #f05220;
 $grey: rgb(201, 213, 241);
 $dark-grey: rgb(102, 114, 143);
 
-@mixin Button($color, $shadow) {
+@mixin Button($color) {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -23,17 +23,17 @@ $dark-grey: rgb(102, 114, 143);
   background-color: $color;
   border: none;
   border-radius: 10px;
-  box-shadow: 3px 3px $shadow;
+  box-shadow: 3px 3px darken($color, 25%);
   // margin: 0;
 
   &:hover {
     background-color: lighten($color, 5%);
-    box-shadow: 3px 3px lighten($shadow, 5%);
+    // box-shadow: 3px 3px lighten($shadow, 5%);
   }
 
   &:active {
-    color: darken($dark-grey, 5%);
-    background-color: darken($grey, 5%);
-    box-shadow: inset 3px 3px darken($dark-grey, 5%);
+    // color: darken($dark-grey, 5%);
+    background-color: darken($color, 5%);
+    box-shadow: inset 3px 3px darken($color, 40%);
   }
 }

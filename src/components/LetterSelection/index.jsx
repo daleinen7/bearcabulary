@@ -128,10 +128,14 @@ export default function LetterSelection({ word, dispatchGame, typesGame }) {
           );
         })}
       </div>
-      <button onClick={() => dispatch({ type: types.removeLetter })}>
+      <button
+        className={styles.backspace}
+        onClick={() => dispatch({ type: types.removeLetter })}
+      >
         Backspace
       </button>
       <button
+        className={styles.submit}
         onClick={() =>
           dispatchGame({
             type: typesGame.checkWord,

@@ -23,19 +23,27 @@
   gap: 20px;
 
   .selectable_letter {
-    @include Button($blue, $dark-blue);
+    @include Button($blue);
 
     &.clicked {
       pointer-events: none;
       color: $dark-grey;
       background-color: $grey;
-      // box-shadow: inset 3px 3px $dark-grey;
       box-shadow: none;
     }
 
     &.filled {
       pointer-events: none;
-      cursor: pointer;
     }
   }
+}
+
+.backspace {
+  @include Button(rgb(172, 49, 49));
+  width: 150px;
+}
+
+.submit {
+  @include Button(rgb(92, 187, 92));
+  width: 150px;
 }
