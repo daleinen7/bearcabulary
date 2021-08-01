@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import Layout from "../components/Layout";
 import Picture from "../components/Picture";
 import Sentence from "../components/Sentence";
@@ -9,6 +9,7 @@ const types = {
   nextPage: "nextPage",
   prevPage: "prevPage",
   checkWord: "checkWord",
+  initialize: "initialize",
 };
 
 const initialGameState = {
@@ -17,36 +18,13 @@ const initialGameState = {
   errors: [], // keeps track of words the user have gotten wrong
   guesses: [],
   story: {
-    title: "Star Wars",
-    level: 2,
+    title: "",
+    level: 0,
     section: [
       {
-        img: "https://www.gannett-cdn.com/presto/2020/02/27/USAT/ec0879e6-eec9-4d41-bf4c-b7e1d03e57ca-yoda-luke.jpeg?crop=957,718,x128,y0&quality=50&width=640",
-        sentence: "Luke is ___ because Yoda is mean.",
-        word: "Sad",
-      },
-      {
-        img: "https://observer.com/wp-content/uploads/sites/2/2020/05/yoda-art-observer.jpg?quality=80&w=970",
-        sentence: "Yoda is ___ in Luke's incredible incompetence. ",
-        word: "disappoint",
-      },
-      {
-        img: "https://pbs.twimg.com/media/E4Edy8gWYAU_MNu?format=jpg&name=small",
-        sentence: "Recursion meme",
-      },
-      {
-        img: "https://cdn.mos.cms.futurecdn.net/TTgifeqA8zmsNjgvtHLekJ.jpg",
-        sentence: "Luke wants Yoda to just got off his ___",
-        word: "Back",
-      },
-      {
-        img: "https://lumiere-a.akamaihd.net/v1/images/01_194dfed7.jpeg?region=0%2C0%2C1024%2C576&width=960",
-        sentence: "But Yoda is having __ of it.",
-        word: "None",
-      },
-      {
-        img: "http://farfarawayradio.com/wp-content/uploads/2017/01/Yodas-Death-1024x425.png",
-        sentence: "Yoda feels better after a nap.",
+        img: "",
+        sentence: "",
+        word: "",
       },
     ],
   },
@@ -137,13 +115,24 @@ const reducer = (state, action) => {
         return state;
       }
 
+    case types.initialize:
+      return {
+        ...state,
+        story: action.payload,
+      };
+
     default:
       return state;
   }
 };
 
-export default function Game() {
+export default function Game({ location }) {
+  // console.log(location);
   const [gameState, dispatch] = useReducer(reducer, initialGameState);
+
+  useEffect(() => {
+    dispatch({ type: types.initialize, payload: location.state.data });
+  }, []);
 
   return (
     <Layout>
