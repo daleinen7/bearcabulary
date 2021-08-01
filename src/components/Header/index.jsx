@@ -1,11 +1,11 @@
-import React from 'react';
-import * as styles from './Header.module.scss';
+import React from "react";
+import * as styles from "./Header.module.scss";
 
 export default function Header() {
   return (
     <>
       <h1>Header</h1>
-      <p className={styles.poop}>This is a travesty.</p>
+      <p>This is a travesty.</p>
     </>
   );
 }
