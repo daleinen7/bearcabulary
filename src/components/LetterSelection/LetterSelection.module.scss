@@ -16,6 +16,12 @@
     border: 3px solid $blue;
     border-radius: 10px;
   }
+
+  .correct {
+    color: darken($green, 30%);
+    background-color: lighten($green, 30%);
+    border: 3px solid darken($green, 30%);
+  }
 }
 
 .buttons_container {
@@ -30,17 +36,18 @@
     justify-self: center;
     margin: 10px;
     @include Button($blue);
+  }
 
-    &.clicked {
-      pointer-events: none;
-      color: $dark-grey;
-      background-color: $grey;
-      box-shadow: none;
-    }
+  .clicked,
+  .disabled {
+    pointer-events: none;
+    color: $dark-grey;
+    background-color: $grey;
+    box-shadow: none;
+  }
 
-    &.filled {
-      pointer-events: none;
-    }
+  .filled {
+    pointer-events: none;
   }
 }
 
@@ -65,6 +72,19 @@
     svg {
       path {
         stroke: white;
+      }
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    color: $dark-grey;
+    background-color: $grey;
+    box-shadow: none;
+
+    svg {
+      path {
+        stroke: $dark-grey;
       }
     }
   }

@@ -75,19 +75,21 @@ const reducer = (state, action) => {
       };
 
     case types.initialize: // initalize the state with resetting letterCounter, new selectable letters, and new blank strings
+      const isCorrect = action.payload.corrects.includes(
+        action.payload.word.toUpperCase()
+      );
+
       return {
         ...state,
+        correct: isCorrect ? true : false,
         letterCounter: 0,
         selectableLetters: makeSelectableLetters(
           action.payload.word.toUpperCase()
         ),
-        clickedLetters: makeBlankLetters(action.payload.word.toUpperCase()),
+        clickedLetters: isCorrect
+          ? action.payload.word.split("")
+          : makeBlankLetters(action.payload.word),
         clickedLetterIndexes: [],
-        correct: action.payload.corrects.includes(
-          action.payload.word.toUpperCase()
-        )
-          ? true
-          : false,
       };
 
     default:
@@ -115,7 +117,12 @@ export default function LetterSelection({
       <div className={styles.clicked_letters_container}>
         {letterState.clickedLetters.map((clickedLetter, index) => {
           return (
-            <div className={styles.clicked_letter} key={index}>
+            <div
+              className={`${styles.clicked_letter} ${
+                letterState.correct ? styles.correct : ""
+              }`}
+              key={index}
+            >
               {clickedLetter}
             </div>
           );
@@ -138,7 +145,7 @@ export default function LetterSelection({
                   letterState.clickedLetterIndexes.length
                     ? styles.filled
                     : ""
-                }`}
+                } ${letterState.correct ? styles.disabled : ""}`}
                 onClick={() =>
                   dispatch({
                     type: types.addLetter,
@@ -153,13 +160,17 @@ export default function LetterSelection({
         </div>
         <div className={styles.utility_buttons_container}>
           <button
-            className={styles.backspace}
+            className={`${styles.backspace} ${
+              letterState.correct ? styles.disabled : ""
+            }`}
             onClick={() => dispatch({ type: types.removeLetter })}
           >
             <TiBackspace />
           </button>
           <button
-            className={styles.submit}
+            className={`${styles.submit} ${
+              letterState.correct ? styles.disabled : ""
+            }`}
             onClick={() =>
               dispatchGame({
                 type: typesGame.checkWord,
