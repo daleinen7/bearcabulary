@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-export default function StoryList({ stories }) {
+export default function StoriesList({ stories }) {
   return (
     <ul>
       {stories.map((story, index) => {
