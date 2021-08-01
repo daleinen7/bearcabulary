@@ -14,19 +14,6 @@ export default function Index() {
               name
             }
           }
-          section {
-            img
-            sentence
-            word
-          }
-        }
-      }
-      storiesJson {
-        parent {
-          ... on File {
-            id
-            name
-          }
         }
       }
     }
@@ -35,15 +22,15 @@ export default function Index() {
   return (
     <Layout>
       <h2>This is the landing page</h2>
-      {data.allStoriesJson.nodes.map((node) => {
-        return (
-          <ul>
-            <li>
+      <ul>
+        {data.allStoriesJson.nodes.map((node, index) => {
+          return (
+            <li key={index}>
               <Link to={node.parent.name}>{node.title}</Link>
             </li>
-          </ul>
-        );
-      })}
+          );
+        })}
+      </ul>
     </Layout>
   );
 }
