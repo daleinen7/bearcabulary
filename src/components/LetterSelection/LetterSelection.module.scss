@@ -18,11 +18,17 @@
   }
 }
 
-.selectable_letters_container {
+.buttons_container {
   display: flex;
-  gap: 20px;
+}
+
+.selectable_letters_container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(auto, 100px));
 
   .selectable_letter {
+    justify-self: center;
+    margin: 10px;
     @include Button($blue);
 
     &.clicked {
@@ -38,12 +44,28 @@
   }
 }
 
-.backspace {
-  @include Button(rgb(172, 49, 49));
-  width: 150px;
-}
+.utility_buttons_container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 
-.submit {
-  @include Button(rgb(92, 187, 92));
-  width: 150px;
+  & > * {
+    margin: 10px;
+  }
+
+  .backspace {
+    @include Button($red);
+    width: 150px;
+  }
+
+  .submit {
+    @include Button($green);
+    width: 150px;
+
+    svg {
+      path {
+        stroke: white;
+      }
+    }
+  }
 }

@@ -4,6 +4,8 @@ import {
   makeSelectableLetters,
   makeBlankLetters,
 } from "../../utilities/letterSelectionUtil";
+import { TiBackspace } from "react-icons/ti";
+import { GrReturn } from "react-icons/gr";
 
 const types = {
   prevLetter: "prevLetter",
@@ -100,51 +102,55 @@ export default function LetterSelection({ word, dispatchGame, typesGame }) {
         })}
       </div>
 
-      {/* Buttons to select the letters */}
-      <div className={styles.selectable_letters_container}>
-        {letterState.selectableLetters.map((selectableLetter, index) => {
-          return (
-            <button
-              key={index}
-              className={`${styles.selectable_letter} ${
-                letterState.clickedLetterIndexes.includes(index)
-                  ? styles.clicked
-                  : ""
-              } ${
-                letterState.clickedLetters.length ===
-                letterState.clickedLetterIndexes.length
-                  ? styles.filled
-                  : ""
-              }`}
-              onClick={() =>
-                dispatch({
-                  type: types.addLetter,
-                  payload: index,
-                })
-              }
-            >
-              {selectableLetter}
-            </button>
-          );
-        })}
+      <div className={styles.buttons_container}>
+        {/* Buttons to select the letters */}
+        <div className={styles.selectable_letters_container}>
+          {letterState.selectableLetters.map((selectableLetter, index) => {
+            return (
+              <button
+                key={index}
+                className={`${styles.selectable_letter} ${
+                  letterState.clickedLetterIndexes.includes(index)
+                    ? styles.clicked
+                    : ""
+                } ${
+                  letterState.clickedLetters.length ===
+                  letterState.clickedLetterIndexes.length
+                    ? styles.filled
+                    : ""
+                }`}
+                onClick={() =>
+                  dispatch({
+                    type: types.addLetter,
+                    payload: index,
+                  })
+                }
+              >
+                {selectableLetter}
+              </button>
+            );
+          })}
+        </div>
+        <div className={styles.utility_buttons_container}>
+          <button
+            className={styles.backspace}
+            onClick={() => dispatch({ type: types.removeLetter })}
+          >
+            <TiBackspace />
+          </button>
+          <button
+            className={styles.submit}
+            onClick={() =>
+              dispatchGame({
+                type: typesGame.checkWord,
+                payload: letterState.clickedLetters,
+              })
+            }
+          >
+            <GrReturn />
+          </button>
+        </div>
       </div>
-      <button
-        className={styles.backspace}
-        onClick={() => dispatch({ type: types.removeLetter })}
-      >
-        Backspace
-      </button>
-      <button
-        className={styles.submit}
-        onClick={() =>
-          dispatchGame({
-            type: typesGame.checkWord,
-            payload: letterState.clickedLetters,
-          })
-        }
-      >
-        Submit
-      </button>
     </>
   );
 }
