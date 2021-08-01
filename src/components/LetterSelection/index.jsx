@@ -137,15 +137,16 @@ export default function LetterSelection({
               <button
                 key={index}
                 className={`${styles.selectable_letter} ${
-                  letterState.clickedLetterIndexes.includes(index)
-                    ? styles.clicked
+                  letterState.clickedLetterIndexes.includes(index) ||
+                  letterState.correct
+                    ? styles.disabled
                     : ""
                 } ${
                   letterState.clickedLetters.length ===
                   letterState.clickedLetterIndexes.length
                     ? styles.filled
                     : ""
-                } ${letterState.correct ? styles.disabled : ""}`}
+                }`}
                 onClick={() =>
                   dispatch({
                     type: types.addLetter,

@@ -15,10 +15,9 @@ $dark-grey: rgb(102, 114, 143);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 20px;
   height: 75px;
-  width: 75px;
   color: white;
-  text-transform: uppercase;
   font-family: "Quicksand", sans-serif;
   font-size: 2rem;
   font-weight: 700;
@@ -26,7 +25,6 @@ $dark-grey: rgb(102, 114, 143);
   border: none;
   border-radius: 10px;
   box-shadow: 3px 3px darken($color, 25%);
-  // margin: 0;
 
   &:hover {
     background-color: lighten($color, 5%);
@@ -35,5 +33,12 @@ $dark-grey: rgb(102, 114, 143);
   &:active {
     background-color: darken($color, 5%);
     box-shadow: inset 3px 3px darken($color, 40%);
+  }
+
+  &.disabled {
+    pointer-events: none;
+    color: $dark-grey;
+    background-color: $grey;
+    box-shadow: none;
   }
 }

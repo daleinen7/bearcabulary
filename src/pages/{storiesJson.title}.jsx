@@ -1,5 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import { graphql } from "gatsby";
+import * as styles from "./Game.module.scss";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import Layout from "../components/Layout";
 import Picture from "../components/Picture";
 import FlashWord from "../components/FlashWord";
@@ -141,8 +143,25 @@ export default function Game({ data }) {
   return (
     <Layout>
       <div>{gameState.pageCounter}</div>
-      <button onClick={() => dispatch({ type: types.prevPage })}>Prev</button>
-      <button onClick={() => dispatch({ type: types.nextPage })}>Next</button>
+      <button
+        className={styles.prev}
+        onClick={() => dispatch({ type: types.prevPage })}
+      >
+        <GrFormPrevious size={40} /> Prev
+      </button>
+      <button
+        className={`${styles.next} ${
+          !gameState.story.section[gameState.pageCounter].word ||
+          gameState.corrects.includes(
+            gameState.story.section[gameState.pageCounter].word.toUpperCase()
+          )
+            ? ""
+            : styles.disabled
+        }`}
+        onClick={() => dispatch({ type: types.nextPage })}
+      >
+        <GrFormNext size={40} /> Next
+      </button>
       <Picture picture={gameState.story.section[gameState.pageCounter].img} />
       <Sentence
         sentence={gameState.story.section[gameState.pageCounter].sentence}

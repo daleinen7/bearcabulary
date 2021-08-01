@@ -36,14 +36,7 @@
     justify-self: center;
     margin: 10px;
     @include Button($blue);
-  }
-
-  .clicked,
-  .disabled {
-    pointer-events: none;
-    color: $dark-grey;
-    background-color: $grey;
-    box-shadow: none;
+    width: 75px;
   }
 
   .filled {
@@ -77,11 +70,6 @@
   }
 
   .disabled {
-    pointer-events: none;
-    color: $dark-grey;
-    background-color: $grey;
-    box-shadow: none;
-
     svg {
       path {
         stroke: $dark-grey;

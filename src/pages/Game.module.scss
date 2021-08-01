@@ -1,0 +1,22 @@
+@import "../styles/variables";
+
+.prev {
+  @include Button($blue);
+  padding-left: 10px;
+  svg {
+    polyline {
+      stroke: white;
+    }
+  }
+}
+
+.next {
+  @include Button($yellow);
+  color: black;
+  box-shadow: 3px 3px $dark-orange;
+  padding-left: 10px;
+
+  &:active {
+    box-shadow: inset 3px 3px darken($dark-orange, 20%);
+  }
+}
