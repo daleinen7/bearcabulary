@@ -2,6 +2,7 @@ import React, { useReducer, useEffect } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Picture from "../components/Picture";
+import FlashWord from "../components/FlashWord";
 import Sentence from "../components/Sentence";
 import Guesses from "../components/Guesses";
 import LetterSelection from "../components/LetterSelection";
@@ -144,21 +145,25 @@ export default function Game({ data }) {
       <button onClick={() => dispatch({ type: types.nextPage })}>Next</button>
       <Picture picture={gameState.story.section[gameState.pageCounter].img} />
       <Sentence
-        corrects={gameState.corrects}
-        word={gameState.story.section[gameState.pageCounter].word}
         sentence={gameState.story.section[gameState.pageCounter].sentence}
       />
-      <Guesses
-        guesses={gameState.guesses}
-        word={gameState.story.section[gameState.pageCounter].word}
-      />
       {gameState.story.section[gameState.pageCounter].word && (
-        <LetterSelection
-          word={gameState.story.section[gameState.pageCounter].word}
-          corrects={gameState.corrects}
-          dispatchGame={dispatch}
-          typesGame={types}
-        />
+        <>
+          <FlashWord
+            corrects={gameState.corrects}
+            word={gameState.story.section[gameState.pageCounter].word}
+          />
+          <Guesses
+            guesses={gameState.guesses}
+            word={gameState.story.section[gameState.pageCounter].word}
+          />
+          <LetterSelection
+            word={gameState.story.section[gameState.pageCounter].word}
+            corrects={gameState.corrects}
+            dispatchGame={dispatch}
+            typesGame={types}
+          />
+        </>
       )}
     </Layout>
   );
