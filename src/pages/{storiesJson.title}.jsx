@@ -144,6 +144,7 @@ export default function Game({ data }) {
       <button onClick={() => dispatch({ type: types.nextPage })}>Next</button>
       <Picture picture={gameState.story.section[gameState.pageCounter].img} />
       <Sentence
+        corrects={gameState.corrects}
         word={gameState.story.section[gameState.pageCounter].word}
         sentence={gameState.story.section[gameState.pageCounter].sentence}
       />

@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 
-export default function Sentence({ word, sentence }) {
-  const [wordTimer, setWordTimer] = useState(false);
+export default function Sentence({ corrects, word, sentence }) {
+  const [appear, setAppear] = useState(true);
 
   useEffect(() => {
-    setWordTimer(false);
-    const timer = setTimeout(() => {
-      setWordTimer(true);
-    }, 1500);
-    return () => clearTimeout(timer);
+    if (!corrects.includes(word.toUpperCase())) {
+      setAppear(true);
+      const timer = setTimeout(() => {
+        setAppear(false);
+      }, 1500);
+      return () => clearTimeout(timer);
+    } else {
+      setAppear(false);
+    }
   }, [word]);
 
   return (
     <>
       <h2
-        style={{ visibility: wordTimer ? "hidden" : "" }}
-        className={wordTimer ? "hidden" : ""}
+        style={{ visibility: appear ? "" : "hidden" }}
+        className={appear ? "" : "hidden"}
       >
         {word}
       </h2>
