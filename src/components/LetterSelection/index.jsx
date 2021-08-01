@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import * as styles from "./LetterSelection.module.scss";
 import {
   makeSelectableLetters,
@@ -12,6 +12,7 @@ const types = {
   addLetter: "addLetter",
   removeLetter: "removeLetter",
   initialize: "initialize",
+  setCorrectInLetters: "setCorrectInLetters",
 };
 
 const initialLetterState = {
@@ -19,6 +20,7 @@ const initialLetterState = {
   selectableLetters: [],
   clickedLetters: [], // keeps track of letters that were clicked
   clickedLetterIndexes: [], // keeps track of letter indexes that were clicked
+  correct: false,
 };
 
 const reducer = (state, action) => {
@@ -66,13 +68,26 @@ const reducer = (state, action) => {
         clickedLetterIndexes: clickedLetterIndexesPopped,
       };
 
+    case types.setCorrectInLetters:
+      return {
+        ...state,
+        correct: true,
+      };
+
     case types.initialize: // initalize the state with resetting letterCounter, new selectable letters, and new blank strings
       return {
         ...state,
         letterCounter: 0,
-        selectableLetters: makeSelectableLetters(action.payload),
-        clickedLetters: makeBlankLetters(action.payload),
+        selectableLetters: makeSelectableLetters(
+          action.payload.word.toUpperCase()
+        ),
+        clickedLetters: makeBlankLetters(action.payload.word.toUpperCase()),
         clickedLetterIndexes: [],
+        correct: action.payload.corrects.includes(
+          action.payload.word.toUpperCase()
+        )
+          ? true
+          : false,
       };
 
     default:
@@ -80,13 +95,18 @@ const reducer = (state, action) => {
   }
 };
 
-export default function LetterSelection({ word, dispatchGame, typesGame }) {
+export default function LetterSelection({
+  word,
+  corrects,
+  dispatchGame,
+  typesGame,
+}) {
   const [letterState, dispatch] = useReducer(reducer, initialLetterState);
 
   useEffect(() => {
     dispatch({
       type: types.initialize,
-      payload: word,
+      payload: { word: word, corrects: corrects },
     });
   }, [word]);
 
@@ -143,7 +163,11 @@ export default function LetterSelection({ word, dispatchGame, typesGame }) {
             onClick={() =>
               dispatchGame({
                 type: typesGame.checkWord,
-                payload: letterState.clickedLetters,
+                payload: {
+                  clickedLetters: letterState.clickedLetters,
+                  letterDispatch: dispatch,
+                  setCorrectInLetters: types.setCorrectInLetters,
+                },
               })
             }
           >

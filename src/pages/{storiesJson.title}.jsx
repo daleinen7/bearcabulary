@@ -61,7 +61,7 @@ const reducer = (state, action) => {
       };
 
     case types.checkWord:
-      const payloadWord = action.payload.join("").toUpperCase(); // word submitted by user
+      const payloadWord = action.payload.clickedLetters.join(""); // word submitted by user
       const currentWord =
         state.story.section[state.pageCounter].word.toUpperCase(); // current word in the word bank
 
@@ -70,6 +70,9 @@ const reducer = (state, action) => {
         !state.corrects.includes(currentWord)
       ) {
         // if user submitted word is correct and has not been documented in the corrects array
+        action.payload.letterDispatch({
+          type: action.payload.setCorrectInLetters,
+        });
         return {
           ...state,
           corrects: [...state.corrects, currentWord],
@@ -151,6 +154,7 @@ export default function Game({ data }) {
       {gameState.story.section[gameState.pageCounter].word && (
         <LetterSelection
           word={gameState.story.section[gameState.pageCounter].word}
+          corrects={gameState.corrects}
           dispatchGame={dispatch}
           typesGame={types}
         />
