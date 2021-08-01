@@ -12,9 +12,6 @@ export default function Index() {
       allStoriesJson {
         nodes {
           title
-          section {
-            image
-          }
           parent {
             ... on File {
               name
@@ -28,7 +25,7 @@ export default function Index() {
   return (
     <Layout>
       <Hero />
-      <StoryList stories={data.allStoriesJson} />
+      <StoryList stories={data.allStoriesJson.nodes} />
       <About />
     </Layout>
   );
