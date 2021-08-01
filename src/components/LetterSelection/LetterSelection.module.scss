@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+
+.clicked_letters_container {
+  display: flex;
+
+  .clicked_letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 10px 5px 10px;
+    height: 75px;
+    width: 75px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: $blue;
+    border: 3px solid $blue;
+    border-radius: 10px;
+  }
+}
+
+.selectable_letters_container {
+  display: flex;
+  gap: 20px;
+
+  .selectable_letter {
+    @include Button($blue, $dark-blue);
+
+    &.clicked {
+      pointer-events: none;
+      color: $dark-grey;
+      background-color: $grey;
+      // box-shadow: inset 3px 3px $dark-grey;
+      box-shadow: none;
+    }
+
+    &.filled {
+      pointer-events: none;
+      cursor: pointer;
+    }
+  }
+}

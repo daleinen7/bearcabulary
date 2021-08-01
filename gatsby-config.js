@@ -15,12 +15,5 @@ module.exports = {
         path: `./static/stories/`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`quicksand`],
-        display: "swap",
-      },
-    },
   ],
 };

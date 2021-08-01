@@ -1,14 +1,15 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect } from "react";
+import * as styles from "./LetterSelection.module.scss";
 import {
   makeSelectableLetters,
   makeBlankLetters,
-} from '../../utilities/letterSelectionUtil';
+} from "../../utilities/letterSelectionUtil";
 
 const types = {
-  prevLetter: 'prevLetter',
-  addLetter: 'addLetter',
-  removeLetter: 'removeLetter',
-  initialize: 'initialize',
+  prevLetter: "prevLetter",
+  addLetter: "addLetter",
+  removeLetter: "removeLetter",
+  initialize: "initialize",
 };
 
 const initialLetterState = {
@@ -56,7 +57,7 @@ const reducer = (state, action) => {
         letterCounter: state.letterCounter === 0 ? 0 : state.letterCounter - 1,
         clickedLetters: state.clickedLetters.map((letter, index) => {
           if (index + 1 === state.letterCounter) {
-            letter = '';
+            letter = "";
           }
           return letter;
         }),
@@ -89,26 +90,44 @@ export default function LetterSelection({ word, dispatchGame, typesGame }) {
 
   return (
     <>
-      {letterState.clickedLetters.map((clickedLetter, index) => {
-        return <div key={index}>{clickedLetter}</div>;
-      })}
+      <div className={styles.clicked_letters_container}>
+        {letterState.clickedLetters.map((clickedLetter, index) => {
+          return (
+            <div className={styles.clicked_letter} key={index}>
+              {clickedLetter}
+            </div>
+          );
+        })}
+      </div>
 
       {/* Buttons to select the letters */}
-      {letterState.selectableLetters.map((selectableLetter, index) => {
-        return (
-          <button
-            key={index}
-            onClick={() =>
-              dispatch({
-                type: types.addLetter,
-                payload: index,
-              })
-            }
-          >
-            {selectableLetter}
-          </button>
-        );
-      })}
+      <div className={styles.selectable_letters_container}>
+        {letterState.selectableLetters.map((selectableLetter, index) => {
+          return (
+            <button
+              key={index}
+              className={`${styles.selectable_letter} ${
+                letterState.clickedLetterIndexes.includes(index)
+                  ? styles.clicked
+                  : ""
+              } ${
+                letterState.clickedLetters.length ===
+                letterState.clickedLetterIndexes.length
+                  ? styles.filled
+                  : ""
+              }`}
+              onClick={() =>
+                dispatch({
+                  type: types.addLetter,
+                  payload: index,
+                })
+              }
+            >
+              {selectableLetter}
+            </button>
+          );
+        })}
+      </div>
       <button onClick={() => dispatch({ type: types.removeLetter })}>
         Backspace
       </button>
