@@ -16,6 +16,7 @@
 .prev_mobile {
   @include Button($blue);
   width: 10rem;
+  padding-right: 1rem;
   svg {
     polyline {
       stroke: white;
@@ -39,6 +40,7 @@
 .next_mobile {
   @include Button($yellow);
   width: 10rem;
+  padding-left: 1rem;
   color: black;
   box-shadow: 3px 3px $dark-orange;
 
@@ -90,6 +92,7 @@
   .next_mobile {
     display: flex;
     align-self: center;
+    padding: 0;
   }
 }
 
