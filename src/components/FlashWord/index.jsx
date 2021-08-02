@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from "react";
+import * as styles from "./FlashWord.module.scss";
 
 export default function FlashWord({ corrects, word }) {
-  const [appear, setAppear] = useState(true);
+  const [hide, setHide] = useState(true);
 
   useEffect(() => {
     if (!corrects.includes(word?.toUpperCase())) {
-      setAppear(true);
+      setHide(true);
       const timer = setTimeout(() => {
-        setAppear(false);
+        setHide(false);
       }, 1500);
       return () => clearTimeout(timer);
     } else {
-      setAppear(false);
+      setHide(false);
     }
   }, [word, corrects]);
 
   return (
-    <>
-      <div
-        style={{ visibility: appear ? "" : "hidden" }}
-        className={appear ? "" : "hidden"}
-      >
-        {word}
-      </div>
-    </>
+    <p className={`${styles.word} ${hide ? "" : styles.hidden}`}>{word}</p>
   );
 }

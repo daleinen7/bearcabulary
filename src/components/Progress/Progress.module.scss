@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.progress_bar {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+
+  .progress {
+    svg {
+      height: 30px;
+      width: 30px;
+      fill: $grey;
+    }
+  }
+
+  .before {
+    svg {
+      fill: $dark-grey;
+    }
+  }
+
+  .current {
+    svg {
+      fill: darken($yellow, 5%);
+    }
+  }
+}

@@ -7,9 +7,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px 10px 5px 10px;
-    height: 75px;
-    width: 75px;
+    margin: 5px 10px;
+    height: 70px;
+    width: 70px;
     font-size: 3rem;
     text-transform: uppercase;
     color: $blue;
@@ -36,7 +36,7 @@
     justify-self: center;
     margin: 10px;
     @include Button($blue);
-    width: 75px;
+    width: 70px;
   }
 
   .filled {

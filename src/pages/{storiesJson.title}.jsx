@@ -8,6 +8,7 @@ import FlashWord from "../components/FlashWord";
 import Sentence from "../components/Sentence";
 import Guesses from "../components/Guesses";
 import LetterSelection from "../components/LetterSelection";
+import Progress from "../components/Progress";
 
 const types = {
   nextPage: "nextPage",
@@ -144,7 +145,9 @@ export default function Game({ data }) {
     <Layout>
       <div className={styles.top_container}>
         <button
-          className={styles.prev}
+          className={`${styles.prev} ${
+            gameState.pageCounter === 0 ? styles.hidden : ""
+          }`}
           onClick={() => dispatch({ type: types.prevPage })}
         >
           <GrFormPrevious size={40} /> Prev
@@ -191,6 +194,10 @@ export default function Game({ data }) {
             />
           </>
         )}
+        <Progress
+          counter={gameState.pageCounter}
+          array={gameState.story.section}
+        />
       </div>
     </Layout>
   );
