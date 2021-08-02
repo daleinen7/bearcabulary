@@ -1,9 +1,21 @@
 @import "./reset";
 @import "./variables";
 
-body {
+* {
   box-sizing: border-box;
+}
+
+body {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
-  color: white;
+  height: 100vh;
+  // color: white;
+}
+
+#___gatsby {
+  height: 100%;
+}
+
+#gatsby-focus-wrapper {
+  height: 100%;
 }

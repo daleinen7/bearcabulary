@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function Sentence({ corrects, word }) {
+export default function FlashWord({ corrects, word }) {
   const [appear, setAppear] = useState(true);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Sentence({ corrects, word }) {
     } else {
       setAppear(false);
     }
-  }, [word]);
+  }, [word, corrects]);
 
   return (
     <>

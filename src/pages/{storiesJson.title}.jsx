@@ -142,48 +142,56 @@ export default function Game({ data }) {
 
   return (
     <Layout>
-      <div>{gameState.pageCounter}</div>
-      <button
-        className={styles.prev}
-        onClick={() => dispatch({ type: types.prevPage })}
-      >
-        <GrFormPrevious size={40} /> Prev
-      </button>
-      <button
-        className={`${styles.next} ${
-          !gameState.story.section[gameState.pageCounter].word ||
-          gameState.corrects.includes(
-            gameState.story.section[gameState.pageCounter].word.toUpperCase()
-          )
-            ? ""
-            : styles.disabled
-        }`}
-        onClick={() => dispatch({ type: types.nextPage })}
-      >
-        <GrFormNext size={40} /> Next
-      </button>
-      <Picture picture={gameState.story.section[gameState.pageCounter].img} />
-      <Sentence
-        sentence={gameState.story.section[gameState.pageCounter].sentence}
-      />
-      {gameState.story.section[gameState.pageCounter].word && (
-        <>
+      <div className={styles.top_container}>
+        <button
+          className={styles.prev}
+          onClick={() => dispatch({ type: types.prevPage })}
+        >
+          <GrFormPrevious size={40} /> Prev
+        </button>
+        <Picture
+          picture={gameState.story.section[gameState.pageCounter].img}
+          sentence={gameState.story.section[gameState.pageCounter].sentence}
+        />
+        <button
+          className={`${styles.next} ${
+            !gameState.story.section[gameState.pageCounter].word ||
+            gameState.corrects.includes(
+              gameState.story.section[gameState.pageCounter].word.toUpperCase()
+            )
+              ? ""
+              : styles.disabled
+          }`}
+          onClick={() => dispatch({ type: types.nextPage })}
+        >
+          Next <GrFormNext size={40} />
+        </button>
+      </div>
+      <div className={styles.bottom_container}>
+        {gameState.story.section[gameState.pageCounter].word && (
           <FlashWord
             corrects={gameState.corrects}
             word={gameState.story.section[gameState.pageCounter].word}
           />
-          <Guesses
-            guesses={gameState.guesses}
-            word={gameState.story.section[gameState.pageCounter].word}
-          />
-          <LetterSelection
-            word={gameState.story.section[gameState.pageCounter].word}
-            corrects={gameState.corrects}
-            dispatchGame={dispatch}
-            typesGame={types}
-          />
-        </>
-      )}
+        )}
+        <Sentence
+          sentence={gameState.story.section[gameState.pageCounter].sentence}
+        />
+        {gameState.story.section[gameState.pageCounter].word && (
+          <>
+            <Guesses
+              guesses={gameState.guesses}
+              word={gameState.story.section[gameState.pageCounter].word}
+            />
+            <LetterSelection
+              word={gameState.story.section[gameState.pageCounter].word}
+              corrects={gameState.corrects}
+              dispatchGame={dispatch}
+              typesGame={types}
+            />
+          </>
+        )}
+      </div>
     </Layout>
   );
 }

@@ -110,7 +110,7 @@ export default function LetterSelection({
       type: types.initialize,
       payload: { word: word, corrects: corrects },
     });
-  }, [word]);
+  }, [word, corrects]);
 
   return (
     <>
