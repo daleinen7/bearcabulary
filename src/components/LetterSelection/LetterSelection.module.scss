@@ -40,17 +40,18 @@
 
 .buttons_container {
   display: flex;
+  justify-content: center;
 }
 
 .selectable_letters_container {
   display: grid;
-  grid-template-columns: repeat(5, minmax(auto, 100px));
+  grid-template-columns: repeat(5, minmax(auto, 50px));
 
   .selectable_letter {
     justify-self: center;
     margin: 10px;
     @include Button($blue);
-    width: 70px;
+    // width: 70px;
   }
 
   .filled {
@@ -69,12 +70,10 @@
 
   .backspace {
     @include Button($red);
-    width: 150px;
   }
 
   .submit {
     @include Button($green);
-    width: 150px;
 
     svg {
       path {
@@ -96,6 +95,21 @@
       path {
         stroke: $dark-grey;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .buttons_container {
+    flex-flow: column;
+  }
+
+  .utility_buttons_container {
+    flex-flow: row;
+    justify-content: center;
+
+    & > * {
+      flex-grow: 1;
     }
   }
 }
