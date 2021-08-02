@@ -8,7 +8,6 @@ export default function Progress({ counter, array }) {
   return (
     <div className={styles.progress_bar}>
       {array.map((element, index) => {
-        console.log(index);
         return (
           <div
             key={index}

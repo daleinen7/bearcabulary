@@ -5,14 +5,14 @@
   justify-content: space-between;
   background-color: $grey;
   padding: 0.5rem 2rem;
-  width: 40%;
+  width: 50%;
   border-radius: 30px;
 
   .progress {
     svg {
-      height: 2rem;
-      width: 2rem;
-      fill: lighten($dark-grey, 20%);
+      height: clamp(1rem, 3vw, 2rem);
+      width: clamp(1rem, 3vw, 2rem);
+      fill: white;
     }
   }
 
@@ -26,5 +26,18 @@
     svg {
       fill: $dark-blue;
     }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .progress_bar {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .progress_bar {
+    width: 100%;
+    padding: 0.5rem 1rem;
   }
 }

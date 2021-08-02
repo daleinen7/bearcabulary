@@ -1,5 +1,13 @@
 @import "../../styles/variables";
 
+.letters_container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .clicked_letters_container {
   display: flex;
 
@@ -21,6 +29,10 @@
     color: darken($green, 25%);
     background-color: lighten($green, 25%);
     border: 3px solid darken($green, 25%);
+  }
+
+  .wrong {
+    color: red;
   }
 }
 

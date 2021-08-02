@@ -77,6 +77,7 @@ const reducer = (state, action) => {
         action.payload.letterDispatch({
           type: action.payload.setCorrectInLetters,
         });
+
         return {
           ...state,
           corrects: [...state.corrects, currentWord],
@@ -84,6 +85,16 @@ const reducer = (state, action) => {
       } else if (currentWord !== payloadWord) {
         // if user submitted word is wrong
         //* the way newGueses are set up here are very verbose, needs fixing
+        action.payload.letterDispatch({
+          type: action.payload.setTrueInCheck,
+        });
+
+        setTimeout(() => {
+          action.payload.letterDispatch({
+            type: action.payload.setFalseInCheck,
+          });
+        }, 1000);
+
         if (!state.errors.includes(currentWord)) {
           if (state.guesses.length > 3) {
             let newGuesses = state.guesses;
