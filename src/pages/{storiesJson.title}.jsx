@@ -6,7 +6,6 @@ import Layout from "../components/Layout";
 import Picture from "../components/Picture";
 import FlashWord from "../components/FlashWord";
 import Sentence from "../components/Sentence";
-import Guesses from "../components/Guesses";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
 
@@ -20,8 +19,7 @@ const types = {
 const initialGameState = {
   pageCounter: 0, // the counter to keep track of which page the game is currently at
   corrects: [], // keeps track of words the user have gotten right
-  errors: [], // keeps track of words the user have gotten wrong
-  guesses: [],
+  errors: {}, // keeps track of words the user have gotten wrong
   story: {
     title: "",
     level: 0,
@@ -51,7 +49,6 @@ const reducer = (state, action) => {
             state.pageCounter === state.story.section.length - 1
               ? state.story.section.length - 1
               : state.pageCounter + 1,
-          guesses: [],
         };
       } else {
         return state;
@@ -61,7 +58,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         pageCounter: state.pageCounter === 0 ? 0 : state.pageCounter - 1,
-        guesses: [],
       };
 
     case types.checkWord:
@@ -95,40 +91,22 @@ const reducer = (state, action) => {
           });
         }, 1000);
 
-        if (!state.errors.includes(currentWord)) {
-          if (state.guesses.length > 3) {
-            let newGuesses = state.guesses;
-            newGuesses.push(payloadWord);
-            newGuesses.shift();
-            return {
-              ...state,
-              errors: [...state.errors, currentWord],
-              guesses: newGuesses,
-            };
-          } else {
-            let newGuesses = [...state.guesses, payloadWord];
-            return {
-              ...state,
-              errors: [...state.errors, currentWord],
-              guesses: newGuesses,
-            };
-          }
+        if (!state.errors[currentWord]) {
+          return {
+            ...state,
+            errors: {
+              ...state.errors,
+              [currentWord]: [payloadWord],
+            },
+          };
         } else {
-          if (state.guesses.length > 3) {
-            let newGuesses = state.guesses;
-            newGuesses.push(payloadWord);
-            newGuesses.shift();
-            return {
-              ...state,
-              guesses: newGuesses,
-            };
-          } else {
-            let newGuesses = [...state.guesses, payloadWord];
-            return {
-              ...state,
-              guesses: newGuesses,
-            };
-          }
+          return {
+            ...state,
+            errors: {
+              ...state.errors,
+              [currentWord]: [...state.errors[currentWord], payloadWord],
+            },
+          };
         }
       } else {
         return state;
@@ -204,18 +182,12 @@ export default function Game({ data }) {
           sentence={gameState.story.section[gameState.pageCounter].sentence}
         />
         {gameState.story.section[gameState.pageCounter].word && (
-          <>
-            <Guesses
-              guesses={gameState.guesses}
-              word={gameState.story.section[gameState.pageCounter].word}
-            />
-            <LetterSelection
-              word={gameState.story.section[gameState.pageCounter].word}
-              corrects={gameState.corrects}
-              dispatchGame={dispatch}
-              typesGame={types}
-            />
-          </>
+          <LetterSelection
+            word={gameState.story.section[gameState.pageCounter].word}
+            corrects={gameState.corrects}
+            dispatchGame={dispatch}
+            typesGame={types}
+          />
         )}
         <Progress
           counter={gameState.pageCounter}

@@ -17,6 +17,8 @@ export default function FlashWord({ corrects, word }) {
   }, [word, corrects]);
 
   return (
-    <p className={`${styles.word} ${hide ? "" : styles.hidden}`}>{word}</p>
+    <p className={`${styles.word} ${hide ? "" : styles.hidden}`}>
+      {word.toUpperCase()}
+    </p>
   );
 }
