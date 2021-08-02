@@ -12,10 +12,11 @@
   }
 }
 
-.prev {
+.prev,
+.prev_mobile {
   @include Button($blue);
-  padding-left: 10px;
-
+  width: 10rem;
+  padding-right: 1rem;
   svg {
     polyline {
       stroke: white;
@@ -35,9 +36,11 @@
   }
 }
 
-.next {
+.next,
+.next_mobile {
   @include Button($yellow);
-  padding-right: 10px;
+  width: 10rem;
+  padding-left: 1rem;
   color: black;
   box-shadow: 3px 3px $dark-orange;
 
@@ -58,6 +61,12 @@
   }
 }
 
+.prev_mobile,
+.next_mobile {
+  display: none;
+  width: 4rem;
+}
+
 .bottom_container {
   display: flex;
   flex-flow: column;
@@ -70,5 +79,30 @@
   &.no_word {
     height: 25%;
     padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .prev,
+  .next {
+    display: none;
+  }
+
+  .prev_mobile,
+  .next_mobile {
+    display: flex;
+    align-self: center;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .top_container {
+    padding: 0;
+    padding: 1rem 1.5rem;
+  }
+  .bottom_container {
+    height: 65%;
+    padding: 0.5rem 1.5rem 2rem;
   }
 }

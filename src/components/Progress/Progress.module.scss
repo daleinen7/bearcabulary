@@ -3,25 +3,41 @@
 .progress_bar {
   display: flex;
   justify-content: space-between;
+  background-color: $grey;
+  padding: 0.5rem 2rem;
   width: 50%;
+  border-radius: 50px;
 
   .progress {
     svg {
-      height: 30px;
-      width: 30px;
-      fill: $grey;
+      height: clamp(1rem, 3vw, 2rem);
+      width: clamp(1rem, 3vw, 2rem);
+      fill: white;
     }
   }
 
   .before {
     svg {
-      fill: $dark-grey;
+      fill: $blue;
     }
   }
 
   .current {
     svg {
-      fill: darken($yellow, 5%);
+      fill: $dark-blue;
     }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .progress_bar {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .progress_bar {
+    width: 100%;
+    padding: 0.5rem 1rem;
   }
 }

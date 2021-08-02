@@ -2,5 +2,6 @@
 
 .sentence {
   text-align: center;
-  font-size: 2rem;
+  line-height: 2rem;
+  font-size: clamp(1.25rem, 2vw, 2rem);
 }

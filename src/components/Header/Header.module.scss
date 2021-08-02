@@ -10,12 +10,20 @@
   background-color: $blue;
 
   a {
-    font-size: 2rem;
     color: white;
+    letter-spacing: 5px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 600;
     text-decoration: none;
     transition: 0.5s;
     &:hover {
       color: $yellow;
     }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    height: 5%;
   }
 }

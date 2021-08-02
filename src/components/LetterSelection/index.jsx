@@ -13,6 +13,8 @@ const types = {
   removeLetter: "removeLetter",
   initialize: "initialize",
   setCorrectInLetters: "setCorrectInLetters",
+  setTrueInCheck: "setTrueInCheck",
+  setFalseInCheck: "setFalseInCheck",
 };
 
 const initialLetterState = {
@@ -21,6 +23,7 @@ const initialLetterState = {
   clickedLetters: [], // keeps track of letters that were clicked
   clickedLetterIndexes: [], // keeps track of letter indexes that were clicked
   correct: false,
+  incorrect: false,
 };
 
 const reducer = (state, action) => {
@@ -74,6 +77,18 @@ const reducer = (state, action) => {
         correct: true,
       };
 
+    case types.setTrueInCheck:
+      return {
+        ...state,
+        incorrect: true,
+      };
+
+    case types.setFalseInCheck:
+      return {
+        ...state,
+        incorrect: false,
+      };
+
     case types.initialize: // initalize the state with resetting letterCounter, new selectable letters, and new blank strings
       const isCorrect = action.payload.corrects.includes(
         action.payload.word.toUpperCase()
@@ -82,6 +97,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         correct: isCorrect ? true : false,
+        incorrect: false,
         letterCounter: 0,
         selectableLetters: makeSelectableLetters(
           action.payload.word.toUpperCase()
@@ -113,13 +129,18 @@ export default function LetterSelection({
   }, [word, corrects]);
 
   return (
-    <>
+    <div className={styles.letters_container}>
       <div className={styles.clicked_letters_container}>
         {letterState.clickedLetters.map((clickedLetter, index) => {
           return (
             <div
               className={`${styles.clicked_letter} ${
                 letterState.correct ? styles.correct : ""
+              } ${
+                letterState.incorrect &&
+                letterState.clickedLetters[index] !== word[index]?.toUpperCase()
+                  ? styles.wrong
+                  : ""
               }`}
               key={index}
             >
@@ -179,6 +200,8 @@ export default function LetterSelection({
                   clickedLetters: letterState.clickedLetters,
                   letterDispatch: dispatch,
                   setCorrectInLetters: types.setCorrectInLetters,
+                  setTrueInCheck: types.setTrueInCheck,
+                  setFalseInCheck: types.setFalseInCheck,
                 },
               })
             }
@@ -187,6 +210,6 @@ export default function LetterSelection({
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
