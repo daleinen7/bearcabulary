@@ -18,9 +18,8 @@
   }
 
   .correct {
-    color: darken($green, 30%);
-    background-color: lighten($green, 30%);
-    border: 3px solid darken($green, 30%);
+    color: $green;
+    border: 3px solid $green;
   }
 }
 

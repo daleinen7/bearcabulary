@@ -5,6 +5,11 @@
   justify-content: space-between;
   padding: 2.5rem 3rem 1.5rem;
   height: 30%;
+
+  &.no_word {
+    height: 65%;
+    padding: 2.5rem 3rem 3rem;
+  }
 }
 
 .prev {
@@ -61,4 +66,9 @@
   height: 60%;
   padding: 1.5rem 2rem 2rem;
   background-color: lighten($grey, 10%);
+
+  &.no_word {
+    height: 25%;
+    padding: 2rem;
+  }
 }

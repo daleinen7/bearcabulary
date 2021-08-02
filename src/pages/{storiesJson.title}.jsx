@@ -143,7 +143,13 @@ export default function Game({ data }) {
 
   return (
     <Layout>
-      <div className={styles.top_container}>
+      <div
+        className={`${styles.top_container} ${
+          !gameState.story.section[gameState.pageCounter].word
+            ? styles.no_word
+            : ""
+        }`}
+      >
         <button
           className={`${styles.prev} ${
             gameState.pageCounter === 0 ? styles.hidden : ""
@@ -170,7 +176,13 @@ export default function Game({ data }) {
           Next <GrFormNext size={40} />
         </button>
       </div>
-      <div className={styles.bottom_container}>
+      <div
+        className={`${styles.bottom_container} ${
+          !gameState.story.section[gameState.pageCounter].word
+            ? styles.no_word
+            : ""
+        }`}
+      >
         {gameState.story.section[gameState.pageCounter].word && (
           <FlashWord
             corrects={gameState.corrects}

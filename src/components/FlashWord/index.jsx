@@ -9,7 +9,7 @@ export default function FlashWord({ corrects, word }) {
       setHide(true);
       const timer = setTimeout(() => {
         setHide(false);
-      }, 1500);
+      }, 1000);
       return () => clearTimeout(timer);
     } else {
       setHide(false);
