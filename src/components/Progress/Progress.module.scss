@@ -3,25 +3,28 @@
 .progress_bar {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  background-color: $grey;
+  padding: 0.5rem 2rem;
+  width: 40%;
+  border-radius: 30px;
 
   .progress {
     svg {
-      height: 30px;
-      width: 30px;
-      fill: $grey;
+      height: 2rem;
+      width: 2rem;
+      fill: lighten($dark-grey, 20%);
     }
   }
 
   .before {
     svg {
-      fill: $dark-grey;
+      fill: $blue;
     }
   }
 
   .current {
     svg {
-      fill: darken($yellow, 5%);
+      fill: $dark-blue;
     }
   }
 }
