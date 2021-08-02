@@ -17,9 +17,9 @@
     justify-content: center;
     align-items: center;
     margin: 5px 10px;
-    height: 70px;
-    width: 70px;
-    font-size: 3rem;
+    height: clamp(50px, 5vw, 75px);
+    width: clamp(50px, 5vw, 75px);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     text-transform: uppercase;
     color: $blue;
     border: 3px solid $blue;
@@ -106,7 +106,6 @@
 
   .utility_buttons_container {
     flex-flow: row;
-    justify-content: center;
 
     & > * {
       flex-grow: 1;

@@ -147,10 +147,31 @@ export default function Game({ data }) {
         >
           <GrFormPrevious size={40} /> Prev
         </button>
+        <button
+          className={`${styles.prev_mobile} ${
+            gameState.pageCounter === 0 ? styles.hidden : ""
+          }`}
+          onClick={() => dispatch({ type: types.prevPage })}
+        >
+          <GrFormPrevious size={40} />
+        </button>
         <Picture
           picture={gameState.story.section[gameState.pageCounter].img}
           sentence={gameState.story.section[gameState.pageCounter].sentence}
         />
+        <button
+          className={`${styles.next_mobile} ${
+            !gameState.story.section[gameState.pageCounter].word ||
+            gameState.corrects.includes(
+              gameState.story.section[gameState.pageCounter].word.toUpperCase()
+            )
+              ? ""
+              : styles.disabled
+          }`}
+          onClick={() => dispatch({ type: types.nextPage })}
+        >
+          <GrFormNext size={40} />
+        </button>
         <button
           className={`${styles.next} ${
             !gameState.story.section[gameState.pageCounter].word ||
