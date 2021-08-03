@@ -24,20 +24,25 @@ $dark-grey: rgb(102, 114, 143);
   border-radius: 10px;
   box-shadow: 3px 3px darken($color, 25%);
 
+  &.disabled {
+    pointer-events: none;
+    color: $dark-grey;
+    background-color: $grey;
+    box-shadow: none;
+  }
+
   &:hover {
     background-color: lighten($color, 5%);
+  }
+
+  &:focus-visible {
+    color: white;
+    outline: darken($color, 50%) solid;
   }
 
   &:active {
     color: $dark-grey;
     background-color: $grey;
     box-shadow: inset 3px 3px $dark-grey;
-  }
-
-  &.disabled {
-    pointer-events: none;
-    color: $dark-grey;
-    background-color: $grey;
-    box-shadow: none;
   }
 }

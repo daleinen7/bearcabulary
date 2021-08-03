@@ -168,12 +168,12 @@ export default function LetterSelection({
                     ? styles.filled
                     : ""
                 }`}
-                onClick={() =>
+                onClick={() => {
                   dispatch({
                     type: types.addLetter,
                     payload: index,
-                  })
-                }
+                  });
+                }}
               >
                 {selectableLetter}
               </button>
