@@ -12,6 +12,10 @@ export default function Index() {
       allStoriesJson {
         nodes {
           title
+          level
+          section {
+            img
+          }
           parent {
             ... on File {
               name
