@@ -18,29 +18,11 @@
   }
 
   a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include Button($green);
+    width: 100%;
+    font-size: 2rem;
     text-decoration: none;
-    padding: 1rem;
-    color: white;
-    font-family: "Quicksand", sans-serif;
-    font-size: clamp(1rem);
-    font-weight: 700;
-    background-color: $green;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 3px 3px darken($green, 25%);
-
-    &:hover {
-      background-color: lighten($green, 5%);
-    }
-
-    &:active {
-      color: $dark-grey;
-      background-color: $grey;
-      box-shadow: inset 3px 3px $dark-grey;
-    }
+    font-size: 1.3rem;
   }
 
   img {

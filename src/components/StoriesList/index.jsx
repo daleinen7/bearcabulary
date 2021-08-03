@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import * as styles from "./StoriesList.module.scss";
 
 export default function StoriesList({ stories }) {
-  console.log(stories);
   return (
     <ul className={styles.stories_list}>
       {stories.map((story, index) => {
