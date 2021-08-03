@@ -7,7 +7,7 @@
   height: 30%;
 
   &.no_word {
-    height: 65%;
+    height: 68%;
     padding: 2.5rem 3rem 3rem;
   }
 }
@@ -64,7 +64,8 @@
 .prev_mobile,
 .next_mobile {
   display: none;
-  width: 4rem;
+  width: 3rem;
+  min-width: 3rem;
 }
 
 .bottom_container {
@@ -72,7 +73,7 @@
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  height: 60%;
+  height: 63%;
   padding: 1.5rem 2rem 2rem;
   background-color: lighten($grey, 10%);
 
@@ -100,6 +101,9 @@
   .top_container {
     padding: 0;
     padding: 1rem 1.5rem;
+    &.no_word {
+      height: 70%;
+    }
   }
   .bottom_container {
     height: 65%;
