@@ -169,10 +169,12 @@ export default function LetterSelection({
                     : ""
                 }`}
                 onClick={() => {
-                  dispatch({
-                    type: types.addLetter,
-                    payload: index,
-                  });
+                  if (!letterState.correct) {
+                    dispatch({
+                      type: types.addLetter,
+                      payload: index,
+                    });
+                  }
                 }}
               >
                 {selectableLetter}
@@ -193,18 +195,31 @@ export default function LetterSelection({
             className={`${styles.submit} ${
               letterState.correct ? styles.disabled : ""
             }`}
-            onClick={() =>
-              dispatchGame({
-                type: typesGame.checkWord,
-                payload: {
-                  clickedLetters: letterState.clickedLetters,
-                  letterDispatch: dispatch,
-                  setCorrectInLetters: types.setCorrectInLetters,
-                  setTrueInCheck: types.setTrueInCheck,
-                  setFalseInCheck: types.setFalseInCheck,
-                },
-              })
-            }
+            onClick={() => {
+              if (!letterState.correct) {
+                if (letterState.clickedLetters.join("") === "") {
+                  dispatch({
+                    type: types.setTrueInCheck,
+                  });
+                  setTimeout(() => {
+                    dispatch({
+                      type: types.setFalseInCheck,
+                    });
+                  }, 1000);
+                } else {
+                  dispatchGame({
+                    type: typesGame.checkWord,
+                    payload: {
+                      clickedLetters: letterState.clickedLetters,
+                      letterDispatch: dispatch,
+                      setCorrectInLetters: types.setCorrectInLetters,
+                      setTrueInCheck: types.setTrueInCheck,
+                      setFalseInCheck: types.setFalseInCheck,
+                    },
+                  });
+                }
+              }
+            }}
           >
             <GrReturn />
           </button>
