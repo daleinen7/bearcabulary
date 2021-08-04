@@ -134,12 +134,6 @@ export default function Game({ data }) {
     dispatch({ type: types.initialize, payload: data.storiesJson });
   }, [data.storiesJson]);
 
-  console.log(
-    gameState.pageCounter,
-    gameState.story.section.length,
-    gameState.pageCounter === gameState.story.section.length - 1
-  );
-
   return (
     <Layout>
       <div
@@ -231,6 +225,7 @@ export default function Game({ data }) {
                 : styles.disabled
             }`}
             to="/summary"
+            state={{ corrects: gameState.corrects, errors: gameState.errors }}
           >
             Next <GrFormNext size={40} />
           </Link>
