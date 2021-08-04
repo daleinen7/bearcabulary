@@ -169,10 +169,12 @@ export default function LetterSelection({
                     : ""
                 }`}
                 onClick={() => {
-                  dispatch({
-                    type: types.addLetter,
-                    payload: index,
-                  });
+                  if (!letterState.correct) {
+                    dispatch({
+                      type: types.addLetter,
+                      payload: index,
+                    });
+                  }
                 }}
               >
                 {selectableLetter}
@@ -194,26 +196,28 @@ export default function LetterSelection({
               letterState.correct ? styles.disabled : ""
             }`}
             onClick={() => {
-              if (letterState.clickedLetters.join("") === "") {
-                dispatch({
-                  type: types.setTrueInCheck,
-                });
-                setTimeout(() => {
+              if (!letterState.correct) {
+                if (letterState.clickedLetters.join("") === "") {
                   dispatch({
-                    type: types.setFalseInCheck,
+                    type: types.setTrueInCheck,
                   });
-                }, 1000);
-              } else {
-                dispatchGame({
-                  type: typesGame.checkWord,
-                  payload: {
-                    clickedLetters: letterState.clickedLetters,
-                    letterDispatch: dispatch,
-                    setCorrectInLetters: types.setCorrectInLetters,
-                    setTrueInCheck: types.setTrueInCheck,
-                    setFalseInCheck: types.setFalseInCheck,
-                  },
-                });
+                  setTimeout(() => {
+                    dispatch({
+                      type: types.setFalseInCheck,
+                    });
+                  }, 1000);
+                } else {
+                  dispatchGame({
+                    type: typesGame.checkWord,
+                    payload: {
+                      clickedLetters: letterState.clickedLetters,
+                      letterDispatch: dispatch,
+                      setCorrectInLetters: types.setCorrectInLetters,
+                      setTrueInCheck: types.setTrueInCheck,
+                      setFalseInCheck: types.setFalseInCheck,
+                    },
+                  });
+                }
               }
             }}
           >
