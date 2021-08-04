@@ -100,13 +100,17 @@ const reducer = (state, action) => {
             },
           };
         } else {
-          return {
-            ...state,
-            errors: {
-              ...state.errors,
-              [currentWord]: [...state.errors[currentWord], payloadWord],
-            },
-          };
+          if (state.errors[currentWord].includes(payloadWord)) {
+            return state;
+          } else {
+            return {
+              ...state,
+              errors: {
+                ...state.errors,
+                [currentWord]: [...state.errors[currentWord], payloadWord],
+              },
+            };
+          }
         }
       } else {
         return state;
