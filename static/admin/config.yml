@@ -10,20 +10,21 @@ public_folder: /img
 # god bless this stackoverflow forum https://stackoverflow.com/questions/55525988/netlify-cms-how-to-store-an-array-of-objects-via-config-yml-collections
 
 collections:
-  - name: 'story'
-    label: 'Story'
-    extension: 'json'
+  - name: "story"
+    label: "Story"
+    extension: "json"
     create: true
-    folder: 'static/stories'
+    folder: "static/stories"
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Level', name: 'level', widget: 'number' }
-      - label: 'Section'
-        name: 'section'
-        widget: 'list'
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Level", name: "level", widget: "number" }
+      - label: "Section"
+        name: "section"
+        widget: "list"
         fields:
-          - { label: 'Image', name: 'img', widget: 'string' }
-          - { label: 'Sentence', name: 'sentence', widget: 'string' }
-          - { label: 'Word', name: 'word', widget: 'string', required: false }
+          - { label: "Media", name: "media", widget: "image" }
+          - { label: "Image", name: "img", widget: "string" }
+          - { label: "Sentence", name: "sentence", widget: "string" }
+          - { label: "Word", name: "word", widget: "string", required: false }
