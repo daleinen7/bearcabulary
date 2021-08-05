@@ -9,12 +9,12 @@ export default function Summary({ location }) {
       <>
         {location.state.corrects.map((word, index) => {
           return (
-            <div key={index}>
+            <ul key={index}>
               {word}{" "}
               {location.state.errors[word]?.map((error, index2) => {
-                return <div key={index2}>{error}</div>;
+                return <li key={index2}>{error}</li>;
               })}
-            </div>
+            </ul>
           );
         })}
         <div>Summary</div>
