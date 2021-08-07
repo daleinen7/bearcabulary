@@ -26,8 +26,8 @@
       "media": "placeholder.png"
     },
     {
-      "sentence": "There'll be corn and beets and potatoes, and such. ________ and carrots and squash.",
-      "word": "Zucchini",
+      "sentence": "There'll be corn, beets, ________, and such. Zucchini, carrots, and also some squash.",
+      "word": "potatoes",
       "img": "placeholder.png",
       "media": "placeholder.png"
     },
