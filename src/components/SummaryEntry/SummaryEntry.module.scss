@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+.entry_container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 1rem 0;
+}
+
+.word {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-weight: 700;
+  font-size: 2rem;
+  color: $dark-blue;
+}
+
+.errors_container {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+
+  .error {
+    margin-right: 1rem;
+    padding: 7px 10px;
+    font-size: 1.5rem;
+    background-color: $grey;
+    border-radius: 5px;
+  }
+}
