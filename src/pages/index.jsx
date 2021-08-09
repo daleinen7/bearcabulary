@@ -15,10 +15,21 @@ export default function Index() {
           level
           section {
             img
+            media
           }
           parent {
             ... on File {
               name
+            }
+          }
+        }
+      }
+      allFile(filter: { sourceInstanceName: { eq: "images" } }) {
+        nodes {
+          relativePath
+          childImageSharp {
+            fixed(width: 300, height: 300) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
@@ -29,7 +40,7 @@ export default function Index() {
   return (
     <Layout>
       <Hero />
-      <StoriesList stories={data.allStoriesJson.nodes} />
+      <StoriesList stories={data.allStoriesJson.nodes} images={data.allFile} />
       <About />
     </Layout>
   );

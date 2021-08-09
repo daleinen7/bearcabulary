@@ -4,6 +4,7 @@ import {
   makeSelectableLetters,
   makeBlankLetters,
 } from "../../utilities/letterSelectionUtil";
+import sfx from "../../audio/BearcabSFX.mp3";
 import { TiBackspace } from "react-icons/ti";
 import { GrReturn } from "react-icons/gr";
 
@@ -127,6 +128,15 @@ export default function LetterSelection({
       payload: { word: word, corrects: corrects },
     });
   }, [word, corrects]);
+
+  useEffect(() => {
+    playAudio();
+  });
+
+  const playAudio = () => {
+    var audio = new Audio(sfx);
+    audio.play();
+  };
 
   return (
     <div className={styles.letters_container}>
