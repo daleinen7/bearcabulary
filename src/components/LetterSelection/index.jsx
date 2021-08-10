@@ -129,10 +129,6 @@ export default function LetterSelection({
     });
   }, [word, corrects]);
 
-  useEffect(() => {
-    playAudio();
-  });
-
   const playAudio = () => {
     var audio = new Audio(sfx);
     audio.play();
@@ -180,6 +176,7 @@ export default function LetterSelection({
                 }`}
                 onClick={() => {
                   if (!letterState.correct) {
+                    playAudio();
                     dispatch({
                       type: types.addLetter,
                       payload: index,
