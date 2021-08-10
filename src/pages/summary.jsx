@@ -30,7 +30,7 @@ export default function Summary({ location }) {
             })}
           </ul>
           <Link to="/" className={styles.home_button}>
-            Go to Home
+            Home
           </Link>
         </div>
       </Layout>
