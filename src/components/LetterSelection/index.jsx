@@ -4,7 +4,8 @@ import {
   makeSelectableLetters,
   makeBlankLetters,
 } from "../../utilities/letterSelectionUtil";
-import sfx from "../../audio/BearcabSFX.mp3";
+import letterSelectSFX from "../../audio/LetterSelect2.mp3";
+import removeLetterSFX from "../../audio/removeLetterSFX.mp3";
 import { TiBackspace } from "react-icons/ti";
 import { GrReturn } from "react-icons/gr";
 
@@ -129,8 +130,8 @@ export default function LetterSelection({
     });
   }, [word, corrects]);
 
-  const playAudio = () => {
-    var audio = new Audio(sfx);
+  const playAudio = (sound) => {
+    var audio = new Audio(sound);
     audio.play();
   };
 
@@ -176,7 +177,7 @@ export default function LetterSelection({
                 }`}
                 onClick={() => {
                   if (!letterState.correct) {
-                    playAudio();
+                    playAudio(letterSelectSFX);
                     dispatch({
                       type: types.addLetter,
                       payload: index,
@@ -194,7 +195,10 @@ export default function LetterSelection({
             className={`${styles.backspace} ${
               letterState.correct ? styles.disabled : ""
             }`}
-            onClick={() => dispatch({ type: types.removeLetter })}
+            onClick={() => {
+              playAudio(removeLetterSFX);
+              dispatch({ type: types.removeLetter });
+            }}
           >
             <TiBackspace />
           </button>
