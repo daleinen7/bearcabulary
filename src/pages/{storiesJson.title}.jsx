@@ -8,6 +8,7 @@ import FlashWord from "../components/FlashWord";
 import Sentence from "../components/Sentence";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
+import nextSFX from "../audio/LetterSelect1.mp3";
 
 const types = {
   nextPage: "nextPage",
@@ -134,6 +135,11 @@ export default function Game({ data }) {
     dispatch({ type: types.initialize, payload: data.storiesJson });
   }, [data.storiesJson]);
 
+  const playAudio = (sound) => {
+    var audio = new Audio(sound);
+    audio.play();
+  };
+
   return (
     <Layout>
       <div
@@ -147,7 +153,10 @@ export default function Game({ data }) {
           className={`${styles.prev} ${
             gameState.pageCounter === 0 ? styles.hidden : ""
           }`}
-          onClick={() => dispatch({ type: types.prevPage })}
+          onClick={() => {
+            playAudio(nextSFX);
+            dispatch({ type: types.prevPage });
+          }}
         >
           <GrFormPrevious size={40} /> Prev
         </button>
@@ -175,7 +184,10 @@ export default function Game({ data }) {
                 ? ""
                 : styles.disabled
             }`}
-            onClick={() => dispatch({ type: types.nextPage })}
+            onClick={() => {
+              playAudio(nextSFX);
+              dispatch({ type: types.nextPage });
+            }}
           >
             <GrFormNext size={40} />
           </button>
@@ -208,7 +220,10 @@ export default function Game({ data }) {
                 ? ""
                 : styles.disabled
             }`}
-            onClick={() => dispatch({ type: types.nextPage })}
+            onClick={() => {
+              playAudio(nextSFX);
+              dispatch({ type: types.nextPage });
+            }}
           >
             Next <GrFormNext size={40} />
           </button>
@@ -253,6 +268,7 @@ export default function Game({ data }) {
             corrects={gameState.corrects}
             dispatchGame={dispatch}
             typesGame={types}
+            playAudio={playAudio}
           />
         )}
         <Progress

@@ -4,6 +4,7 @@ import {
   makeSelectableLetters,
   makeBlankLetters,
 } from "../../utilities/letterSelectionUtil";
+import submitSuccessSFX from "../../audio/LetterSelect4.mp3";
 import letterSelectSFX from "../../audio/LetterSelect2.mp3";
 import removeLetterSFX from "../../audio/removeLetterSFX.mp3";
 import { TiBackspace } from "react-icons/ti";
@@ -120,6 +121,7 @@ export default function LetterSelection({
   corrects,
   dispatchGame,
   typesGame,
+  playAudio,
 }) {
   const [letterState, dispatch] = useReducer(reducer, initialLetterState);
 
@@ -129,11 +131,6 @@ export default function LetterSelection({
       payload: { word: word, corrects: corrects },
     });
   }, [word, corrects]);
-
-  const playAudio = (sound) => {
-    var audio = new Audio(sound);
-    audio.play();
-  };
 
   return (
     <div className={styles.letters_container}>
@@ -208,6 +205,7 @@ export default function LetterSelection({
             }`}
             onClick={() => {
               if (!letterState.correct) {
+                playAudio(submitSuccessSFX);
                 if (letterState.clickedLetters.join("") === "") {
                   dispatch({
                     type: types.setTrueInCheck,
