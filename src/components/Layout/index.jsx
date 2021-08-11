@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header";
-// import Footer from '../Footer';
 
 export default function Layout({ children }) {
+  const [audio, setAudio] = useState(true);
   return (
     <>
-      <Header />
+      <Header audio={audio} setAudio={setAudio} />
       {children}
     </>
   );
