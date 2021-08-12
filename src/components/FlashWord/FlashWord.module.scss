@@ -11,8 +11,10 @@
   background-color: $grey;
   border-radius: 10px;
   margin-bottom: 10px;
+  transition: opacity 0.5s;
 }
 
 .hidden {
-  visibility: hidden;
+  // visibility: hidden;
+  opacity: 0;
 }
