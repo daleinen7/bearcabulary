@@ -19,7 +19,7 @@ export default function FlashWord({ corrects, word }) {
   return (
     <p className={styles.word}>
       {word.split("").map((letter, index) => {
-        let style = {
+        const style = {
           transition: "opacity .5s ease-in-out",
           "transition-delay": index / 10 + "s",
         };
