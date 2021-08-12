@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useContext } from "react";
 import { graphql, Link } from "gatsby";
 import * as styles from "./Game.module.scss";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
@@ -9,6 +9,7 @@ import Sentence from "../components/Sentence";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
 import nextSFX from "../audio/LetterSelect1.mp3";
+import { audioStateContext } from "../context/audio-context";
 
 const types = {
   nextPage: "nextPage",
@@ -135,9 +136,14 @@ export default function Game({ data }) {
     dispatch({ type: types.initialize, payload: data.storiesJson });
   }, [data.storiesJson]);
 
+  const audio = useContext(audioStateContext);
+
   const playAudio = (sound) => {
-    var audio = new Audio(sound);
-    audio.play();
+    console.log(audio);
+    if (audio) {
+      const sfx = new Audio(sound);
+      sfx.play();
+    }
   };
 
   return (
