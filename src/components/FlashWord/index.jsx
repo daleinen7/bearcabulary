@@ -18,13 +18,13 @@ export default function FlashWord({ corrects, word }) {
 
   return (
     <p className={styles.word}>
-      {word.split("").map((letter, idx) => {
+      {word.split("").map((letter, index) => {
         let style = {
           transition: "opacity .5s ease-in-out",
-          "transition-delay": idx / 10 + "s",
+          "transition-delay": index / 10 + "s",
         };
         return (
-          <span key={idx} style={style} className={hide ? "" : styles.hidden}>
+          <span key={index} style={style} className={hide ? "" : styles.hidden}>
             {letter}
           </span>
         );
