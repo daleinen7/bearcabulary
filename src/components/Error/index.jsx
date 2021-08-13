@@ -4,15 +4,15 @@ import * as styles from "./Error.module.scss";
 export default function Error({ errorWord, word }) {
   return (
     <>
-      {errorWord.split("").map((errorLetter, index) => {
+      {errorWord.split("").map((letter, index) => {
         return (
           <span
             key={index}
             className={
-              word[index].toUpperCase() !== errorLetter ? styles.incorrect : ""
+              word[index].toUpperCase() !== letter ? styles.incorrect : ""
             }
           >
-            {errorLetter}
+            {letter}
           </span>
         );
       })}
