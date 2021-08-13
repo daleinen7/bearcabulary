@@ -17,21 +17,27 @@ export default function Summary({ location }) {
     return (
       <Layout>
         <div className={styles.summary_page_container}>
-          <div>The End!</div>
-          <ul className={styles.entries_container}>
-            {location.state?.corrects.map((word, index) => {
-              return (
-                <SummaryEntry
-                  word={word}
-                  key={index}
-                  errors={location.state?.errors[word]}
-                />
-              );
-            })}
-          </ul>
-          <Link to="/" className={styles.home_button}>
-            Home
-          </Link>
+          <div className={styles.summary_page_inner_container}>
+            <div className={styles.summary_page_title}>The End.</div>
+            <div className={styles.summary_page_description}>
+              Here's a quick summary of the words you've spelled and the
+              mistakes you've made, if any!
+            </div>
+            <ul className={styles.entries_container}>
+              {location.state?.corrects.map((word, index) => {
+                return (
+                  <SummaryEntry
+                    word={word}
+                    key={index}
+                    errors={location.state?.errors[word]}
+                  />
+                );
+              })}
+            </ul>
+            <Link to="/" className={styles.home_button}>
+              Home
+            </Link>
+          </div>
         </div>
       </Layout>
     );
