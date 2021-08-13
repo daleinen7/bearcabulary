@@ -28,7 +28,7 @@ export default function Index() {
         nodes {
           relativePath
           childrenImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 200)
           }
         }
       }

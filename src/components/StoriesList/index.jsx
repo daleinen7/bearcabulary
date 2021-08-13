@@ -7,12 +7,14 @@ export default function StoriesList({ stories, images }) {
   return (
     <ul className={styles.stories_list}>
       {stories.map((story, index) => {
-        console.log(images);
+        // find element in the images array that has the first image of the story being mapped over
+        const image = images.find((ele) => {
+          return ele.relativePath === story.section[0].media?.slice(5);
+        });
         return (
           <li key={index}>
-            {/* <img src={story.section[0].img} alt={story.title} /> */}
             <GatsbyImage
-              image={images[0].childrenImageSharp[0].gatsbyImageData}
+              image={image?.childrenImageSharp[0].gatsbyImageData}
               alt={story.title}
             />
             <Link to={story.parent.name}>{story.title}</Link>
