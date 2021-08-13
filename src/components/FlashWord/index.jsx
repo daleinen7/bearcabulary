@@ -17,8 +17,18 @@ export default function FlashWord({ corrects, word }) {
   }, [word, corrects]);
 
   return (
-    <p className={`${styles.word} ${hide ? "" : styles.hidden}`}>
-      {word.toUpperCase()}
+    <p className={styles.word}>
+      {word.split("").map((letter, index) => {
+        const style = {
+          transition: "opacity .5s ease-in-out",
+          "transition-delay": index / 10 + "s",
+        };
+        return (
+          <span key={index} style={style} className={hide ? "" : styles.hidden}>
+            {letter}
+          </span>
+        );
+      })}
     </p>
   );
 }

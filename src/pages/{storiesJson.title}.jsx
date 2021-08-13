@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import * as styles from "./Game.module.scss";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import Layout from "../components/Layout";
@@ -163,32 +163,73 @@ export default function Game({ data }) {
           picture={gameState.story.section[gameState.pageCounter].img}
           sentence={gameState.story.section[gameState.pageCounter].sentence}
         />
-        <button
-          className={`${styles.next_mobile} ${
-            !gameState.story.section[gameState.pageCounter].word ||
-            gameState.corrects.includes(
-              gameState.story.section[gameState.pageCounter].word.toUpperCase()
-            )
-              ? ""
-              : styles.disabled
-          }`}
-          onClick={() => dispatch({ type: types.nextPage })}
-        >
-          <GrFormNext size={40} />
-        </button>
-        <button
-          className={`${styles.next} ${
-            !gameState.story.section[gameState.pageCounter].word ||
-            gameState.corrects.includes(
-              gameState.story.section[gameState.pageCounter].word.toUpperCase()
-            )
-              ? ""
-              : styles.disabled
-          }`}
-          onClick={() => dispatch({ type: types.nextPage })}
-        >
-          Next <GrFormNext size={40} />
-        </button>
+        {gameState.pageCounter !== gameState.story.section.length - 1 ? (
+          <button
+            className={`${styles.next_mobile} ${
+              !gameState.story.section[gameState.pageCounter].word ||
+              gameState.corrects.includes(
+                gameState.story.section[
+                  gameState.pageCounter
+                ].word.toUpperCase()
+              )
+                ? ""
+                : styles.disabled
+            }`}
+            onClick={() => dispatch({ type: types.nextPage })}
+          >
+            <GrFormNext size={40} />
+          </button>
+        ) : (
+          <Link
+            className={`${styles.next_mobile} ${
+              !gameState.story.section[gameState.pageCounter].word ||
+              gameState.corrects.includes(
+                gameState.story.section[
+                  gameState.pageCounter
+                ].word.toUpperCase()
+              )
+                ? ""
+                : styles.disabled
+            }`}
+            to="/summary"
+          >
+            <GrFormNext size={40} />
+          </Link>
+        )}
+        {gameState.pageCounter !== gameState.story.section.length - 1 ? (
+          <button
+            className={`${styles.next} ${
+              !gameState.story.section[gameState.pageCounter].word ||
+              gameState.corrects.includes(
+                gameState.story.section[
+                  gameState.pageCounter
+                ].word.toUpperCase()
+              )
+                ? ""
+                : styles.disabled
+            }`}
+            onClick={() => dispatch({ type: types.nextPage })}
+          >
+            Next <GrFormNext size={40} />
+          </button>
+        ) : (
+          <Link
+            className={`${styles.next} ${
+              !gameState.story.section[gameState.pageCounter].word ||
+              gameState.corrects.includes(
+                gameState.story.section[
+                  gameState.pageCounter
+                ].word.toUpperCase()
+              )
+                ? ""
+                : styles.disabled
+            }`}
+            to="/summary"
+            state={{ corrects: gameState.corrects, errors: gameState.errors }}
+          >
+            Next <GrFormNext size={40} />
+          </Link>
+        )}
       </div>
       <div
         className={`${styles.bottom_container} ${

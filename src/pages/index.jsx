@@ -29,7 +29,7 @@ export default function Index() {
   return (
     <Layout>
       <Hero />
-      <StoriesList stories={data.allStoriesJson.nodes} />
+      <StoriesList stories={data.allStoriesJson.nodes} images={data.allFile} />
       <About />
     </Layout>
   );
