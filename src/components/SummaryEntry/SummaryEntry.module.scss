@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.entry_container {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: lighten($grey, 10%);
+  border-radius: 10px;
+}
+
+.word {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  color: $dark-blue;
+}
+
+.error {
+  margin: 0.25rem;
+  padding: 7px 10px;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  background-color: $grey;
+  border-radius: 5px;
+}
