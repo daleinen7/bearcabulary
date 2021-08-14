@@ -271,6 +271,7 @@ export const query = graphql`
       level
       section {
         img
+        media
         sentence
         word
       }
