@@ -29,7 +29,7 @@ collections:
           - { label: "Word", name: "word", widget: "string", required: false }
           - {
               label: "Definition",
-              name: "defininition",
+              name: "definition",
               widget: "string",
               required: false,
             }

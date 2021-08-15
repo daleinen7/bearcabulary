@@ -286,7 +286,7 @@ export const query = graphql`
       nodes {
         relativePath
         childrenImageSharp {
-          gatsbyImageData(width: 400)
+          gatsbyImageData(width: 600)
         }
       }
     }
