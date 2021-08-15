@@ -14,7 +14,7 @@ export default function StoriesList({ stories, images }) {
         return (
           <li key={index}>
             <GatsbyImage
-              image={image?.childrenImageSharp[0].gatsbyImageData}
+              image={image?.childrenImageSharp[0]?.gatsbyImageData}
               alt={story.title}
             />
             <Link to={story.parent.name}>{story.title}</Link>
