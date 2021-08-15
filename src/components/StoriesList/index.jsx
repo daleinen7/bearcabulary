@@ -14,6 +14,7 @@ export default function StoriesList({ stories, images }) {
         return (
           <li key={index}>
             <GatsbyImage
+              className={styles.gatsby_wrapper}
               image={image?.childrenImageSharp[0].gatsbyImageData}
               alt={story.title}
             />

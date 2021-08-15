@@ -10,23 +10,36 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: $dark-blue;
+    background: $blue;
     border-radius: 24px;
     width: 400px;
+    height: 350px;
     margin: 20px;
     padding: 20px;
   }
 
   a {
-    @include Button($green);
+    @include Button($yellow);
     width: 100%;
+    margin-top: 20px;
     font-size: 2rem;
     text-decoration: none;
     font-size: 1.3rem;
+    color: black;
+    box-shadow: 3px 3px $dark-orange;
   }
 
-  img {
-    width: 100%;
+  .gatsby_wrapper {
+    height: 100%;
+    background-color: white;
+    border: 3px solid $dark-blue;
+    border-radius: 10px;
+
+    img {
+      height: 100%;
+      padding: 10px;
+      object-fit: contain !important;
+    }
   }
 
   @media screen and (max-width: 830px) {
