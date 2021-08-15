@@ -1,10 +1,11 @@
 import React from "react";
 import * as styles from "./Picture.module.scss";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-export default function Picture({ picture, sentence }) {
+export default function Picture({ picture, sentence, image }) {
   return (
     <div className={styles.image_container}>
-      <img className={styles.image} src={picture} alt={sentence} />
+      <GatsbyImage image={image} className={styles.image} alt={sentence} />
     </div>
   );
 }

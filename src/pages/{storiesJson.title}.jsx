@@ -8,6 +8,7 @@ import FlashWord from "../components/FlashWord";
 import Sentence from "../components/Sentence";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
+import { findImage } from "../utilities/imageSelectionUtil";
 
 const types = {
   nextPage: "nextPage",
@@ -160,6 +161,11 @@ export default function Game({ data }) {
           <GrFormPrevious size={40} />
         </button>
         <Picture
+          image={findImage(
+            data.allFile.nodes,
+            data.storiesJson,
+            gameState.pageCounter
+          )}
           picture={gameState.story.section[gameState.pageCounter].img}
           sentence={gameState.story.section[gameState.pageCounter].sentence}
         />
@@ -274,6 +280,14 @@ export const query = graphql`
         media
         sentence
         word
+      }
+    }
+    allFile(filter: { sourceInstanceName: { eq: "images" } }) {
+      nodes {
+        relativePath
+        childrenImageSharp {
+          gatsbyImageData(width: 600)
+        }
       }
     }
   }
