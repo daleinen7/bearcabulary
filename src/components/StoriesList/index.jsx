@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import * as styles from "./StoriesList.module.scss";
 
 export default function StoriesList({ stories, images }) {
