@@ -25,6 +25,11 @@ collections:
         widget: "list"
         fields:
           - { label: "Media", name: "media", widget: "image" }
-          - { label: "Image", name: "img", widget: "string" }
           - { label: "Sentence", name: "sentence", widget: "string" }
           - { label: "Word", name: "word", widget: "string", required: false }
+          - {
+              label: "Definition",
+              name: "defininition",
+              widget: "string",
+              required: false,
+            }
