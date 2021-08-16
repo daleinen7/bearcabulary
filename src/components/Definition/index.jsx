@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "./Definition.module.scss";
+import TextToSpeech from "../TextToSpeech";
 
 export default function Definition({ word }) {
   const [definition, setDefinition] = useState("");
@@ -22,7 +23,10 @@ export default function Definition({ word }) {
 
   return (
     <div className={styles.definition_container}>
-      <span>DEFINITION</span> {definition}.
+      <div className={styles.definition}>
+        <span>DEFINITION</span> {definition}.
+      </div>
+      <TextToSpeech word={word} />
     </div>
   );
 }
