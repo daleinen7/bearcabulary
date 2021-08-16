@@ -11,19 +11,22 @@
       "word": "Small",
       "sentence": "Brian the Bunny is very _____ in size and hard to find!",
       "img": "https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440082/Group_348_uhtdhu.svg",
-      "media": "/img/group_348_uhtdhu.png"
+      "media": "/img/group_348_uhtdhu.png",
+      "definition": "test"
     },
     {
       "word": "Long",
       "sentence": "He also has very ____ fluffy ears.",
       "img": "https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621383598/hugo-283_zczt8p.svg",
-      "media": "/img/hugo-283_zczt8p.png"
+      "media": "/img/hugo-283_zczt8p.png",
+      "definition": "test"
     },
     {
       "img": "https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621383752/hugo-211_btmjoj.svg",
       "word": "Warm",
       "sentence": "Brian likes ____ places and went to the desert.",
-      "media": "/img/hugo-211_btmjoj.png"
+      "media": "/img/hugo-211_btmjoj.png",
+      "definition": "test"
     },
     {
       "sentence": "After figuring out the clues, Bobby followed Brian to the desert.",
@@ -34,19 +37,22 @@
       "sentence": "When Brian visits the desert, he likes to _____ water from cacti.",
       "word": "Drink",
       "img": "https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440080/Group_350_nqsoml.svg",
-      "media": "/img/group_350_nqsoml.png"
+      "media": "/img/group_350_nqsoml.png",
+      "definition": "test"
     },
     {
       "img": "https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440084/Group_351_ioyfyn.svg",
       "sentence": "It was important to find Brian quickly because the desert gets ____ at night.",
       "word": "Cold",
-      "media": "/img/group_351_ioyfyn.png"
+      "media": "/img/group_351_ioyfyn.png",
+      "definition": "test"
     },
     {
       "word": "Group",
       "sentence": "\"Brian might be with a _____, bunnies love their families!\", Bobby thought to himself.",
       "img": "https://res.cloudinary.com/dsfqk4cg8/image/upload/v1621440081/Group_352_eqamuy.svg",
-      "media": "/img/group_352_eqamuy.png"
+      "media": "/img/group_352_eqamuy.png",
+      "definition": "test"
     },
     {
       "sentence": "After finding some cacti and Brian's friends, Bobby found Brian and they walked home together.",
