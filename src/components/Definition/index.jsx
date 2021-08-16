@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "./Definition.module.scss";
+import TextToSpeech from "../TextToSpeech";
 
 export default function Definition({ word }) {
   const [definition, setDefinition] = useState();

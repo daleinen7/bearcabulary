@@ -199,6 +199,7 @@ export default function Game({ data }) {
                 : styles.disabled
             }`}
             to="/summary"
+            state={{ corrects: gameState.corrects, errors: gameState.errors }}
           >
             <GrFormNext size={40} />
           </Link>

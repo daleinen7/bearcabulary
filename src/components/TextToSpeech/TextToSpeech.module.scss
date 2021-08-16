@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.speech_button {
+  margin: 0 0 10px 10px;
+  @include Button($blue);
+  justify-content: space-between;
+  padding: 10px;
+  height: 30px;
+  width: 125px;
+  border-radius: 5px;
+  font-size: 1rem;
+}

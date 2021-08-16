@@ -101,12 +101,25 @@
 }
 
 @media screen and (max-width: 500px) {
+  .letters_container {
+    height: 50%;
+  }
+
   .buttons_container {
     flex-flow: column;
   }
 
+  .selectable_letters_container {
+    .selectable_letter {
+      margin: 5px;
+    }
+  }
+
   .utility_buttons_container {
     flex-flow: row;
+    button {
+      margin: 5px;
+    }
 
     & > * {
       flex-grow: 1;
