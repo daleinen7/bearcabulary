@@ -20,5 +20,9 @@ export default function Definition({ word }) {
     }
   }, [word]);
 
-  return <div className={styles.definition_container}>{definition}.</div>;
+  return (
+    <div className={styles.definition_container}>
+      <span>DEFINITION</span> {definition}.
+    </div>
+  );
 }
