@@ -8,6 +8,7 @@ import FlashWord from "../components/FlashWord";
 import Sentence from "../components/Sentence";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
+import Definition from "../components/Definition";
 import { findImage } from "../utilities/imageSelectionUtil";
 
 const types = {
@@ -254,12 +255,17 @@ export default function Game({ data }) {
           sentence={gameState.story.section[gameState.pageCounter].sentence}
         />
         {gameState.story.section[gameState.pageCounter].word && (
-          <LetterSelection
-            word={gameState.story.section[gameState.pageCounter].word}
-            corrects={gameState.corrects}
-            dispatchGame={dispatch}
-            typesGame={types}
-          />
+          <>
+            <Definition
+              word={gameState.story.section[gameState.pageCounter].word}
+            />
+            <LetterSelection
+              word={gameState.story.section[gameState.pageCounter].word}
+              corrects={gameState.corrects}
+              dispatchGame={dispatch}
+              typesGame={types}
+            />
+          </>
         )}
         <Progress
           counter={gameState.pageCounter}
@@ -280,6 +286,7 @@ export const query = graphql`
         media
         sentence
         word
+        definition
       }
     }
     allFile(filter: { sourceInstanceName: { eq: "images" } }) {

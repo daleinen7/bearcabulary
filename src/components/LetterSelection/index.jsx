@@ -155,7 +155,6 @@ export default function LetterSelection({
           );
         })}
       </div>
-
       <div className={styles.buttons_container}>
         {/* Buttons to select the letters */}
         <div className={styles.selectable_letters_container}>
