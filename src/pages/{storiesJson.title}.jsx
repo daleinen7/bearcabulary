@@ -246,15 +246,19 @@ export default function Game({ data }) {
         }`}
       >
         {gameState.story.section[gameState.pageCounter].word && (
-          <FlashWord
-            corrects={gameState.corrects}
-            word={gameState.story.section[gameState.pageCounter].word}
-          />
+          <>
+            <FlashWord
+              corrects={gameState.corrects}
+              word={gameState.story.section[gameState.pageCounter].word}
+            />
+            <Definition
+              word={gameState.story.section[gameState.pageCounter].word}
+            />
+          </>
         )}
         <Sentence
           sentence={gameState.story.section[gameState.pageCounter].sentence}
         />
-        <Definition />
         {gameState.story.section[gameState.pageCounter].word && (
           <LetterSelection
             word={gameState.story.section[gameState.pageCounter].word}
