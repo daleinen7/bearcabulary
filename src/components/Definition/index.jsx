@@ -3,7 +3,7 @@ import * as styles from "./Definition.module.scss";
 import TextToSpeech from "../TextToSpeech";
 
 export default function Definition({ word }) {
-  const [definition, setDefinition] = useState("");
+  const [definition, setDefinition] = useState();
 
   useEffect(() => {
     if (word) {
@@ -22,11 +22,12 @@ export default function Definition({ word }) {
   }, [word]);
 
   return (
-    <div className={styles.definition_container}>
-      <div className={styles.definition}>
-        <span>DEFINITION</span> {definition}.
-      </div>
-      <TextToSpeech word={word} />
-    </div>
+    <>
+      {definition && (
+        <div className={styles.definition_container}>
+          <span>Definition</span> {definition}.
+        </div>
+      )}
+    </>
   );
 }
