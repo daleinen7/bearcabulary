@@ -12,13 +12,15 @@
       "sentence": "Their ________ kerfuffled, their feet did shuffle, for the harvest was meant to come soon.",
       "word": "Feathers",
       "img": "placeholder.png",
-      "media": "/img/threelittlecrows_2.png"
+      "media": "/img/threelittlecrows_2.png",
+      "definition": "Light growths that make up the outer covering of the body of a bird."
     },
     {
       "media": "/img/threelittlecrows_3.png",
       "sentence": "\"Woo-hoo! Hooray!\" The crows did cry, as their _____ feet did a sashay.",
       "word": "Happy",
-      "img": "placeholder.png"
+      "img": "placeholder.png",
+      "definition": "Showing or causing feelings of pleasure and enjoyment."
     },
     {
       "sentence": "\"The harvest is near! And don't you see, dear? We'll dance till the very next day.\"",
@@ -29,31 +31,36 @@
       "sentence": "There'll be corn, beets, ________, and such. Zucchini, carrots, and also some squash.",
       "word": "potatoes",
       "img": "placeholder.png",
-      "media": "/img/threelittlecrows_5.png"
+      "media": "/img/threelittlecrows_5.png",
+      "definition": "a round root of a plant that has brown, yellow, or red skin and white or yellow flesh and that is eaten as a vegetable."
     },
     {
       "sentence": "A whole ______ spread, with juice and cornbread, I'm sure we'll all feel very posh.",
       "word": "Autumn",
       "img": "placeholder.png",
-      "media": "/img/threelittlecrows_6.png"
+      "media": "/img/threelittlecrows_6.png",
+      "definition": "The season between summer and winter."
     },
     {
       "sentence": "We'll gobble it down, till our bellies are round, our ______ work has come to an end.",
       "word": "Summer",
       "img": "placeholder.png",
-      "media": "/img/threelittlecrows_7.png"
+      "media": "/img/threelittlecrows_7.png",
+      "definition": "The warmest season of the year that is after spring and before autumn."
     },
     {
       "sentence": "Our hard work is done, so let's have some fun! ______ is just 'round the bend.",
       "word": "Winter",
       "img": "placeholder.png",
-      "media": "/img/threelittlecrows_8.png"
+      "media": "/img/threelittlecrows_8.png",
+      "definition": "The coldest season of the year that is after autumn and before spring."
     },
     {
       "sentence": "Three little _____ with big straw hats all danced to the light of the moon.",
       "word": "Crows",
       "img": "placeholder.png",
-      "media": "/img/threelittlecrows_1.png"
+      "media": "/img/threelittlecrows_1.png",
+      "definition": "A large black bird that has a loud and harsh cry."
     },
     {
       "sentence": "With smiles and glee and good company, they sang proud their own harvest tune.",
