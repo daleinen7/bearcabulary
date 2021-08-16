@@ -9,6 +9,7 @@ import Sentence from "../components/Sentence";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
 import Definition from "../components/Definition";
+import TextToSpeech from "../components/TextToSpeech";
 import { findImage } from "../utilities/imageSelectionUtil";
 
 const types = {
@@ -257,6 +258,9 @@ export default function Game({ data }) {
         {gameState.story.section[gameState.pageCounter].word && (
           <>
             <Definition
+              word={gameState.story.section[gameState.pageCounter].word}
+            />
+            <TextToSpeech
               word={gameState.story.section[gameState.pageCounter].word}
             />
             <LetterSelection
