@@ -99,10 +99,11 @@
 
 @media screen and (max-width: 500px) {
   .top_container {
-    padding: 0 1rem;
+    height: 30%;
+    padding: 1rem 1rem 0;
   }
   .bottom_container {
-    height: 55%;
-    padding: 0.5rem 1rem 2rem;
+    height: 65%;
+    padding: 0.5rem 1rem 1rem;
   }
 }
