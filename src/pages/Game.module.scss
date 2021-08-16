@@ -3,12 +3,11 @@
 .top_container {
   display: flex;
   justify-content: space-between;
-  padding: 2.5rem 3rem 1.5rem;
-  height: 30%;
+  padding: 2rem 2.5rem;
+  height: 35%;
 
   &.no_word {
-    height: 68%;
-    padding: 2.5rem 3rem 3rem;
+    height: 70%;
   }
 }
 
@@ -74,7 +73,7 @@
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  height: 63%;
+  height: 60%;
   padding: 1.5rem 2rem 2rem;
   background-color: lighten($grey, 10%);
 
@@ -102,9 +101,6 @@
   .top_container {
     padding: 0;
     padding: 1rem 1.5rem;
-    &.no_word {
-      height: 70%;
-    }
   }
   .bottom_container {
     height: 65%;
