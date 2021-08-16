@@ -1,0 +1,5 @@
+@import "../../styles/variables";
+
+.speech_button {
+  @include Button($blue);
+}
