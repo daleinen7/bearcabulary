@@ -27,9 +27,3 @@ collections:
           - { label: "Media", name: "media", widget: "image" }
           - { label: "Sentence", name: "sentence", widget: "string" }
           - { label: "Word", name: "word", widget: "string", required: false }
-          - {
-              label: "Definition",
-              name: "definition",
-              widget: "string",
-              required: false,
-            }
