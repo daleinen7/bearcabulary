@@ -6,19 +6,21 @@
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
-  // padding-bottom: 3rem;
 }
 
 .clicked_letters_container {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 
   .clicked_letter {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px 10px;
-    height: clamp(50px, 5vw, 75px);
-    width: clamp(50px, 5vw, 75px);
+    margin-left: clamp(3px, 0.5vw, 10px);
+    margin-right: clamp(3px, 0.5vw, 10px);
+    height: clamp(40px, 6vw, 75px);
+    width: clamp(35px, 6vw, 75px);
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     text-transform: uppercase;
     color: $blue;

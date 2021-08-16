@@ -3,8 +3,8 @@
 .top_container {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 2.5rem;
-  height: 35%;
+  padding: 2rem 2.5rem 0.5rem;
+  height: 40%;
 
   &.no_word {
     height: 70%;
@@ -73,9 +73,9 @@
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  height: 60%;
-  padding: 1.5rem 2rem 2rem;
-  background-color: lighten($grey, 10%);
+  height: 55%;
+  padding: 0 2rem 2rem;
+  background: linear-gradient(0deg, lighten($grey, 10%) 80%, white 100%);
 
   &.no_word {
     height: 25%;
@@ -99,11 +99,10 @@
 
 @media screen and (max-width: 500px) {
   .top_container {
-    padding: 0;
-    padding: 1rem 1.5rem;
+    padding: 0 1rem;
   }
   .bottom_container {
-    height: 65%;
-    padding: 0.5rem 1.5rem 2rem;
+    height: 55%;
+    padding: 0.5rem 1rem 2rem;
   }
 }

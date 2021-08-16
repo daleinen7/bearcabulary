@@ -4,14 +4,14 @@
   display: flex;
   justify-content: space-between;
   background-color: $grey;
-  padding: 0.5rem 2rem;
+  padding: 0.25rem 2rem;
   width: 50%;
   border-radius: 50px;
 
   .progress {
     svg {
-      height: clamp(1rem, 3vw, 2rem);
-      width: clamp(1rem, 3vw, 2rem);
+      height: clamp(1rem, 3vw, 1.5rem);
+      width: clamp(1rem, 3vw, 1.5rem);
       fill: white;
     }
   }

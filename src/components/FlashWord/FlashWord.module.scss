@@ -1,14 +1,13 @@
 @import "../../styles/variables";
 
 .word {
-  padding-top: clamp(0.25rem, 1vw, 0.75rem);
+  padding-top: 0.75rem;
   padding-bottom: clamp(0.25rem, 1vw, 0.75rem);
   padding-left: clamp(0.5rem, 2vw, 1rem);
   padding-right: clamp(0.5rem, 2vw, 1rem);
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(1rem, 3vw, 2.5rem);
   font-weight: 600;
   border-radius: 10px;
-  margin-bottom: 10px;
   color: $dark-blue;
 }
 
