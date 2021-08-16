@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as styles from "./Definition.module.scss";
 
 export default function Definition({ word }) {
-  const [definition, setDefinition] = useState("");
+  const [definition, setDefinition] = useState();
 
   useEffect(() => {
     if (word) {
@@ -21,8 +21,12 @@ export default function Definition({ word }) {
   }, [word]);
 
   return (
-    <div className={styles.definition_container}>
-      <span>DEFINITION</span> {definition}.
-    </div>
+    <>
+      {definition && (
+        <div className={styles.definition_container}>
+          <span>Definition</span> {definition}.
+        </div>
+      )}
+    </>
   );
 }
