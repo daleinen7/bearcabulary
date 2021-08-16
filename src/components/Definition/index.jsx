@@ -22,12 +22,13 @@ export default function Definition({ word }) {
   }, [word]);
 
   return (
-    <>
+    <div className={styles.definition_container}>
       {definition && (
-        <div className={styles.definition_container}>
+        <div className={styles.definition}>
           <span>Definition</span> {definition}.
         </div>
       )}
-    </>
+      <TextToSpeech word={word} />
+    </div>
   );
 }
