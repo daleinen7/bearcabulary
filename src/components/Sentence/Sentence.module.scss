@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 
 .sentence {
+  margin-bottom: 10px;
   text-align: center;
   line-height: 1.5rem;
   font-size: clamp(1rem, 2vw, 1.5rem);
