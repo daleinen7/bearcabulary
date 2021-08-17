@@ -21,7 +21,7 @@
   a {
     @include Button($yellow);
     width: 50%;
-    height: clamp(40px, 5vw, 60px);
+    height: 60px;
     margin-top: 20px;
     font-size: 2rem;
     text-decoration: none;
@@ -29,6 +29,9 @@
     font-size: 1.3rem;
     color: black;
     box-shadow: 3px 3px $dark-orange;
+    &:hover {
+      background-color: lighten($yellow, 17%);
+    }
   }
 
   .gatsby_wrapper {
@@ -57,8 +60,9 @@
 
 .dial {
   border-radius: 50%;
-  width: clamp(30px, 5vw, 50px);
-  height: clamp(30px, 5vw, 50px);
+  margin-top: 15px;
+  width: 50px;
+  height: 50px;
   background-color: $yellow;
   box-shadow: 0px 4px 4px 0px #131000;
 }
@@ -67,4 +71,24 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.screenContainer {
+  overflow: hidden;
+  position: relative;
+  height: 230px;
+}
+
+.screen {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 10px;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    60deg,
+    rgba(135, 228, 254, 0.35) 20%,
+    rgba(231, 255, 255, 0.35) 80%
+  );
 }
