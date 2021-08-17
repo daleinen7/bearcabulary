@@ -4,6 +4,12 @@ import TextToSpeech from "../TextToSpeech";
 
 export default function Definition({ word }) {
   const [definition, setDefinition] = useState();
+  const [showDef, setShowDef] = useState(false);
+
+  const handleDef = () => {
+    const defState = !showDef;
+    setShowDef(defState);
+  };
 
   useEffect(() => {
     if (word) {
@@ -24,8 +30,8 @@ export default function Definition({ word }) {
   return (
     <div className={styles.definition_container}>
       {definition && (
-        <div className={styles.definition}>
-          <span>Definition</span> {definition}.
+        <div className={styles.definition} onClick={handleDef}>
+          <span>Definition</span> {showDef && <div>{definition}.</div>}
         </div>
       )}
       <TextToSpeech word={word} />
