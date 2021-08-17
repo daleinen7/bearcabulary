@@ -18,7 +18,11 @@ export default function StoriesList({ stories, images }) {
               image={image?.childrenImageSharp[0].gatsbyImageData}
               alt={story.title}
             />
-            <Link to={story.parent.name}>{story.title}</Link>
+            <div className={styles.controls}>
+              <div className={styles.dial}></div>
+              <Link to={story.parent.name}>{story.title}</Link>
+              <div className={styles.dial}></div>
+            </div>
           </li>
         );
       })}
