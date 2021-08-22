@@ -36,7 +36,8 @@
 
   .gatsby_wrapper {
     height: 100%;
-    background-color: $grey;
+    // background-color: $grey;
+    background-color: white;
     border: 3px solid $dark-blue;
     border-radius: 10px;
     box-shadow: inset 0px 3px 7px 3px rgba(11, 8, 43, 0.39);
@@ -87,10 +88,8 @@
   height: 100%;
   width: 100%;
   background: linear-gradient(
-    80deg,
-    rgba(135, 228, 254, 0) 30%,
-    rgba(236, 251, 255, 0.5) 33%,
-    rgba(236, 251, 255, 0.5) 37%,
-    rgba(231, 255, 255, 0) 40%
+    60deg,
+    rgba(135, 228, 254, 0) 40%,
+    rgba(254, 254, 254, 0.297) 40%
   );
 }
