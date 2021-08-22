@@ -13,12 +13,20 @@ export default function StoriesList({ stories, images }) {
         });
         return (
           <li key={index}>
-            <GatsbyImage
-              className={styles.gatsby_wrapper}
-              image={image?.childrenImageSharp[0].gatsbyImageData}
-              alt={story.title}
-            />
-            <Link to={story.parent.name}>{story.title}</Link>
+            <div className={styles.screenContainer}>
+              <GatsbyImage
+                className={styles.gatsby_wrapper}
+                image={image?.childrenImageSharp[0].gatsbyImageData}
+                alt={story.title}
+              />
+              <div className={styles.screen}></div>
+            </div>
+
+            <div className={styles.controls}>
+              <div className={styles.dial}></div>
+              <Link to={story.parent.name}>{story.title}</Link>
+              <div className={styles.dial}></div>
+            </div>
           </li>
         );
       })}
