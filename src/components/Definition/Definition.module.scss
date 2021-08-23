@@ -1,21 +1,35 @@
 @import "../../styles/variables";
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .definition_container {
+  opacity: 0;
+
+  animation: 1s ease-out 0s 1 fadeIn forwards;
+  animation-delay: 3s;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
-  height: 44px;
 }
 
 .definition {
-  margin-bottom: 10px;
   padding: clamp(2px, 0.5vw, 5px) clamp(5px, 1vw, 10px);
   text-align: center;
   line-height: 1.5rem;
   font-size: clamp(1rem, 2vw, 1.25rem);
   background-color: $grey;
   border-radius: 10px;
-  cursor: pointer;
 
   span {
     text-transform: uppercase;

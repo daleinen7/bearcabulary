@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .speech_button {
-  margin: 0 0 10px 10px;
+  margin: 0 0 0 10px;
   @include Button($blue);
   justify-content: space-between;
   padding: 10px;

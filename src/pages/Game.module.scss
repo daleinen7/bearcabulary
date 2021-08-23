@@ -84,7 +84,9 @@
 }
 
 .word_container {
-  display: flex;
+  position: relative;
+  width: 100%;
+  height: 2rem;
 }
 
 @media screen and (max-width: 1024px) {
