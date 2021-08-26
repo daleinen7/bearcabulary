@@ -254,6 +254,7 @@ export default function Game({ data }) {
             />
             <Definition
               word={gameState.story.section[gameState.pageCounter].word}
+              corrects={gameState.corrects}
             />
           </div>
         )}
