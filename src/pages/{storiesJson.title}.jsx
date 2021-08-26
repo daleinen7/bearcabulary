@@ -247,26 +247,27 @@ export default function Game({ data }) {
         }`}
       >
         {gameState.story.section[gameState.pageCounter].word && (
-          <FlashWord
-            corrects={gameState.corrects}
-            word={gameState.story.section[gameState.pageCounter].word}
-          />
+          <div className={styles.word_container}>
+            <FlashWord
+              corrects={gameState.corrects}
+              word={gameState.story.section[gameState.pageCounter].word}
+            />
+            <Definition
+              word={gameState.story.section[gameState.pageCounter].word}
+              corrects={gameState.corrects}
+            />
+          </div>
         )}
         <Sentence
           sentence={gameState.story.section[gameState.pageCounter].sentence}
         />
         {gameState.story.section[gameState.pageCounter].word && (
-          <>
-            <Definition
-              word={gameState.story.section[gameState.pageCounter].word}
-            />
-            <LetterSelection
-              word={gameState.story.section[gameState.pageCounter].word}
-              corrects={gameState.corrects}
-              dispatchGame={dispatch}
-              typesGame={types}
-            />
-          </>
+          <LetterSelection
+            word={gameState.story.section[gameState.pageCounter].word}
+            corrects={gameState.corrects}
+            dispatchGame={dispatch}
+            typesGame={types}
+          />
         )}
         <Progress
           counter={gameState.pageCounter}

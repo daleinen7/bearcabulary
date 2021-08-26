@@ -17,7 +17,7 @@ export default function TextToSpeech({ word }) {
           window.speechSynthesis.speak(utterThis);
         }}
       >
-        <FaPlay size={15} /> Play Sound
+        <FaPlay size={15} /> {/* Play Sound */}
       </button>
     </>
   );

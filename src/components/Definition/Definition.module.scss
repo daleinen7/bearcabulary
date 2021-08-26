@@ -1,13 +1,30 @@
 @import "../../styles/variables";
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .definition_container {
+  opacity: 0;
+
+  animation: 1.6s ease-in 0s 1 fadeIn forwards;
+  animation-delay: 2s;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .definition {
-  margin-bottom: 10px;
   padding: clamp(2px, 0.5vw, 5px) clamp(5px, 1vw, 10px);
   text-align: center;
   line-height: 1.5rem;
