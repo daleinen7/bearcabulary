@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import StoriesList from "../components/StoriesList";
 import About from "../components/About";
 import Layout from "../components/Layout";
+import Footer from "../components/Footer";
 import "../styles/style.scss";
 
 export default function Index() {
@@ -43,6 +44,7 @@ export default function Index() {
       />
       <Hero />
       <About />
+      <Footer />
     </Layout>
   );
 }

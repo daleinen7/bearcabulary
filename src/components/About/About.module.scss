@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.about {
+  background-color: lighten($grey, 10%);
+}
+
+.container {
+  margin: 0 auto;
+  width: clamp(300px, 60vw, 1000px);
+  padding: 3rem 0;
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    text-align: center;
+    padding: 1rem 0 0 0;
+    line-height: 1.5rem;
+  }
+}
