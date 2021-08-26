@@ -7,7 +7,7 @@ export default function Footer() {
       <p>
         Built with Gatsby and NetlifyCMS by{" "}
         <a href="https://dougleinen.com" target="_blank" rel="noreferrer">
-          Thor
+          Doug
         </a>{" "}
         and{" "}
         <a href="https://knds.art" target="_blank" rel="noreferrer">
