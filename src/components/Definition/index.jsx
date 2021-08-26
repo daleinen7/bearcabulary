@@ -2,22 +2,9 @@ import React, { useEffect, useState } from "react";
 import * as styles from "./Definition.module.scss";
 import TextToSpeech from "../TextToSpeech";
 
-function FadeInText({ definition, word }) {
-  return (
-    <div className={styles.definition_container}>
-      {definition && (
-        <div className={`${styles.definition}`}>
-          <span>Definition</span> {definition}.
-        </div>
-      )}
-      <TextToSpeech word={word} />
-    </div>
-  );
-}
-
 export default function Definition({ word, corrects }) {
   const [definition, setDefinition] = useState();
-  const [hide, setHide] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(null);
 
   useEffect(() => {
     if (word) {
@@ -32,13 +19,28 @@ export default function Definition({ word, corrects }) {
         );
       }
       fetchData();
-      if (!corrects.includes(word?.toUpperCase())) {
-        setHide(true);
-      } else {
-        setHide(false);
-      }
+      corrects.includes(word?.toUpperCase())
+        ? setIsCorrect(true)
+        : setIsCorrect(false);
     }
-  }, [word]);
+  }, [word, corrects]);
 
-  return <FadeInText key={word} word={word} definition={definition} />;
+  const style = {
+    animationDelay: "0s",
+  };
+
+  return (
+    <div
+      key={word}
+      style={isCorrect ? style : {}}
+      className={styles.definition_container}
+    >
+      {definition && (
+        <div className={styles.definition}>
+          <span>Definition</span> {definition}.
+        </div>
+      )}
+      <TextToSpeech word={word} />
+    </div>
+  );
 }
