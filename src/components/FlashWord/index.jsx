@@ -2,33 +2,28 @@ import React, { useState, useEffect } from "react";
 import * as styles from "./FlashWord.module.scss";
 
 export default function FlashWord({ corrects, word }) {
-  const [hide, setHide] = useState(true);
+  const [show, setShow] = useState(null);
 
   useEffect(() => {
-    if (!corrects.includes(word?.toUpperCase())) {
-      setHide(true);
-      const timer = setTimeout(() => {
-        setHide(false);
-      }, 1000);
-      return () => clearTimeout(timer);
-    } else {
-      setHide(false);
-    }
+    corrects.includes(word?.toUpperCase()) ? setShow(false) : setShow(true);
   }, [word, corrects]);
 
   return (
-    <p className={styles.word}>
-      {word.split("").map((letter, index) => {
-        const style = {
-          transition: "opacity .5s ease-in-out",
-          transitionDelay: index / 10 + "s",
-        };
-        return (
-          <span key={index} style={style} className={hide ? "" : styles.hidden}>
-            {letter}
-          </span>
-        );
-      })}
-    </p>
+    <>
+      {show && (
+        <p key={word} className={styles.word}>
+          {word.split("").map((letter, index) => {
+            const style = {
+              animationDelay: (index / word.length) * 0.5 + 0.25 + "s",
+            };
+            return (
+              <span key={index} style={style} className={styles.letter}>
+                {letter}
+              </span>
+            );
+          })}
+        </p>
+      )}
+    </>
   );
 }

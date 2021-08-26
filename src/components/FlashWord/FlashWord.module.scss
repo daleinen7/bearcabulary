@@ -1,5 +1,17 @@
 @import "../../styles/variables";
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .word {
   position: absolute;
   top: 50%;
@@ -12,6 +24,7 @@
   color: $dark-blue;
 }
 
-.hidden {
+.letter {
   opacity: 0;
+  animation: 1.6s ease-in 0s 1 fadeIn forwards;
 }
