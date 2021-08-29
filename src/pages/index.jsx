@@ -38,11 +38,11 @@ export default function Index() {
 
   return (
     <Layout>
+      <Hero />
       <StoriesList
         stories={data.allStoriesJson.nodes}
         images={data.allFile.nodes}
       />
-      <Hero />
       <About />
       <Footer />
     </Layout>
