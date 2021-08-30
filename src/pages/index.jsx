@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 import "../styles/style.scss";
 
-export default function Index() {
+export default function Index({ location }) {
   const data = useStaticQuery(graphql`
     query Stories {
       allStoriesJson {
@@ -37,7 +37,7 @@ export default function Index() {
   `);
 
   return (
-    <Layout>
+    <Layout pathname={location.pathname}>
       <Hero />
       <StoriesList
         stories={data.allStoriesJson.nodes}
