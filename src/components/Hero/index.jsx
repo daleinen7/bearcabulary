@@ -59,14 +59,19 @@ export default function Hero() {
   );
 
   const randomGrid = (
-    <div className={styles.grid}>
-      {[...Array(20).keys()].map((key) => {
+    <div
+      className={styles.grid}
+      style={{ width: Math.floor((width - 272) / 2 / 68) * 68 }}
+    >
+      {[...Array(Math.floor((width - 272) / 2 / 68) * 5).keys()].map((key) => {
         return <RandomTile key={key} />;
       })}
     </div>
   );
 
-  console.log("Grid Number", (Math.floor((width - 272) / 2) * 4) / 4);
+  console.log(width);
+
+  console.log("Caluclate array length", Math.floor((width - 272) / 2 / 68) * 5);
 
   return (
     <section className={styles.hero}>
