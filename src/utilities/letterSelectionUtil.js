@@ -1,36 +1,36 @@
 // Alphabets to be used for generating selectable letters
 const alphabet = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
 ];
 
 // Generates selectable letters from given word
 export const makeSelectableLetters = (word) => {
-  let generated = word.split('');
+  let generated = word.split("");
   for (let i = generated.length; i < 10; i++) {
     generated.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
   }
@@ -50,7 +50,7 @@ const shuffleArray = (array) => {
 export const makeBlankLetters = (word) => {
   let blankLetters = [];
   for (let i = 0; i < word.length; i++) {
-    blankLetters.push('');
+    blankLetters.push("");
   }
   return blankLetters;
 };
