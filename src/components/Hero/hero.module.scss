@@ -6,17 +6,17 @@
 }
 
 .main_logo {
-  width: 17rem;
+  width: 272px;
 }
 
 .tile {
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 58px;
+  height: 58px;
   border-radius: 5px;
-  margin: 0.3125rem;
+  margin: 5px;
   text-align: center;
-  line-height: 3.6rem;
-  font-size: 2rem;
+  line-height: 58px;
+  font-size: 32px;
   color: black;
 }
 
@@ -33,4 +33,14 @@
 
 .row {
   display: flex;
+}
+
+.grid {
+  width: 272px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.align_right {
+  justify-content: flex-end;
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import useWindowDimensions from "../../utilities/windowResizeUtil";
-// import alphabet from "../../utilities/letterSelectionUtil";
 import * as styles from "./hero.module.scss";
 
 const alphabet = [
@@ -59,13 +58,25 @@ export default function Hero() {
     </div>
   );
 
+  const randomGrid = (
+    <div className={styles.grid}>
+      {[...Array(20).keys()].map((key) => {
+        return <RandomTile key={key} />;
+      })}
+    </div>
+  );
+
+  console.log("Grid Number", (Math.floor((width - 272) / 2) * 4) / 4);
+
   return (
     <section className={styles.hero}>
+      {randomGrid}
       <div className={styles.main_logo}>
         {randomRow}
         <h1>{title}</h1>
         {randomRow}
       </div>
+      {randomGrid}
     </section>
   );
 }
