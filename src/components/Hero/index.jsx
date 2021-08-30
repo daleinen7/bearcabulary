@@ -69,10 +69,6 @@ export default function Hero() {
     </div>
   );
 
-  console.log(width);
-
-  console.log("Caluclate array length", Math.floor((width - 272) / 2 / 68) * 5);
-
   return (
     <section className={styles.hero}>
       {randomGrid}
