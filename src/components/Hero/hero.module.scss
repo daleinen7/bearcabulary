@@ -1,9 +1,12 @@
 @import "../../styles/variables";
 
 .hero {
-  .main_logo {
-    width: 15.75rem;
-  }
+  display: flex;
+  justify-content: center;
+}
+
+.main_logo {
+  width: 17rem;
 }
 
 .tile {
