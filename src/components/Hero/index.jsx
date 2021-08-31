@@ -58,18 +58,22 @@ export default function Hero() {
     </div>
   );
 
+  // Logic for responsive random tiles to the side
   const columns = Math.floor(
     Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68)))
   );
 
-  const gridNum = [...Array(columns * 5).keys()];
+  const gridNum = [];
+  for (let i = 0; i < columns * 5; i++) {
+    gridNum.push(i);
+  }
 
   const randomGrid = (
     <div
       className={styles.grid}
       style={{ width: Math.floor((width - 272) / 2 / 68) * 68 }}
     >
-      {gridNum.map((key) => {
+      {gridNum.map((blank, key) => {
         return <RandomTile key={key} />;
       })}
     </div>
