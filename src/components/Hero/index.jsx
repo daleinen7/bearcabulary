@@ -58,7 +58,9 @@ export default function Hero() {
     </div>
   );
 
-  const columns = Math.floor(Math.max(0, Math.floor((width - 272) / 2 / 68)));
+  const columns = Math.floor(
+    Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68)))
+  );
 
   const gridNum = [...Array(columns * 5).keys()];
 
