@@ -63,7 +63,9 @@ export default function Hero() {
       className={styles.grid}
       style={{ width: Math.floor((width - 272) / 2 / 68) * 68 }}
     >
-      {[...Array(Math.floor((width - 272) / 2 / 68) * 5).keys()].map((key) => {
+      {[
+        ...Array(Math.max(0, Math.floor((width - 272) / 2 / 68) * 5)).keys(),
+      ].map((key) => {
         return <RandomTile key={key} />;
       })}
     </div>
