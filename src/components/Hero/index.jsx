@@ -58,14 +58,16 @@ export default function Hero() {
     </div>
   );
 
+  const columns = Math.floor(
+    Math.max(0, Math.floor((width - 272) / 2 / 68) * 5)
+  );
+
   const randomGrid = (
     <div
       className={styles.grid}
       style={{ width: Math.floor((width - 272) / 2 / 68) * 68 }}
     >
-      {[
-        ...Array(Math.max(0, Math.floor((width - 272) / 2 / 68) * 5)).keys(),
-      ].map((key) => {
+      {[...Array(columns).keys()].map((key) => {
         return <RandomTile key={key} />;
       })}
     </div>
