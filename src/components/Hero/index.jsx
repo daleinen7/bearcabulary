@@ -32,6 +32,7 @@ export default function Hero() {
 
   // Logic for responsive random tiles to the side
   const columns = Math.floor(
+    // Width of screen minus width of logo split into two divided by 68px (width of individual boxes)
     Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68)))
   );
 
