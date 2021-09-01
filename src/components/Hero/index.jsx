@@ -1,38 +1,10 @@
 import React from "react";
 import useWindowDimensions from "../../utilities/windowResizeUtil";
 import * as styles from "./hero.module.scss";
-
-const alphabet = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+import { alphabet } from "../../utilities/letterSelectionUtil";
 
 export default function Hero() {
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   const title = "Bearcabulary".split("").map((char, idx) => {
     return (
@@ -68,26 +40,30 @@ export default function Hero() {
     gridNum.push(i);
   }
 
-  const randomGrid = (
+  const RandomGrid = ({ left }) => (
     <div
       className={styles.grid}
-      style={{ width: Math.floor((width - 272) / 2 / 68) * 68 }}
+      style={{
+        width: Math.floor((width - 272) / 2 / 68) * 68,
+        justifyContent: left ? "flex-end" : "",
+      }}
     >
       {gridNum.map((blank, key) => {
         return <RandomTile key={key} />;
       })}
+      s
     </div>
   );
 
   return (
     <section className={styles.hero}>
-      {randomGrid}
+      {<RandomGrid left={true} />}
       <div className={styles.main_logo}>
         {randomRow}
         <h1>{title}</h1>
         {randomRow}
       </div>
-      {randomGrid}
+      {<RandomGrid left={false} />}
     </section>
   );
 }

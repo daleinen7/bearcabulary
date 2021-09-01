@@ -1,5 +1,5 @@
 // Alphabets to be used for generating selectable letters
-const alphabet = [
+export const alphabet = [
   "A",
   "B",
   "C",
