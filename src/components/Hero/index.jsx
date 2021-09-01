@@ -52,7 +52,6 @@ export default function Hero() {
       {gridNum.map((blank, key) => {
         return <RandomTile key={key} />;
       })}
-      s
     </div>
   );
 
