@@ -49,7 +49,7 @@ export default function Hero() {
         justifyContent: left ? "flex-end" : "",
       }}
     >
-      {gridNum.map((blank, key) => {
+      {gridNum.map((_, key) => {
         return <RandomTile key={key} />;
       })}
     </div>
