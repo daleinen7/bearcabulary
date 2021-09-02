@@ -33,7 +33,7 @@ export default function Hero() {
   // Logic for responsive random tiles to the side
   const columns = Math.floor(
     // Width of screen minus width of logo split into two divided by 68px (width of individual boxes)
-    Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68)))
+    Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68) + 1))
   );
 
   const gridNum = [];
@@ -45,7 +45,7 @@ export default function Hero() {
     <div
       className={styles.grid}
       style={{
-        width: Math.floor((width - 272) / 2 / 68) * 68,
+        width: `${columns * 68 + 80}px`,
         justifyContent: left ? "flex-end" : "",
       }}
     >
@@ -57,13 +57,18 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      {<RandomGrid left={true} />}
-      <div className={styles.main_logo}>
-        {randomRow}
-        <h1>{title}</h1>
-        {randomRow}
+      <div
+        className={styles.grid_container}
+        style={{ width: `${width + 136}px` }}
+      >
+        {<RandomGrid left={true} />}
+        <div className={styles.main_logo}>
+          {randomRow}
+          <h1>{title}</h1>
+          {randomRow}
+        </div>
+        {<RandomGrid left={false} />}
       </div>
-      {<RandomGrid left={false} />}
     </section>
   );
 }

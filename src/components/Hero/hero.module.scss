@@ -3,6 +3,13 @@
 .hero {
   display: flex;
   justify-content: center;
+  overflow: hidden;
+}
+
+.grid_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main_logo {
@@ -28,7 +35,8 @@
 }
 
 .random {
-  background-color: $dark-grey;
+  color: darken(#e5e5e5, 30%);
+  background-color: #e5e5e5;
 }
 
 .row {
@@ -39,7 +47,7 @@
   display: flex;
   flex-wrap: wrap;
   height: 340px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .align_right {
