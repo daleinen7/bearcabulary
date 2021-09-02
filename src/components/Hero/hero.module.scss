@@ -38,6 +38,8 @@
 .grid {
   display: flex;
   flex-wrap: wrap;
+  height: 340px;
+  overflow: hidden;
 }
 
 .align_right {
