@@ -46,6 +46,7 @@ export default function Definition({ word, corrects }) {
         <button class={styles.close_button} onClick={handleClick}>
           <IoMdClose size={20} />
         </button>
+        <div className={styles.logo}>Definition</div>
         {definition}
       </div>
       <div
@@ -55,7 +56,7 @@ export default function Definition({ word, corrects }) {
       >
         {definition && (
           <div className={styles.definition} onClick={handleClick}>
-            <span>Definition</span>
+            <span className={styles.logo}>Definition</span>
             <span className={styles.definition_sentence}>{definition}.</span>
           </div>
         )}

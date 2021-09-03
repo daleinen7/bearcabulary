@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   opacity: 0;
-  animation: 1.6s ease-in 1.5s 1 fadeIn forwards;
+  animation: 1s ease-in 2.2s 1 fadeIn forwards;
   margin-top: -33px;
 }
 
@@ -26,20 +26,21 @@
   text-align: center;
   line-height: 1.5rem;
   font-size: 1rem;
-  background-color: $grey;
+  background-color: lighten($grey, 5%);
   border-radius: 10px;
-
-  span:nth-of-type(1) {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    color: $blue;
-  }
 
   .definition_sentence {
     display: inline;
     margin-left: 5px;
   }
+}
+
+.logo {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $blue;
 }
 
 .definition_mobile {
@@ -48,10 +49,11 @@
   top: 0;
   left: 0;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.75rem;
   height: 100%;
   width: 100%;
