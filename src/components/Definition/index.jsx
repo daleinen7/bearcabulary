@@ -3,8 +3,9 @@ import * as styles from "./Definition.module.scss";
 import TextToSpeech from "../TextToSpeech";
 
 export default function Definition({ word, corrects }) {
-  const [definition, setDefinition] = useState();
+  const [definition, setDefinition] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (word) {
@@ -25,22 +26,37 @@ export default function Definition({ word, corrects }) {
     }
   }, [word, corrects]);
 
+  const handleClick = () => {
+    modalOpen ? setModalOpen(false) : setModalOpen(true);
+  };
+
   const style = {
     animationDelay: "0s",
+    margin: "0",
   };
 
   return (
-    <div
-      key={word}
-      style={isCorrect ? style : {}}
-      className={styles.definition_container}
-    >
-      {definition && (
-        <div className={styles.definition}>
-          <span>Definition</span> {definition}.
-        </div>
-      )}
-      <TextToSpeech word={word} />
-    </div>
+    <>
+      <div
+        className={`${styles.definition_mobile} ${
+          modalOpen ? styles.open : ""
+        }`}
+      >
+        {definition}
+      </div>
+      <div
+        key={word}
+        style={isCorrect ? style : {}}
+        className={styles.definition_container}
+      >
+        {definition && (
+          <div className={styles.definition} onClick={handleClick}>
+            <span>Definition</span>
+            <span className={styles.definition_sentence}>{definition}.</span>
+          </div>
+        )}
+        <TextToSpeech word={word} />
+      </div>
+    </>
   );
 }

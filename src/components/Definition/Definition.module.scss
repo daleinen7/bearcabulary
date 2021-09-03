@@ -10,30 +10,66 @@
 }
 
 .definition_container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 100%;
-  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  align-items: center;
   opacity: 0;
   animation: 1.6s ease-in 2s 1 fadeIn forwards;
+  margin-top: -33px;
 }
 
 .definition {
-  padding: clamp(2px, 0.5vw, 5px) clamp(5px, 1vw, 10px);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
   text-align: center;
   line-height: 1.5rem;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: 1rem;
   background-color: $grey;
   border-radius: 10px;
 
-  span {
+  span:nth-of-type(1) {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
     color: $blue;
+  }
+
+  .definition_sentence {
+    display: inline;
+    margin-left: 5px;
+  }
+}
+
+.definition_mobile {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  background-color: $grey;
+}
+
+.definition_mobile.open {
+  display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+  .definition {
+    cursor: pointer;
+    pointer-events: visible;
+    border-radius: 5px;
+    .definition_sentence {
+      display: none;
+    }
   }
 }
