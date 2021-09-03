@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   opacity: 0;
-  animation: 1.6s ease-in 2s 1 fadeIn forwards;
+  animation: 1.6s ease-in 1.5s 1 fadeIn forwards;
   margin-top: -33px;
 }
 
@@ -47,7 +47,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -56,11 +56,26 @@
   height: 100%;
   width: 100%;
   padding: 2rem;
-  background-color: $grey;
+  background: linear-gradient(0deg, $grey 0%, lighten($grey, 10%) 80%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
-.definition_mobile.open {
+.close_button {
+  cursor: pointer;
+  position: absolute;
+  bottom: 5%;
   display: flex;
+  padding: 10px;
+  background-color: darken($grey, 10%);
+  border: none;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -68,6 +83,10 @@
     cursor: pointer;
     pointer-events: visible;
     border-radius: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: 3px 3px darken($grey, 25%);
+
     .definition_sentence {
       display: none;
     }

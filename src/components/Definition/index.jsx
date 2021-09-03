@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as styles from "./Definition.module.scss";
 import TextToSpeech from "../TextToSpeech";
+import { IoMdClose } from "react-icons/io";
 
 export default function Definition({ word, corrects }) {
   const [definition, setDefinition] = useState(null);
@@ -42,6 +43,9 @@ export default function Definition({ word, corrects }) {
           modalOpen ? styles.open : ""
         }`}
       >
+        <button class={styles.close_button} onClick={handleClick}>
+          <IoMdClose size={20} />
+        </button>
         {definition}
       </div>
       <div
