@@ -4,7 +4,7 @@ import * as styles from "./hero.module.scss";
 import { alphabet } from "../../utilities/letterSelectionUtil";
 
 export default function Hero() {
-  const [columns, setColumns] = useState(8);
+  const [columns, setColumns] = useState(16);
   const { width } = useWindowDimensions();
 
   const title = "Bearcabulary".split("").map((char, idx) => {
@@ -36,7 +36,7 @@ export default function Hero() {
     setColumns(
       Math.floor(
         // Width of screen minus width of logo split into two divided by 68px (width of individual boxes)
-        Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68) + 4))
+        Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68) + 8))
       )
     );
   });
