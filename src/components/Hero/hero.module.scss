@@ -35,8 +35,8 @@
 }
 
 .random {
-  color: darken(#e5e5e5, 30%);
-  background-color: #e5e5e5;
+  color: darken($grey, 8%);
+  background-color: $grey;
 }
 
 .row {
@@ -47,7 +47,6 @@
   display: flex;
   flex-wrap: wrap;
   height: 340px;
-  // overflow: hidden;
 }
 
 .align_right {

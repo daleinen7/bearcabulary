@@ -2,10 +2,10 @@ import React from "react";
 import Header from "../Header";
 // import Footer from '../Footer';
 
-export default function Layout({ children, pathname }) {
+export default function Layout({ children }) {
   return (
     <>
-      <Header pathname={pathname} />
+      <Header />
       {children}
     </>
   );

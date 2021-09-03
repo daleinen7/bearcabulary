@@ -37,7 +37,7 @@ export default function Index({ location }) {
   `);
 
   return (
-    <Layout pathname={location.pathname}>
+    <>
       <Hero />
       <StoriesList
         stories={data.allStoriesJson.nodes}
@@ -45,6 +45,6 @@ export default function Index({ location }) {
       />
       <About />
       <Footer />
-    </Layout>
+    </>
   );
 }
