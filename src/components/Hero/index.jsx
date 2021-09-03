@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useWindowDimensions from "../../utilities/windowResizeUtil";
 import * as styles from "./hero.module.scss";
 import { alphabet } from "../../utilities/letterSelectionUtil";
 
 export default function Hero() {
+  const [columns, setColumns] = useState(8);
   const { width } = useWindowDimensions();
 
   const title = "Bearcabulary".split("").map((char, idx) => {
@@ -30,11 +31,15 @@ export default function Hero() {
     </div>
   );
 
-  // Logic for responsive random tiles to the side
-  const columns = Math.floor(
-    // Width of screen minus width of logo split into two divided by 68px (width of individual boxes)
-    Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68) + 1))
-  );
+  useEffect(() => {
+    // Logic for responsive random tiles to the side
+    setColumns(
+      Math.floor(
+        // Width of screen minus width of logo split into two divided by 68px (width of individual boxes)
+        Math.min(10000, Math.max(0, Math.floor((width - 272) / 2 / 68) + 4))
+      )
+    );
+  });
 
   const gridNum = [];
   for (let i = 0; i < columns * 5; i++) {
