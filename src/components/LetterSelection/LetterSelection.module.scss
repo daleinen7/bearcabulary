@@ -5,13 +5,14 @@
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
+  height: 60%;
 }
 
 .clicked_letters_container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin-bottom: 5px;
+  // margin-bottom: 10px;
 
   .clicked_letter {
     display: flex;
@@ -51,7 +52,7 @@
 
   .selectable_letter {
     justify-self: center;
-    margin: 8px;
+    margin: 10px;
     @include Button($blue);
   }
 
@@ -66,7 +67,7 @@
   justify-content: space-between;
 
   & > * {
-    margin: 8px;
+    margin: 10px;
   }
 
   .backspace {
