@@ -3,6 +3,14 @@
 .hero {
   display: flex;
   justify-content: center;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.grid_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main_logo {
@@ -12,7 +20,7 @@
 .tile {
   width: 58px;
   height: 58px;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 5px;
   text-align: center;
   line-height: 58px;
@@ -25,10 +33,11 @@
   display: inline-block;
   background-color: $yellow;
   box-shadow: 4px 4px 0 $red;
+  font-weight: 700;
 }
 
 .random {
-  background-color: $dark-grey;
+  background-color: $grey;
 }
 
 .row {
@@ -39,7 +48,6 @@
   display: flex;
   flex-wrap: wrap;
   height: 340px;
-  overflow: hidden;
 }
 
 .align_right {
