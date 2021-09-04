@@ -3,5 +3,6 @@
 .sentence {
   text-align: center;
   line-height: 1.5rem;
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, min(3vh, 2vw), 1.5rem);
+  margin: min(2vh, 1rem) 0;
 }
