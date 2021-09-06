@@ -36,17 +36,10 @@
 
   .gatsby_wrapper {
     height: 100%;
-    // background-color: $grey;
     background-color: white;
     border: 3px solid $dark-blue;
     border-radius: 10px;
     box-shadow: inset 0px 3px 7px 3px rgba(11, 8, 43, 0.39);
-
-    img {
-      height: 100%;
-      padding: 10px;
-      object-fit: contain !important;
-    }
   }
 
   @media screen and (max-width: 830px) {

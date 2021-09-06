@@ -13,10 +13,7 @@ export default function Index({ location }) {
         nodes {
           title
           level
-          section {
-            img
-            media
-          }
+          title_card
           parent {
             ... on File {
               name
@@ -28,7 +25,7 @@ export default function Index({ location }) {
         nodes {
           relativePath
           childrenImageSharp {
-            gatsbyImageData(width: 600, placeholder: NONE)
+            gatsbyImageData(width: 1000, placeholder: NONE)
           }
         }
       }
