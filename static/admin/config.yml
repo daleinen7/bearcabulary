@@ -20,7 +20,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Level", name: "level", widget: "number" }
-      - { label: "Title Card" name: "title-card", widget: "image" }
+      - { label: "Title Card", name: "title-card", widget: "image" }
       - label: "Section"
         name: "section"
         widget: "list"
