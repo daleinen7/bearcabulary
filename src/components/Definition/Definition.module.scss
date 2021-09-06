@@ -46,7 +46,7 @@
 .definition_mobile {
   z-index: 2;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   display: flex;
   flex-flow: column;
@@ -55,7 +55,7 @@
   text-align: center;
   font-size: 1.5rem;
   line-height: 1.75rem;
-  height: 100%;
+  height: 95%;
   width: 100%;
   padding: 2rem;
   background: linear-gradient(0deg, $grey 0%, lighten($grey, 10%) 80%);
