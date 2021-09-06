@@ -3,14 +3,14 @@
 .letters_container {
   display: flex;
   flex-flow: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  height: 60%;
+  flex-grow: 1;
 }
 
 .clicked_letters_container {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
   justify-content: center;
 
   .clicked_letter {
@@ -19,9 +19,9 @@
     align-items: center;
     margin-left: clamp(3px, 0.5vw, 10px);
     margin-right: clamp(3px, 0.5vw, 10px);
-    height: clamp(40px, 6vw, 70px);
-    width: clamp(35px, 6vw, 70px);
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    height: clamp(40px, min(8vh, 6vw), 65px);
+    width: clamp(35px, min(8vh, 6vw), 65px);
+    font-size: clamp(1.5rem, min(5vh, 3vw), 2.5rem);
     text-transform: uppercase;
     color: $blue;
     border: 3px solid $blue;
@@ -47,11 +47,11 @@
 
 .selectable_letters_container {
   display: grid;
-  grid-template-columns: repeat(5, minmax(auto, 50px));
+  grid-template-columns: repeat(5, auto);
 
   .selectable_letter {
     justify-self: center;
-    margin: 10px;
+    margin: min(1vh, 10px);
     @include Button($blue);
   }
 
@@ -66,7 +66,7 @@
   justify-content: space-between;
 
   & > * {
-    margin: 10px;
+    margin: min(1vh, 10px);
   }
 
   .backspace {

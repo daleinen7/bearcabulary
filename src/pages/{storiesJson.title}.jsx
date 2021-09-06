@@ -1,7 +1,8 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useState } from "react";
 import { graphql, Link } from "gatsby";
 import * as styles from "./Game.module.scss";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { MdRotateLeft } from "react-icons/md";
 import Layout from "../components/Layout";
 import Picture from "../components/Picture";
 import FlashWord from "../components/FlashWord";
@@ -9,6 +10,7 @@ import Sentence from "../components/Sentence";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
 import Definition from "../components/Definition";
+import useWindowDimensions from "../utilities/windowResizeUtil";
 import { findImage } from "../utilities/imageSelectionUtil";
 
 const types = {
@@ -131,150 +133,177 @@ const reducer = (state, action) => {
 
 export default function Game({ data }) {
   const [gameState, dispatch] = useReducer(reducer, initialGameState);
+  const [stateHeight, setStateHeight] = useState(600);
+  const { height } = useWindowDimensions();
 
   useEffect(() => {
     dispatch({ type: types.initialize, payload: data.storiesJson });
   }, [data.storiesJson]);
 
+  useEffect(() => {
+    setStateHeight(height);
+  }, [height]);
+
   return (
-    <Layout>
-      <div
-        className={`${styles.top_container} ${
-          !gameState.story.section[gameState.pageCounter].word
-            ? styles.no_word
-            : ""
-        }`}
-      >
-        <button
-          className={`${styles.prev} ${
-            gameState.pageCounter === 0 ? styles.hidden : ""
-          }`}
-          onClick={() => dispatch({ type: types.prevPage })}
-        >
-          <GrFormPrevious size={40} /> Prev
-        </button>
-        <button
-          className={`${styles.prev_mobile} ${
-            gameState.pageCounter === 0 ? styles.hidden : ""
-          }`}
-          onClick={() => dispatch({ type: types.prevPage })}
-        >
-          <GrFormPrevious size={40} />
-        </button>
-        <Picture
-          image={findImage(
-            data.allFile.nodes,
-            data.storiesJson,
-            gameState.pageCounter
-          )}
-          picture={gameState.story.section[gameState.pageCounter].img}
-          sentence={gameState.story.section[gameState.pageCounter].sentence}
-        />
-        {gameState.pageCounter !== gameState.story.section.length - 1 ? (
-          <button
-            className={`${styles.next_mobile} ${
-              !gameState.story.section[gameState.pageCounter].word ||
-              gameState.corrects.includes(
-                gameState.story.section[
+    <>
+      <Layout>
+        {stateHeight > 575 ? (
+          <>
+            <div
+              className={`${styles.top_container} ${
+                !gameState.story.section[gameState.pageCounter].word
+                  ? styles.no_word
+                  : ""
+              }`}
+            >
+              <button
+                className={`${styles.prev} ${
+                  gameState.pageCounter === 0 ? styles.hidden : ""
+                }`}
+                onClick={() => dispatch({ type: types.prevPage })}
+              >
+                <GrFormPrevious size={40} /> Prev
+              </button>
+              <button
+                className={`${styles.prev_mobile} ${
+                  gameState.pageCounter === 0 ? styles.hidden : ""
+                }`}
+                onClick={() => dispatch({ type: types.prevPage })}
+              >
+                <GrFormPrevious size={40} />
+              </button>
+              <Picture
+                image={findImage(
+                  data.allFile.nodes,
+                  data.storiesJson,
                   gameState.pageCounter
-                ].word.toUpperCase()
-              )
-                ? ""
-                : styles.disabled
-            }`}
-            onClick={() => dispatch({ type: types.nextPage })}
-          >
-            <GrFormNext size={40} />
-          </button>
+                )}
+                picture={gameState.story.section[gameState.pageCounter].img}
+                sentence={
+                  gameState.story.section[gameState.pageCounter].sentence
+                }
+              />
+              {gameState.pageCounter !== gameState.story.section.length - 1 ? (
+                <button
+                  className={`${styles.next_mobile} ${
+                    !gameState.story.section[gameState.pageCounter].word ||
+                    gameState.corrects.includes(
+                      gameState.story.section[
+                        gameState.pageCounter
+                      ].word.toUpperCase()
+                    )
+                      ? ""
+                      : styles.disabled
+                  }`}
+                  onClick={() => dispatch({ type: types.nextPage })}
+                >
+                  <GrFormNext size={40} />
+                </button>
+              ) : (
+                <Link
+                  className={`${styles.next_mobile} ${
+                    !gameState.story.section[gameState.pageCounter].word ||
+                    gameState.corrects.includes(
+                      gameState.story.section[
+                        gameState.pageCounter
+                      ].word.toUpperCase()
+                    )
+                      ? ""
+                      : styles.disabled
+                  }`}
+                  to="/summary"
+                  state={{
+                    corrects: gameState.corrects,
+                    errors: gameState.errors,
+                  }}
+                >
+                  <GrFormNext size={40} />
+                </Link>
+              )}
+              {gameState.pageCounter !== gameState.story.section.length - 1 ? (
+                <button
+                  className={`${styles.next} ${
+                    !gameState.story.section[gameState.pageCounter].word ||
+                    gameState.corrects.includes(
+                      gameState.story.section[
+                        gameState.pageCounter
+                      ].word.toUpperCase()
+                    )
+                      ? ""
+                      : styles.disabled
+                  }`}
+                  onClick={() => dispatch({ type: types.nextPage })}
+                >
+                  Next <GrFormNext size={40} />
+                </button>
+              ) : (
+                <Link
+                  className={`${styles.next} ${
+                    !gameState.story.section[gameState.pageCounter].word ||
+                    gameState.corrects.includes(
+                      gameState.story.section[
+                        gameState.pageCounter
+                      ].word.toUpperCase()
+                    )
+                      ? ""
+                      : styles.disabled
+                  }`}
+                  to="/summary"
+                  state={{
+                    corrects: gameState.corrects,
+                    errors: gameState.errors,
+                  }}
+                >
+                  Next <GrFormNext size={40} />
+                </Link>
+              )}
+            </div>
+            <div
+              className={`${styles.bottom_container} ${
+                !gameState.story.section[gameState.pageCounter].word
+                  ? styles.no_word
+                  : ""
+              }`}
+            >
+              {gameState.story.section[gameState.pageCounter].word && (
+                <div className={styles.word_container}>
+                  <FlashWord
+                    corrects={gameState.corrects}
+                    word={gameState.story.section[gameState.pageCounter].word}
+                  />
+                  <Definition
+                    word={gameState.story.section[gameState.pageCounter].word}
+                    corrects={gameState.corrects}
+                  />
+                </div>
+              )}
+              <Sentence
+                sentence={
+                  gameState.story.section[gameState.pageCounter].sentence
+                }
+              />
+              {gameState.story.section[gameState.pageCounter].word && (
+                <LetterSelection
+                  word={gameState.story.section[gameState.pageCounter].word}
+                  corrects={gameState.corrects}
+                  dispatchGame={dispatch}
+                  typesGame={types}
+                />
+              )}
+              <Progress
+                counter={gameState.pageCounter}
+                array={gameState.story.section}
+              />
+            </div>
+          </>
         ) : (
-          <Link
-            className={`${styles.next_mobile} ${
-              !gameState.story.section[gameState.pageCounter].word ||
-              gameState.corrects.includes(
-                gameState.story.section[
-                  gameState.pageCounter
-                ].word.toUpperCase()
-              )
-                ? ""
-                : styles.disabled
-            }`}
-            to="/summary"
-            state={{ corrects: gameState.corrects, errors: gameState.errors }}
-          >
-            <GrFormNext size={40} />
-          </Link>
-        )}
-        {gameState.pageCounter !== gameState.story.section.length - 1 ? (
-          <button
-            className={`${styles.next} ${
-              !gameState.story.section[gameState.pageCounter].word ||
-              gameState.corrects.includes(
-                gameState.story.section[
-                  gameState.pageCounter
-                ].word.toUpperCase()
-              )
-                ? ""
-                : styles.disabled
-            }`}
-            onClick={() => dispatch({ type: types.nextPage })}
-          >
-            Next <GrFormNext size={40} />
-          </button>
-        ) : (
-          <Link
-            className={`${styles.next} ${
-              !gameState.story.section[gameState.pageCounter].word ||
-              gameState.corrects.includes(
-                gameState.story.section[
-                  gameState.pageCounter
-                ].word.toUpperCase()
-              )
-                ? ""
-                : styles.disabled
-            }`}
-            to="/summary"
-            state={{ corrects: gameState.corrects, errors: gameState.errors }}
-          >
-            Next <GrFormNext size={40} />
-          </Link>
-        )}
-      </div>
-      <div
-        className={`${styles.bottom_container} ${
-          !gameState.story.section[gameState.pageCounter].word
-            ? styles.no_word
-            : ""
-        }`}
-      >
-        {gameState.story.section[gameState.pageCounter].word && (
-          <div className={styles.word_container}>
-            <FlashWord
-              corrects={gameState.corrects}
-              word={gameState.story.section[gameState.pageCounter].word}
-            />
-            <Definition
-              word={gameState.story.section[gameState.pageCounter].word}
-              corrects={gameState.corrects}
-            />
+          <div className={styles.warning_message_container}>
+            <MdRotateLeft size={40} />
+            Please enlarge your window size or rotate your display.
           </div>
         )}
-        <Sentence
-          sentence={gameState.story.section[gameState.pageCounter].sentence}
-        />
-        {gameState.story.section[gameState.pageCounter].word && (
-          <LetterSelection
-            word={gameState.story.section[gameState.pageCounter].word}
-            corrects={gameState.corrects}
-            dispatchGame={dispatch}
-            typesGame={types}
-          />
-        )}
-        <Progress
-          counter={gameState.pageCounter}
-          array={gameState.story.section}
-        />
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 
