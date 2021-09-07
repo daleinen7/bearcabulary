@@ -23,12 +23,11 @@ export default function StoriesList({ stories, images }) {
                     image={image?.childrenImageSharp[0].gatsbyImageData}
                     alt={story.title}
                   />
-                  <div className={styles.screen}></div>
+                  {/* <div className={styles.screen}></div> */}
                 </div>
                 <div className={styles.controls}>
                   <div className={styles.dial}></div>
                   <div className={styles.dial}></div>
-                  <div className={styles.vent}></div>
                   <div className={styles.vent}></div>
                   <div className={styles.vent}></div>
                   <div className={styles.vent}></div>
