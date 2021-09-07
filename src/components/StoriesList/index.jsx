@@ -18,24 +18,26 @@ export default function StoriesList({ stories, images }) {
           });
           return (
             <li key={index}>
-              <div className={styles.screen_and_controls}>
-                <div className={styles.screenContainer}>
-                  <GatsbyImage
-                    className={styles.gatsby_wrapper}
-                    image={image?.childrenImageSharp[0].gatsbyImageData}
-                    alt={story.title}
-                  />
-                  {/* <div className={styles.screen}></div> */}
+              <Link to={story.parent.name}>
+                <div className={styles.screen_and_controls}>
+                  <div className={styles.screenContainer}>
+                    <GatsbyImage
+                      className={styles.gatsby_wrapper}
+                      image={image?.childrenImageSharp[0].gatsbyImageData}
+                      alt={story.title}
+                    />
+                    <div className={styles.screen}></div>
+                  </div>
+                  <div className={styles.controls}>
+                    <div className={styles.dial}></div>
+                    <div className={styles.dial}></div>
+                    <div className={styles.vent}></div>
+                    <div className={styles.vent}></div>
+                    <div className={styles.vent}></div>
+                  </div>
                 </div>
-                <div className={styles.controls}>
-                  <div className={styles.dial}></div>
-                  <div className={styles.dial}></div>
-                  <div className={styles.vent}></div>
-                  <div className={styles.vent}></div>
-                  <div className={styles.vent}></div>
-                </div>
-              </div>
-              <Link to={story.parent.name}>{story.title}</Link>
+                <div className={styles.title}>{story.title}</div>
+              </Link>
             </li>
           );
         })}

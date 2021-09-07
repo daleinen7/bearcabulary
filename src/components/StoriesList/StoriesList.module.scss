@@ -14,7 +14,8 @@
   max-width: 1000px;
   margin: 0 auto;
 
-  li {
+  a {
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,22 +26,23 @@
     height: 320px;
     margin: 20px;
     padding: 20px;
+
+    &:hover {
+      background-color: lighten(adjust-hue($blue, -3), 4%);
+    }
   }
 
-  a {
-    @include Button($dark-blue);
+  .title {
+    background: $dark-blue;
     width: 90%;
-    height: 40px;
+    height: 2.7rem;
+    line-height: 2.7rem;
+    padding: 2rem auto;
     margin-top: 10px;
     font-size: 2rem;
-    text-decoration: none;
     text-align: center;
     border-radius: 10px;
     color: white;
-    box-shadow: 3px 3px $dark-blue;
-    &:hover {
-      background-color: lighten($blue, 17%);
-    }
   }
 
   .gatsby_wrapper {
@@ -99,7 +101,7 @@
 .screen {
   position: absolute;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 36px;
   top: 0;
   height: 100%;
   width: 100%;
