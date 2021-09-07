@@ -4,13 +4,15 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import * as styles from "./StoriesList.module.scss";
 
 export default function StoriesList({ stories, images }) {
+  console.log("stories", stories);
+  console.log("images", images);
   return (
     <section className="storiesList">
       <ul className={styles.stories_list}>
         {stories.map((story, index) => {
           // find element in the images array that has the first image of the story being mapped over
           const image = images.find((ele) => {
-            return ele.relativePath === story.section[0].media?.slice(5);
+            return ele.relativePath === story.title_card?.slice(5);
           });
           return (
             <li key={index}>
