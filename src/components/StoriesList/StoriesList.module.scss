@@ -26,9 +26,11 @@
     height: 330px;
     margin: 20px;
     padding: 20px;
+    transition: 0.3s;
 
     &:hover {
       background-color: lighten(adjust-hue($blue, -3), 4%);
+      background-size: 200%;
     }
   }
 
@@ -106,6 +108,8 @@
   top: 0;
   height: 100%;
   width: 100%;
+  transition: 0.3s;
+  background-size: 200%;
   background: linear-gradient(
     60deg,
     rgba(135, 228, 254, 0) 40%,
@@ -113,10 +117,14 @@
   );
 }
 
-.stories_list:hover .screen {
-  background: linear-gradient(
-    60deg,
-    rgba(57, 59, 59, 0) 50%,
-    rgba(254, 254, 254, 0.297) 0%
-  );
+a:hover {
+  .screen {
+    background-size: 200%;
+
+    background: linear-gradient(
+      60deg,
+      rgba(57, 59, 59, 0) 50%,
+      rgba(254, 254, 254, 0.297) 0%
+    );
+  }
 }
