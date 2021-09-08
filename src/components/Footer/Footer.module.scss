@@ -6,12 +6,12 @@
   align-items: center;
   height: 3%;
   padding: 0 10px;
-  background-color: lighten($grey, 10%);
+  background-color: lighten($grey, 5%);
 
   p {
     font-size: 0.9rem;
     text-align: right;
-    color: darken($grey, 15%);
+    color: lighten($dark-grey, 5%);
 
     a {
       font-style: italic;
