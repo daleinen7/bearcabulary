@@ -7,7 +7,7 @@
 }
 
 .grey {
-  border-top: 25px solid $grey;
+  border-top: 25px solid lighten($grey, 10%);
 }
 
 .white {

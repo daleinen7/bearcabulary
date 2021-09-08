@@ -5,11 +5,12 @@
   justify-content: flex-end;
   align-items: center;
   height: 3%;
-  padding: 4rem 3% 1.2rem;
+  padding: 0 10px;
   background-color: lighten($grey, 10%);
 
   p {
     font-size: 0.9rem;
+    text-align: right;
     color: darken($grey, 15%);
 
     a {

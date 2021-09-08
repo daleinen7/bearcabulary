@@ -1,15 +1,17 @@
 @import "../../styles/variables";
 
 .stories {
-  background: $grey;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
+  margin-top: 50px;
+  background: lighten($grey, 10%);
 }
 
 .stories_list {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   max-width: 1000px;
   margin: 0 auto;
@@ -35,8 +37,8 @@
         transform: rotate(180deg);
       }
 
-      .led:nth-of-type(3) {
-        background-color: $green;
+      .led {
+        background-color: $yellow;
       }
 
       .screen {
@@ -68,15 +70,6 @@
     background-color: white;
     border: 6px solid $dark-blue;
     border-radius: 30px;
-  }
-
-  @media screen and (max-width: 830px) {
-    flex-direction: column;
-    align-items: center;
-
-    li {
-      max-width: 500px;
-    }
   }
 }
 
@@ -130,7 +123,7 @@
   height: 5px;
   width: 5px;
   border-radius: 50%;
-  background-color: $yellow;
+  background-color: $grey;
   transition: 0.3s;
 }
 

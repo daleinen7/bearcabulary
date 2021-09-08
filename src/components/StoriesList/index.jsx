@@ -5,7 +5,6 @@ import Arrow from "../Arrow";
 import * as styles from "./StoriesList.module.scss";
 
 export default function StoriesList({ stories, images }) {
-  console.log("stories", stories);
   console.log("images", images);
   return (
     <section className={styles.stories}>
