@@ -31,6 +31,11 @@ export default function StoriesList({ stories, images }) {
                   <div className={styles.controls}>
                     <div className={styles.dial}></div>
                     <div className={styles.dial}></div>
+                    <div className={styles.led_container}>
+                      <div className={styles.led}></div>
+                      <div className={styles.led}></div>
+                      <div className={styles.led}></div>
+                    </div>
                     <div className={styles.vent}></div>
                     <div className={styles.vent}></div>
                     <div className={styles.vent}></div>
