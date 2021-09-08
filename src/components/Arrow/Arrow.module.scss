@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+.grey {
+  border-top: 50px solid $grey;
+}
+
+.white {
+  border-top: 50px solid white;
+}
