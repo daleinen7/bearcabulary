@@ -26,7 +26,6 @@
     height: 330px;
     margin: 20px;
     padding: 20px;
-    transition: 0.3s;
     box-shadow: 1px 1px $dark-blue, 2px 2px $dark-blue, 3px 3px $dark-blue,
       4px 4px $dark-blue, 5px 5px $dark-blue, 6px 6px $dark-blue,
       7px 7px $dark-blue, 8px 8px $dark-blue;
@@ -111,7 +110,6 @@
   top: 0;
   height: 100%;
   width: 100%;
-  transition: background 1s ease-out;
   background-size: 200%;
   background: linear-gradient(
     60deg,
