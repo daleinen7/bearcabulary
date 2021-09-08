@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import StoriesList from "../components/StoriesList";
 import About from "../components/About";
@@ -34,12 +35,14 @@ export default function Index({ location }) {
 
   return (
     <>
-      <Hero />
-      <StoriesList
-        stories={data.allStoriesJson.nodes}
-        images={data.allFile.nodes}
-      />
-      <About />
+      <Layout>
+        <Hero />
+        <StoriesList
+          stories={data.allStoriesJson.nodes}
+          images={data.allFile.nodes}
+        />
+        <About images={data.allFile.nodes} />
+      </Layout>
       <Footer />
     </>
   );

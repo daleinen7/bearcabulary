@@ -5,8 +5,6 @@ import Arrow from "../Arrow";
 import * as styles from "./StoriesList.module.scss";
 
 export default function StoriesList({ stories, images }) {
-  console.log("stories", stories);
-  console.log("images", images);
   return (
     <section className={styles.stories}>
       <Arrow color={"white"} />
@@ -31,6 +29,11 @@ export default function StoriesList({ stories, images }) {
                   <div className={styles.controls}>
                     <div className={styles.dial}></div>
                     <div className={styles.dial}></div>
+                    <div className={styles.led_container}>
+                      <div className={styles.led}></div>
+                      <div className={styles.led}></div>
+                      <div className={styles.led}></div>
+                    </div>
                     <div className={styles.vent}></div>
                     <div className={styles.vent}></div>
                     <div className={styles.vent}></div>
