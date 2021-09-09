@@ -1,6 +1,6 @@
-![Logo](/ReadMeImages/logo.png)
-
 # Bearcabulary
+
+![Logo](/ReadMeImages/logo.png)
 
 ## Intro
 
@@ -11,13 +11,21 @@ Once the screen disappears they can press play on an audio recording to hear the
 ## Run Bearcabulary Locally or Host it Yourself
 
 Bearcabulary is meant to be hosted and edited for your educational needs. Clone or fork the repo to your local machine or your github account. Run it on your local machine by running `gatsby develop` or `npm start` from the root directory. Or host it for free on [Netlify](https://www.netlify.com/). Once you've forked/cloned it and signed up for a free Netlify account, click the big green "New Site From Git" button.
+
 ![New Site Button](/ReadMeImages/new-site.png)
+
 Then select "Github" as your method of deploying.
+
 ![select-github](/ReadMeImages/select-github.png)
+
 Then you'll have to find where your version of Bearcabulary is.
+
 ![search-github](/ReadMeImages/search-bearcabulary.png)
+
 Once you find it, select it and you'll finally be ready to deploy your new site.
-![Deploy on Netlify](/ReadMeImages/)
+
+![Deploy on Netlify](/ReadMeImages/deploy-site.png)
+
 Now you have your own version of Bearcabulary!
 
 ## Netlify CMS
@@ -25,6 +33,7 @@ Now you have your own version of Bearcabulary!
 We made Bearcabulary easy to add stories and puzzles to by utilizing NetlifyCMS. Once your site is deployed if you go to the url and add `/admin` and you'll be taken to your very own admin section.
 
 From here you can add a new story (or series of puzzle screens).
+
 ![Add a new story to match your lesson plan!](/ReadMeImages/new-story.png)
 
 Each section added will be a new puzzle for the student to figure out. If you only want a story and not a puzzle, simply don't fill out the "word" input and the image will be full size!
@@ -39,5 +48,5 @@ Afterwards, two of the members decided to build it from the ideas started at the
 
 ### Team
 
-[Kaung Shein](https://knds.art/)
-[Doug Leinen](https://www.dougleinen.com/)
+- [Kaung Shein](https://knds.art/)
+- [Doug Leinen](https://www.dougleinen.com/)
