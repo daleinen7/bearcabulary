@@ -1,54 +1,43 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+![Logo](/ReadMeImages/logo.png)
 
-## 🚀 Quick start
+# Bearcabulary
 
-1.  **Create a Gatsby site.**
+## Intro
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+Bearcabulary is a word game built in Gatsby targeted at K-3rd Grade students. The player must choose from jumbled words to complete the missing word in a sentence. The user sees the word flash quickily at the start of each screen.
+![Bearcabulary gives the player plenty of hints](/ReadMeImages/example.png)
+Once the screen disappears they can press play on an audio recording to hear the word they are trying to spell. They can also see the definition of it for context clues.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+## Run Bearcabulary Locally or Host it Yourself
 
-2.  **Start developing.**
+Bearcabulary is meant to be hosted and edited for your educational needs. Clone or fork the repo to your local machine or your github account. Run it on your local machine by running `gatsby develop` or `npm start` from the root directory. Or host it for free on [Netlify](https://www.netlify.com/). Once you've forked/cloned it and signed up for a free Netlify account, click the big green "New Site From Git" button.
+![New Site Button](/ReadMeImages/new-site.png)
+Then select "Github" as your method of deploying.
+![select-github](/ReadMeImages/select-github.png)
+Then you'll have to find where your version of Bearcabulary is.
+![search-github](/ReadMeImages/search-bearcabulary.png)
+Once you find it, select it and you'll finally be ready to deploy your new site.
+![Deploy on Netlify](/ReadMeImages/)
+Now you have your own version of Bearcabulary!
 
-    Navigate into your new site’s directory and start it up.
+## Netlify CMS
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+We made Bearcabulary easy to add stories and puzzles to by utilizing NetlifyCMS. Once your site is deployed if you go to the url and add `/admin` and you'll be taken to your very own admin section.
 
-3.  **Open the code and start customizing!**
+From here you can add a new story (or series of puzzle screens).
+![Add a new story to match your lesson plan!](/ReadMeImages/new-story.png)
 
-    Your site is now running at http://localhost:8000!
+Each section added will be a new puzzle for the student to figure out. If you only want a story and not a puzzle, simply don't fill out the "word" input and the image will be full size!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+Once you publish your changes, Netlify will automatically re-build your site, and the content you created will be saved on your github account. This allows you to easily keep track of where your art and stories are kept.
 
-4.  **Learn more**
+## History
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Bearcabulary was organically built with a team of 9 in a 3 day Hackathon. The team received 1st place in the competition presented to a panel of judges as well as the People's Choice Award.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Afterwards, two of the members decided to build it from the ideas started at the Hackathon.
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Team
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+[Kaung Shein](https://knds.art/)
+[Doug Leinen](https://www.dougleinen.com/)
