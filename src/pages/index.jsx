@@ -35,7 +35,7 @@ export default function Index({ location }) {
 
   return (
     <>
-      <Layout>
+      <Layout location={location}>
         <Hero />
         <StoriesList
           stories={data.allStoriesJson.nodes}
