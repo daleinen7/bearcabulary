@@ -3,12 +3,12 @@ import Header from "../Header";
 import { Helmet } from "react-helmet";
 
 export default function Layout({ children, title, location }) {
-  console.log(location);
+  console.log(title);
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{`Bearcabulary ${title && "|" + title}`}</title>
+        <title>{`Bearcabulary ${title ? " • " + title : ""}`}</title>
         <meta name="description" content="Word game for children K-3." />
         <link
           rel="canonical"
