@@ -15,7 +15,7 @@ export default function Summary({ location }) {
     return null;
   } else {
     return (
-      <Layout>
+      <Layout title="Summary" location={location}>
         <div className={styles.summary_page_container}>
           <div className={styles.summary_page_inner_container}>
             <div className={styles.summary_page_title}>The End.</div>

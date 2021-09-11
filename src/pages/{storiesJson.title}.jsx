@@ -131,7 +131,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Game({ data }) {
+export default function Game({ data, location }) {
   const [gameState, dispatch] = useReducer(reducer, initialGameState);
   const [stateHeight, setStateHeight] = useState(600);
   const { height } = useWindowDimensions();
@@ -146,7 +146,7 @@ export default function Game({ data }) {
 
   return (
     <>
-      <Layout>
+      <Layout title={data.storiesJson.title} location={location}>
         {stateHeight > 575 ? (
           <>
             <div
