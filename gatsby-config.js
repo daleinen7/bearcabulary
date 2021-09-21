@@ -1,6 +1,10 @@
 require("dotenv").config();
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.yourdomain.tld`,
+    title: `Bearcabulary`,
+  },
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-sass`,
