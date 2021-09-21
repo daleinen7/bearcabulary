@@ -11,19 +11,13 @@ export default function Layout({ children, title, location }) {
         meta={[
           {name: 'description'},
           {content: "Bearcabulary is a word game for children K-3. Bearcabulary tests students to spell a missing word in a sentence using jumbled letters."},
-          {name: 'keywords', content: 'Educational Game, Word Game, Word Jumble' }
+          {name: 'keywords', content: 'Educational Game, Word Game, Word Jumble' },
+          {name: 'charSet', content: 'htf-8'}
         ]}
         links={[
           {rel: 'canonical', href: `https://bearcabulary.com/${location.pathname}`}
         ]}
       />
-        <meta charSet="utf-8" />
-        <title>{`Bearcabulary ${title ? " • " + title : ""}`}</title>
-        <meta name="description" content="Word game for children K-3. Bearcabulary tests students to spell a missing word in a sentence. Students will see the word briefly before " />
-        <link
-          rel="canonical"
-          href={`https://bearcabulary.com/${location.pathname}`}
-        />
       <Header />
       {children}
     </>
