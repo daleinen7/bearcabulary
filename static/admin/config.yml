@@ -21,10 +21,28 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Level", name: "level", widget: "number" }
       - { label: "Title Card", name: "title-card", widget: "image" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Author Link", name: "author-link", widget: "string" }
-      - { label: "Artist", name: "artist", widget: "string" }
-      - { label: "Artist Link", name: "artist-link", widget: "string" }
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+      - label: "Artists"
+        name: "artists"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
       - label: "Section"
         name: "section"
         widget: "list"
