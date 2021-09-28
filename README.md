@@ -10,7 +10,7 @@ Once the screen disappears they can press play on an audio recording to hear the
 
 ## Run Bearcabulary Locally or Host it Yourself
 
-Bearcabulary is meant to be hosted and edited for your educational needs. Clone or fork the repo to your local machine or your github account. Run it on your local machine by running `gatsby develop` or `npm start` from the root directory. Or host it for free on [Netlify](https://www.netlify.com/). Once you've forked/cloned it and signed up for a free Netlify account, click the big green "New Site From Git" button.
+Bearcabulary is meant to be hosted and edited for your educational needs. Fork the repo to your github account. Run it on your local machine by running `gatsby develop` or `npm start` from the root directory. Or host it for free on [Netlify](https://www.netlify.com/). Once you've forked/cloned it and signed up for a free Netlify account, click the big green "New Site From Git" button.
 
 ![New Site Button](/ReadMeImages/new-site.png)
 
