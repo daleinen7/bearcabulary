@@ -10,19 +10,21 @@ Once the screen disappears they can press play on an audio recording to hear the
 
 ## Run Bearcabulary Locally or Host it Yourself
 
-Bearcabulary is meant to be hosted and edited for your educational needs. Clone or fork the repo to your local machine or your github account. Run it on your local machine by running `gatsby develop` or `npm start` from the root directory. Or host it for free on [Netlify](https://www.netlify.com/). Once you've forked/cloned it and signed up for a free Netlify account, click the big green "New Site From Git" button.
+Bearcabulary is meant to be hosted and edited for your educational needs.
+
+1. Fork the repo to your github account. Run it on your local machine by running `gatsby develop` or `npm start` from the root directory. Or host it for free on [Netlify](https://www.netlify.com/). Once you've forked it and signed up for a free Netlify account, login to Netlify. Click the big green "New Site From Git" button.
 
 ![New Site Button](/ReadMeImages/new-site.png)
 
-Then select "Github" as your method of deploying.
+2. Select "Github" as your method of deploying.
 
 ![select-github](/ReadMeImages/select-github.png)
 
-Then you'll have to find where your version of Bearcabulary is.
+3. You'll have to find where your version of Bearcabulary is.
 
 ![search-github](/ReadMeImages/search-bearcabulary.png)
 
-Once you find it, select it and you'll finally be ready to deploy your new site.
+4. Once you find it, select it and you'll finally be ready to deploy your new site.
 
 ![Deploy on Netlify](/ReadMeImages/deploy-site.png)
 
@@ -30,13 +32,15 @@ Now you have your own version of Bearcabulary!
 
 ## Netlify CMS
 
-We made Bearcabulary easy to add stories and puzzles to by utilizing NetlifyCMS. Once your site is deployed if you go to the url and add `/admin` and you'll be taken to your very own admin section.
+We made Bearcabulary easy to add stories and puzzles to by utilizing NetlifyCMS.
+
+1. Once your site is deployed if you go to the url and add `/admin` and you'll be taken to your very own admin section.
 
 From here you can add a new story (or series of puzzle screens).
 
 ![Add a new story to match your lesson plan!](/ReadMeImages/new-story.png)
 
-Each section added will be a new puzzle for the student to figure out. If you only want a story and not a puzzle, simply don't fill out the "word" input and the image will be full size!
+2. Each section added will be a new puzzle for the student to figure out. If you only want a story page Wand not a puzzle, simply leave "word" input empty and the image will be full size!
 
 Once you publish your changes, Netlify will automatically re-build your site, and the content you created will be saved on your github account. This allows you to easily keep track of where your art and stories are kept.
 
