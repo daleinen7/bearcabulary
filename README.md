@@ -2,13 +2,18 @@
 
 ![Logo](/ReadMeImages/logo.png)
 
+[Play the hosted version!](https://bearcabulary.com)
+
 ## Intro
 
 Bearcabulary is a word game built in Gatsby targeted at K-3rd Grade students. The player must choose from jumbled words to complete the missing word in a sentence. The user sees the word flash quickily at the start of each screen.
+
 ![Bearcabulary gives the player plenty of hints](/ReadMeImages/example.png)
+
 Once the screen disappears they can press play on an audio recording to hear the word they are trying to spell. They can also see the definition of it for context clues.
 
 ## Run Bearcabulary Locally or Host it Yourself
+
 Bearcabulary is meant to be hosted and edited for your educational needs.
 
 1. Fork the repo to your github account. Run it on your local machine by running `gatsby develop` or `npm start` from the root directory. Or host it for free on [Netlify](https://www.netlify.com/). Once you've forked it and signed up for a free Netlify account, login to Netlify. Click the big green "New Site From Git" button.
