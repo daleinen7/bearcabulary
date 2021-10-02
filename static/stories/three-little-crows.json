@@ -68,5 +68,27 @@
       "media": "/img/threelittlecrows_10.png"
     }
   ],
-  "title-card": "/img/threelittlecrows_titlecard.jpg"
+  "title-card": "/img/threelittlecrows_titlecard.jpg",
+  "artists": [
+    {
+      "name": "Kaung Shein",
+      "links": [
+        {
+          "type": "Website",
+          "link": "https://knds.art"
+        }
+      ]
+    }
+  ],
+  "authors": [
+    {
+      "links": [
+        {
+          "type": "LinkedIn",
+          "link": "https://www.linkedin.com/in/megan-kerr-26537910a/"
+        }
+      ],
+      "name": "Megan Kerr"
+    }
+  ]
 }
