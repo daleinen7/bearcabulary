@@ -40,5 +40,27 @@
       "word": "Tumbled"
     }
   ],
-  "title-card": "/img/reed-between-the-trees-title.jpg"
+  "title-card": "/img/reed-between-the-trees-title.jpg",
+  "authors": [
+    {
+      "name": "Megan Kerr",
+      "links": [
+        {
+          "type": "LinkedIn",
+          "link": "https://www.linkedin.com/in/megan-kerr-26537910a/"
+        }
+      ]
+    }
+  ],
+  "artists": [
+    {
+      "name": "Ben Prasojo",
+      "links": [
+        {
+          "type": "Fiverr",
+          "link": "https://www.fiverr.com/benprasojo"
+        }
+      ]
+    }
+  ]
 }
