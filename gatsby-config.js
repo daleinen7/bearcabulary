@@ -2,8 +2,9 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://bearcabulary.netlify.app`,
     title: `Bearcabulary`,
+    description: `Spelling app`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
