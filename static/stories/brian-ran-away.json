@@ -60,5 +60,36 @@
       "media": "/img/group_353_u3umos.png"
     }
   ],
-  "title-card": "/img/bearcabulary-title-card.jpg"
+  "title-card": "/img/bearcabulary-title-card.jpg",
+  "authors": [
+    {
+      "name": "Jose Maria Vasquez",
+      "links": [
+        {
+          "type": "LinkedIn",
+          "link": "https://www.linkedin.com/in/jose-maria-vasquez/"
+        }
+      ]
+    },
+    {
+      "name": "Ricardo Mendez",
+      "links": [
+        {
+          "type": "LinkedIn",
+          "link": "https://www.linkedin.com/in/ricardomend/"
+        }
+      ]
+    }
+  ],
+  "artists": [
+    {
+      "name": "Megan Lloyd",
+      "links": [
+        {
+          "type": "LinkedIn",
+          "link": "https://www.linkedin.com/in/megan--lloyd/"
+        }
+      ]
+    }
+  ]
 }
