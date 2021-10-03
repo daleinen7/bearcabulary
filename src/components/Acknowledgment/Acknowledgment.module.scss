@@ -25,6 +25,16 @@
 
     a {
       margin-left: 5px;
+
+      svg {
+        fill: $dark-blue;
+      }
+
+      &:hover {
+        svg {
+          fill: $blue;
+        }
+      }
     }
   }
 }

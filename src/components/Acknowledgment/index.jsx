@@ -1,8 +1,7 @@
 import React from "react";
 import * as styles from "./Acknowledgment.module.scss";
-import { IoLogoLinkedin } from "react-icons/io5";
+import { AiFillLinkedin, AiFillHome } from "react-icons/ai";
 import { SiFiverr } from "react-icons/si";
-import { CgWebsite } from "react-icons/cg";
 
 export default function Acknowledgment({ array, acknowledgmentType }) {
   return (
@@ -24,9 +23,9 @@ export default function Acknowledgment({ array, acknowledgmentType }) {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {link.type === "LinkedIn" && <IoLogoLinkedin />}
+                    {link.type === "LinkedIn" && <AiFillLinkedin />}
                     {link.type === "Fiverr" && <SiFiverr />}
-                    {link.type === "Website" && <CgWebsite />}
+                    {link.type === "Website" && <AiFillHome />}
                   </a>
                 );
               })}
