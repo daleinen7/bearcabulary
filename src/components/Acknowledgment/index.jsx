@@ -14,10 +14,8 @@ export default function Acknowledgment({ array, acknowledgmentType }) {
       <div className={styles.names_container}>
         {array.map((ele1, idx) => {
           return (
-            <div key={idx} className={styles.name_container}>
-              <span key={idx} className={styles.name}>
-                {ele1.name}
-              </span>
+            <div key={idx} className={styles.name}>
+              {ele1.name}
               {ele1?.links.map((link, idx2) => {
                 return (
                   <a

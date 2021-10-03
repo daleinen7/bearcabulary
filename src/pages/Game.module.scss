@@ -81,6 +81,13 @@
     height: 30%;
     padding: min(1.75vh, 1rem) 2rem clamp(0.5rem, 2.5vh, 1.5rem);
   }
+
+  .acknowledgments_container {
+    display: flex;
+    justify-content: center;
+    margin: auto 0 10px 0;
+    width: 100%;
+  }
 }
 
 .word_container {
@@ -124,13 +131,27 @@
   .top_container {
     height: 30%;
     padding: 1rem 1rem clamp(0.5rem, 1.75vh, 1rem);
+
+    &.first_slide {
+      height: 55%;
+    }
   }
+
   .bottom_container {
     height: 65%;
     padding: clamp(0.5rem, 1.75vh, 1rem) 1rem 1rem;
 
     &.no_word {
       padding: 0.5rem 1rem 1rem;
+    }
+
+    &.first_slide {
+      height: 40%;
+    }
+
+    .acknowledgments_container {
+      flex-flow: column;
+      align-items: flex-end;
     }
   }
 }

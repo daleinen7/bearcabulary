@@ -157,7 +157,7 @@ export default function Game({ data, location }) {
                 !gameState.story.section[gameState.pageCounter].word
                   ? styles.no_word
                   : ""
-              }`}
+              } ${gameState.pageCounter === 0 ? styles.first_slide : ""}`}
             >
               <button
                 className={`${styles.prev} ${
@@ -266,7 +266,7 @@ export default function Game({ data, location }) {
                 !gameState.story.section[gameState.pageCounter].word
                   ? styles.no_word
                   : ""
-              }`}
+              } ${gameState.pageCounter === 0 ? styles.first_slide : ""}`}
             >
               {gameState.story.section[gameState.pageCounter].word && (
                 <div className={styles.word_container}>
@@ -294,7 +294,7 @@ export default function Game({ data, location }) {
                 />
               )}
               {gameState.pageCounter === 0 && (
-                <>
+                <div className={styles.acknowledgments_container}>
                   <Acknowledgment
                     array={gameState.story.authors}
                     acknowledgmentType="Author"
@@ -303,7 +303,7 @@ export default function Game({ data, location }) {
                     array={gameState.story.artists}
                     acknowledgmentType="Artist"
                   />
-                </>
+                </div>
               )}
               <Progress
                 counter={gameState.pageCounter}

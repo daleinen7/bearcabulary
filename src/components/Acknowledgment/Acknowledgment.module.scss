@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  margin-left: 5px;
 
   .label {
     text-transform: uppercase;
@@ -15,28 +15,35 @@
 
   .names_container {
     display: flex;
-  }
-
-  .name_container {
-    background-color: $grey;
-    padding: 5px 7px 7px;
-    margin-right: 5px;
-    border-radius: 5px;
 
     .name {
+      background-color: $grey;
+      padding: 5px 7px 7px;
       margin-right: 5px;
+      border-radius: 10px;
+    }
+
+    a {
+      margin-left: 5px;
     }
   }
 }
 
 @media screen and (max-width: 500px) {
   .acknowledgment_container {
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-items: flex-end;
     flex-flow: column;
+    margin: 10px 0 0 0;
+
+    .label {
+      margin: 0 0 2px 0;
+    }
 
     .names_container {
-      // flex-flow: column;
+      .name {
+        margin-right: 0;
+        margin-left: 5px;
+      }
     }
   }
 }
