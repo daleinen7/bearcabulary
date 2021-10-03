@@ -6,16 +6,18 @@ import { CgWebsite } from "react-icons/cg";
 
 export default function Acknowledgment({ array, acknowledgmentType }) {
   return (
-    <>
-      <div>
-        <div>
-          {acknowledgmentType}
-          {array.length > 1 ? "s" : ""}
-        </div>
+    <div className={styles.acknowledgment_container}>
+      <div className={styles.label}>
+        {acknowledgmentType}
+        {array.length > 1 ? "s" : ""}
+      </div>
+      <div className={styles.names_container}>
         {array.map((ele1, idx) => {
           return (
-            <>
-              <span key={idx}>{ele1.name}</span>
+            <div key={idx} className={styles.name_container}>
+              <span key={idx} className={styles.name}>
+                {ele1.name}
+              </span>
               {ele1?.links.map((link, idx2) => {
                 return (
                   <a
@@ -30,10 +32,10 @@ export default function Acknowledgment({ array, acknowledgmentType }) {
                   </a>
                 );
               })}
-            </>
+            </div>
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
