@@ -10,6 +10,7 @@ import Sentence from "../components/Sentence";
 import LetterSelection from "../components/LetterSelection";
 import Progress from "../components/Progress";
 import Definition from "../components/Definition";
+import Acknowledgment from "../components/Acknowledgment";
 import useWindowDimensions from "../utilities/windowResizeUtil";
 import { findImage } from "../utilities/imageSelectionUtil";
 
@@ -27,6 +28,8 @@ const initialGameState = {
   story: {
     title: "",
     level: 0,
+    authors: [],
+    artists: [],
     section: [
       {
         img: "",
@@ -154,7 +157,7 @@ export default function Game({ data, location }) {
                 !gameState.story.section[gameState.pageCounter].word
                   ? styles.no_word
                   : ""
-              }`}
+              } ${gameState.pageCounter === 0 ? styles.first_slide : ""}`}
             >
               <button
                 className={`${styles.prev} ${
@@ -263,7 +266,7 @@ export default function Game({ data, location }) {
                 !gameState.story.section[gameState.pageCounter].word
                   ? styles.no_word
                   : ""
-              }`}
+              } ${gameState.pageCounter === 0 ? styles.first_slide : ""}`}
             >
               {gameState.story.section[gameState.pageCounter].word && (
                 <div className={styles.word_container}>
@@ -290,6 +293,18 @@ export default function Game({ data, location }) {
                   typesGame={types}
                 />
               )}
+              {gameState.pageCounter === 0 && (
+                <div className={styles.acknowledgments_container}>
+                  <Acknowledgment
+                    array={gameState.story.authors}
+                    acknowledgmentType="Author"
+                  />
+                  <Acknowledgment
+                    array={gameState.story.artists}
+                    acknowledgmentType="Artist"
+                  />
+                </div>
+              )}
               <Progress
                 counter={gameState.pageCounter}
                 array={gameState.story.section}
@@ -312,6 +327,20 @@ export const query = graphql`
     storiesJson(title: { eq: $title }) {
       title
       level
+      authors {
+        name
+        links {
+          link
+          type
+        }
+      }
+      artists {
+        name
+        links {
+          link
+          type
+        }
+      }
       section {
         img
         media
