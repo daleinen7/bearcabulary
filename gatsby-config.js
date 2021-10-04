@@ -2,9 +2,9 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://bearcabulary.netlify.app`,
+    siteUrl: `https://www.bearcabulary.com`,
     title: `Bearcabulary`,
-    description: `Spelling app`,
+    description: `Bearcabulary is a word game for children K-3 that tests students to spell a missing word in a sentence using jumbled letters.`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,

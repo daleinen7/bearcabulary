@@ -6,16 +6,16 @@ import { SiFiverr } from "react-icons/si";
 export default function Acknowledgment({ array, acknowledgmentType }) {
   return (
     <div className={styles.acknowledgment_container}>
-      <div className={styles.label}>
+      <label className={styles.label}>
         {acknowledgmentType}
         {array.length > 1 ? "s" : ""}
-      </div>
+      </label>
       <div className={styles.names_container}>
         {array.map((ele1, idx) => {
           return (
             <div key={idx} className={styles.name}>
               {ele1.name}
-              {ele1?.links.map((link, idx2) => {
+              {ele1.links.map((link, idx2) => {
                 return (
                   <a
                     key={idx2}
