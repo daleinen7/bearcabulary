@@ -10,11 +10,21 @@
 }
 
 .stories_list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  overflow-x: auto;
+  width: 100%;
+  ul {
+    overflow-x: auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  li {
+    width: 390px;
+  }
 
   a {
     display: flex;
@@ -24,7 +34,8 @@
     text-decoration: none;
     background: $blue;
     border-radius: 36px;
-    max-width: 350px;
+    width: 350px;
+
     height: 330px;
     margin: 20px;
     padding: 20px;
