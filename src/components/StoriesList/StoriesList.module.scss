@@ -10,14 +10,11 @@
 }
 
 .stories_list {
-  overflow-x: auto;
   width: 100%;
   ul {
     overflow-x: auto;
-    width: 100%;
     display: flex;
     flex-flow: row;
-    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
   }
