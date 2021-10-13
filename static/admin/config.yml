@@ -11,6 +11,7 @@ public_folder: /img
 
 collections:
   - name: "story"
+
     label: "Story"
     extension: "json"
     create: true
@@ -18,7 +19,12 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          pattern: ["^.{0,10}$", "Must have at least 20 characters"],
+        }
       - { label: "Level", name: "level", widget: "number" }
       - { label: "Title Card", name: "title-card", widget: "image" }
       - label: "Authors"
