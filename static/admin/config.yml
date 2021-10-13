@@ -1,16 +1,17 @@
 backend:
+  # name:test-repo - for testing
+  # name:git-gateway - for production
   name: git-gateway
   branch: main
 
 media_folder: static/img
 public_folder: /img
 
-# test-repo in backend > name: for testing
-# git-gateway in backend > name: for production
 # god bless this stackoverflow forum https://stackoverflow.com/questions/55525988/netlify-cms-how-to-store-an-array-of-objects-via-config-yml-collections
 
 collections:
   - name: "story"
+
     label: "Story"
     extension: "json"
     create: true
@@ -18,7 +19,12 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          pattern: ["^.{0,10}$", "Must have at no more than 10 characters"],
+        }
       - { label: "Level", name: "level", widget: "number" }
       - { label: "Title Card", name: "title-card", widget: "image" }
       - label: "Authors"
