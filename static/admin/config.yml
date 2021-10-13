@@ -11,7 +11,6 @@ public_folder: /img
 
 collections:
   - name: "story"
-
     label: "Story"
     extension: "json"
     create: true
@@ -19,12 +18,7 @@ collections:
     editor:
       preview: false
     fields:
-      - {
-          label: "Title",
-          name: "title",
-          widget: "string",
-          pattern: ["^.{0,10}$", "Must have at no more than 10 characters"],
-        }
+      - { label: "Title", name: "title", widget: "string" }
       - { label: "Level", name: "level", widget: "number" }
       - { label: "Title Card", name: "title-card", widget: "image" }
       - label: "Authors"
@@ -55,4 +49,10 @@ collections:
         fields:
           - { label: "Media", name: "media", widget: "image" }
           - { label: "Sentence", name: "sentence", widget: "string" }
-          - { label: "Word", name: "word", widget: "string", required: false }
+          - {
+              label: "Word",
+              name: "word",
+              widget: "string",
+              required: false,
+              pattern: ["^.{0,10}$", "Must have at no more than 10 characters"],
+            }
