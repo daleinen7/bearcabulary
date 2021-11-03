@@ -1,0 +1,68 @@
+{
+  "title": "Animal Party",
+  "level": 1,
+  "title-card": "/img/8-animalparty_v2.png",
+  "authors": [
+    {
+      "name": "Megan Kerr",
+      "links": [
+        {
+          "type": "LinkedIn",
+          "link": "https://www.linkedin.com/in/megan-kerr-26537910a/"
+        }
+      ]
+    }
+  ],
+  "artists": [
+    {
+      "name": "Brittney Galloway",
+      "links": [
+        {
+          "type": "Website",
+          "link": "https://sleepygallows.com/"
+        }
+      ]
+    }
+  ],
+  "section": [
+    {
+      "media": "/img/1-antparty_v2.png",
+      "sentence": "Ants wear ___.",
+      "word": "pants"
+    },
+    {
+      "media": "/img/2-catparty_v2.png",
+      "sentence": "___ wear hats.",
+      "word": "Cats"
+    },
+    {
+      "media": "/img/3-dogparty_v2.png",
+      "sentence": "___ wear clogs.",
+      "word": "Dogs"
+    },
+    {
+      "media": "/img/copy-of-4-squidparty.png",
+      "sentence": "Squids wear ___.",
+      "word": "bibs"
+    },
+    {
+      "media": "/img/5-crocparty_v2.png",
+      "sentence": "Crocs where ___.",
+      "word": "socks"
+    },
+    {
+      "media": "/img/6-camelparty_v2.png",
+      "sentence": "___ wear flannels.",
+      "word": "Camels"
+    },
+    {
+      "media": "/img/6-duckparty_v2.png",
+      "sentence": "___ wear chucks.",
+      "word": "Ducks"
+    },
+    {
+      "media": "/img/8-animalparty_v2.png",
+      "sentence": "What a nice looking animal party!"
+    }
+  ]
+}
