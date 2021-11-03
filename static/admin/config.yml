@@ -23,7 +23,7 @@ collections:
           label: "Title",
           name: "title",
           widget: "string",
-          pattern: ["^.{0,10}$", "Must have at least 20 characters"],
+          pattern: ["^.{0,24}$", "Must have at no more than 24 characters"],
         }
       - { label: "Level", name: "level", widget: "number" }
       - { label: "Title Card", name: "title-card", widget: "image" }
