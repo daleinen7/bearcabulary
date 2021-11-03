@@ -27,8 +27,8 @@
   "section": [
     {
       "media": "/img/1-antparty_v2.png",
-      "sentence": "Ants wear _____.",
-      "word": "pants"
+      "sentence": "Ants wear pants.",
+      "word": ""
     },
     {
       "media": "/img/2-catparty_v2.png",
@@ -43,12 +43,12 @@
     {
       "media": "/img/copy-of-4-squidparty.png",
       "sentence": "Squids wear ____.",
-      "word": "bibs"
+      "word": "Bibs"
     },
     {
       "media": "/img/5-crocparty_v2.png",
       "sentence": "Crocs where _____.",
-      "word": "socks"
+      "word": "Socks"
     },
     {
       "media": "/img/6-camelparty_v2.png",
